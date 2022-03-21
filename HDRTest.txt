@@ -1,0 +1,363 @@
+iteration: 0
+Image_Num: 15, Average_psnr_u: 7.2811, Average_psnr_L: 7.2377
+
+iteration: 1000
+Image_Num: 15, Average_psnr_u: 27.0824, Average_psnr_L: 31.2662
+
+iteration: 0
+Image_Num: 15, Average_psnr_u: 7.2811, Average_psnr_L: 7.2377
+
+iteration: 1000
+Image_Num: 15, Average_psnr_u: 24.8911, Average_psnr_L: 31.1146
+
+iteration: 2000
+Image_Num: 15, Average_psnr_u: 32.5157, Average_psnr_L: 33.0732
+
+iteration: 3000
+Image_Num: 15, Average_psnr_u: 31.4125, Average_psnr_L: 35.6006
+
+iteration: 4000
+Image_Num: 15, Average_psnr_u: 31.6031, Average_psnr_L: 36.6614
+
+iteration: 5000
+Image_Num: 15, Average_psnr_u: 32.9831, Average_psnr_L: 36.6411
+
+iteration: 6000
+Image_Num: 15, Average_psnr_u: 31.7881, Average_psnr_L: 37.2838
+
+iteration: 7000
+Image_Num: 15, Average_psnr_u: 34.0001, Average_psnr_L: 37.3052
+
+iteration: 8000
+Image_Num: 15, Average_psnr_u: 31.2322, Average_psnr_L: 34.7283
+
+iteration: 9000
+Image_Num: 15, Average_psnr_u: 34.8959, Average_psnr_L: 37.6261
+
+iteration: 10000
+Image_Num: 15, Average_psnr_u: 34.6310, Average_psnr_L: 37.3776
+
+iteration: 11000
+Image_Num: 15, Average_psnr_u: 29.6012, Average_psnr_L: 33.6674
+
+iteration: 12000
+Image_Num: 15, Average_psnr_u: 35.2979, Average_psnr_L: 35.4833
+
+iteration: 13000
+Image_Num: 15, Average_psnr_u: 33.0547, Average_psnr_L: 35.3116
+
+iteration: 14000
+Image_Num: 15, Average_psnr_u: 35.3903, Average_psnr_L: 36.5210
+
+iteration: 15000
+Image_Num: 15, Average_psnr_u: 34.4600, Average_psnr_L: 37.1975
+
+iteration: 16000
+Image_Num: 15, Average_psnr_u: 37.3773, Average_psnr_L: 37.7900
+
+iteration: 17000
+Image_Num: 15, Average_psnr_u: 36.9019, Average_psnr_L: 37.6654
+
+iteration: 18000
+Image_Num: 15, Average_psnr_u: 36.0964, Average_psnr_L: 38.0263
+
+iteration: 19000
+Image_Num: 15, Average_psnr_u: 37.3331, Average_psnr_L: 37.8278
+
+iteration: 20000
+Image_Num: 15, Average_psnr_u: 38.4426, Average_psnr_L: 38.2186
+
+iteration: 21000
+Image_Num: 15, Average_psnr_u: 34.8568, Average_psnr_L: 36.8598
+
+iteration: 22000
+Image_Num: 15, Average_psnr_u: 38.8693, Average_psnr_L: 38.0769
+
+iteration: 23000
+Image_Num: 15, Average_psnr_u: 37.5291, Average_psnr_L: 38.1525
+
+iteration: 24000
+Image_Num: 15, Average_psnr_u: 36.7100, Average_psnr_L: 36.5564
+
+iteration: 25000
+Image_Num: 15, Average_psnr_u: 37.6751, Average_psnr_L: 38.3053
+
+iteration: 26000
+Image_Num: 15, Average_psnr_u: 34.6800, Average_psnr_L: 37.6867
+
+iteration: 27000
+Image_Num: 15, Average_psnr_u: 35.9949, Average_psnr_L: 37.5164
+
+iteration: 28000
+Image_Num: 15, Average_psnr_u: 37.5824, Average_psnr_L: 37.1873
+
+iteration: 29000
+Image_Num: 15, Average_psnr_u: 37.8929, Average_psnr_L: 39.3901
+
+iteration: 30000
+Image_Num: 15, Average_psnr_u: 36.0627, Average_psnr_L: 38.7679
+
+iteration: 31000
+Image_Num: 15, Average_psnr_u: 38.6710, Average_psnr_L: 39.7322
+
+iteration: 32000
+Image_Num: 15, Average_psnr_u: 38.5553, Average_psnr_L: 38.5298
+
+iteration: 33000
+Image_Num: 15, Average_psnr_u: 39.2720, Average_psnr_L: 37.7308
+
+iteration: 34000
+Image_Num: 15, Average_psnr_u: 38.3297, Average_psnr_L: 38.3633
+
+iteration: 35000
+Image_Num: 15, Average_psnr_u: 38.3582, Average_psnr_L: 38.5658
+
+iteration: 36000
+Image_Num: 15, Average_psnr_u: 38.5301, Average_psnr_L: 39.7078
+
+iteration: 37000
+Image_Num: 15, Average_psnr_u: 37.9996, Average_psnr_L: 38.6852
+
+iteration: 38000
+Image_Num: 15, Average_psnr_u: 36.6591, Average_psnr_L: 38.0083
+
+iteration: 39000
+Image_Num: 15, Average_psnr_u: 39.2659, Average_psnr_L: 39.0393
+
+iteration: 40000
+Image_Num: 15, Average_psnr_u: 38.8587, Average_psnr_L: 39.3950
+
+iteration: 41000
+Image_Num: 15, Average_psnr_u: 38.9991, Average_psnr_L: 39.4832
+
+iteration: 42000
+Image_Num: 15, Average_psnr_u: 38.0117, Average_psnr_L: 38.0721
+
+iteration: 43000
+Image_Num: 15, Average_psnr_u: 37.4521, Average_psnr_L: 37.7816
+
+iteration: 44000
+Image_Num: 15, Average_psnr_u: 38.9449, Average_psnr_L: 39.2544
+
+iteration: 45000
+Image_Num: 15, Average_psnr_u: 38.9044, Average_psnr_L: 39.2453
+
+iteration: 46000
+Image_Num: 15, Average_psnr_u: 33.8091, Average_psnr_L: 38.8796
+
+iteration: 47000
+Image_Num: 15, Average_psnr_u: 39.4111, Average_psnr_L: 39.4736
+
+iteration: 48000
+Image_Num: 15, Average_psnr_u: 39.3463, Average_psnr_L: 39.7511
+
+iteration: 49000
+Image_Num: 15, Average_psnr_u: 37.0785, Average_psnr_L: 38.1174
+
+iteration: 50000
+Image_Num: 15, Average_psnr_u: 39.9861, Average_psnr_L: 39.4268
+
+iteration: 51000
+Image_Num: 15, Average_psnr_u: 38.3408, Average_psnr_L: 38.3791
+
+iteration: 52000
+Image_Num: 15, Average_psnr_u: 40.5522, Average_psnr_L: 39.7932
+
+iteration: 53000
+Image_Num: 15, Average_psnr_u: 39.6565, Average_psnr_L: 39.5176
+
+iteration: 54000
+Image_Num: 15, Average_psnr_u: 39.5003, Average_psnr_L: 39.1210
+
+iteration: 55000
+Image_Num: 15, Average_psnr_u: 39.6103, Average_psnr_L: 39.0364
+
+iteration: 56000
+Image_Num: 15, Average_psnr_u: 38.8455, Average_psnr_L: 38.8984
+
+iteration: 57000
+Image_Num: 15, Average_psnr_u: 38.9203, Average_psnr_L: 39.5297
+
+iteration: 58000
+Image_Num: 15, Average_psnr_u: 39.6040, Average_psnr_L: 39.1503
+
+iteration: 59000
+Image_Num: 15, Average_psnr_u: 38.2540, Average_psnr_L: 39.0901
+
+iteration: 60000
+Image_Num: 15, Average_psnr_u: 38.5008, Average_psnr_L: 39.7062
+
+iteration: 61000
+Image_Num: 15, Average_psnr_u: 40.3362, Average_psnr_L: 39.2235
+
+iteration: 62000
+Image_Num: 15, Average_psnr_u: 40.3344, Average_psnr_L: 39.1212
+
+iteration: 63000
+Image_Num: 15, Average_psnr_u: 39.0938, Average_psnr_L: 39.2504
+
+iteration: 64000
+Image_Num: 15, Average_psnr_u: 38.3343, Average_psnr_L: 39.0495
+
+iteration: 65000
+Image_Num: 15, Average_psnr_u: 39.3847, Average_psnr_L: 39.1897
+
+iteration: 66000
+Image_Num: 15, Average_psnr_u: 40.0537, Average_psnr_L: 39.8193
+
+iteration: 67000
+Image_Num: 15, Average_psnr_u: 40.2128, Average_psnr_L: 39.4700
+
+iteration: 68000
+Image_Num: 15, Average_psnr_u: 40.0735, Average_psnr_L: 39.3804
+
+iteration: 69000
+Image_Num: 15, Average_psnr_u: 39.6924, Average_psnr_L: 39.6449
+
+iteration: 70000
+Image_Num: 15, Average_psnr_u: 39.6373, Average_psnr_L: 38.9179
+
+iteration: 71000
+Image_Num: 15, Average_psnr_u: 39.2680, Average_psnr_L: 39.6318
+
+iteration: 72000
+Image_Num: 15, Average_psnr_u: 38.0483, Average_psnr_L: 39.5220
+
+iteration: 73000
+Image_Num: 15, Average_psnr_u: 39.3227, Average_psnr_L: 39.7760
+
+iteration: 74000
+Image_Num: 15, Average_psnr_u: 37.8755, Average_psnr_L: 39.8695
+
+iteration: 75000
+Image_Num: 15, Average_psnr_u: 40.6869, Average_psnr_L: 39.4540
+
+iteration: 76000
+Image_Num: 15, Average_psnr_u: 39.3505, Average_psnr_L: 38.6163
+
+iteration: 77000
+Image_Num: 15, Average_psnr_u: 39.2310, Average_psnr_L: 39.0809
+
+iteration: 78000
+Image_Num: 15, Average_psnr_u: 39.9393, Average_psnr_L: 39.6378
+
+iteration: 79000
+Image_Num: 15, Average_psnr_u: 39.6787, Average_psnr_L: 39.9941
+
+iteration: 80000
+Image_Num: 15, Average_psnr_u: 40.2575, Average_psnr_L: 39.6438
+
+iteration: 81000
+Image_Num: 15, Average_psnr_u: 40.2940, Average_psnr_L: 38.8491
+
+iteration: 82000
+Image_Num: 15, Average_psnr_u: 39.6862, Average_psnr_L: 38.8600
+
+iteration: 83000
+Image_Num: 15, Average_psnr_u: 39.4668, Average_psnr_L: 39.7106
+
+iteration: 84000
+Image_Num: 15, Average_psnr_u: 39.1703, Average_psnr_L: 39.3838
+
+iteration: 85000
+Image_Num: 15, Average_psnr_u: 39.8238, Average_psnr_L: 39.9555
+
+iteration: 86000
+Image_Num: 15, Average_psnr_u: 39.8589, Average_psnr_L: 39.4674
+
+iteration: 87000
+Image_Num: 15, Average_psnr_u: 38.9818, Average_psnr_L: 39.5436
+
+iteration: 88000
+Image_Num: 15, Average_psnr_u: 40.6505, Average_psnr_L: 39.3676
+
+iteration: 89000
+Image_Num: 15, Average_psnr_u: 39.1979, Average_psnr_L: 39.4235
+
+iteration: 90000
+Image_Num: 15, Average_psnr_u: 39.8143, Average_psnr_L: 39.0471
+
+iteration: 91000
+Image_Num: 15, Average_psnr_u: 40.3163, Average_psnr_L: 39.0250
+
+iteration: 92000
+Image_Num: 15, Average_psnr_u: 40.1247, Average_psnr_L: 39.0216
+
+iteration: 93000
+Image_Num: 15, Average_psnr_u: 38.1042, Average_psnr_L: 39.0930
+
+iteration: 94000
+Image_Num: 15, Average_psnr_u: 40.0296, Average_psnr_L: 39.0061
+
+iteration: 95000
+Image_Num: 15, Average_psnr_u: 40.0379, Average_psnr_L: 38.7832
+
+iteration: 96000
+Image_Num: 15, Average_psnr_u: 39.2829, Average_psnr_L: 39.1998
+
+iteration: 97000
+Image_Num: 15, Average_psnr_u: 40.5919, Average_psnr_L: 39.4728
+
+iteration: 98000
+Image_Num: 15, Average_psnr_u: 39.7578, Average_psnr_L: 39.4252
+
+iteration: 99000
+Image_Num: 15, Average_psnr_u: 40.5220, Average_psnr_L: 39.2495
+
+iteration: 100000
+Image_Num: 15, Average_psnr_u: 40.2727, Average_psnr_L: 39.5782
+
+iteration: 101000
+Image_Num: 15, Average_psnr_u: 40.1748, Average_psnr_L: 39.6646
+
+iteration: 102000
+Image_Num: 15, Average_psnr_u: 40.8241, Average_psnr_L: 39.5022
+
+iteration: 103000
+Image_Num: 15, Average_psnr_u: 40.8111, Average_psnr_L: 39.6580
+
+iteration: 104000
+Image_Num: 15, Average_psnr_u: 40.4748, Average_psnr_L: 39.1955
+
+iteration: 105000
+Image_Num: 15, Average_psnr_u: 40.2995, Average_psnr_L: 39.1646
+
+iteration: 106000
+Image_Num: 15, Average_psnr_u: 40.4420, Average_psnr_L: 38.4811
+
+iteration: 107000
+Image_Num: 15, Average_psnr_u: 40.1199, Average_psnr_L: 39.1943
+
+iteration: 108000
+Image_Num: 15, Average_psnr_u: 39.7861, Average_psnr_L: 38.7119
+
+iteration: 109000
+Image_Num: 15, Average_psnr_u: 40.4814, Average_psnr_L: 39.0757
+
+iteration: 110000
+Image_Num: 15, Average_psnr_u: 39.8530, Average_psnr_L: 39.1851
+
+iteration: 111000
+Image_Num: 15, Average_psnr_u: 40.6109, Average_psnr_L: 39.7114
+
+iteration: 112000
+Image_Num: 15, Average_psnr_u: 40.7235, Average_psnr_L: 39.5779
+
+iteration: 113000
+Image_Num: 15, Average_psnr_u: 40.7699, Average_psnr_L: 38.9897
+
+iteration: 114000
+Image_Num: 15, Average_psnr_u: 39.7871, Average_psnr_L: 39.3454
+
+iteration: 115000
+Image_Num: 15, Average_psnr_u: 39.7002, Average_psnr_L: 39.6327
+
+iteration: 116000
+Image_Num: 15, Average_psnr_u: 39.6570, Average_psnr_L: 39.8528
+
+iteration: 117000
+Image_Num: 15, Average_psnr_u: 40.6496, Average_psnr_L: 39.4539
+
+iteration: 118000
+Image_Num: 15, Average_psnr_u: 40.5039, Average_psnr_L: 38.8730
+
