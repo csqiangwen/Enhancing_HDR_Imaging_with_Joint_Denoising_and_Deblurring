@@ -248,9 +248,13 @@ class ResnetBlock(BaseNetwork):
 class Downsample_block_normal(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512):
         super(Downsample_block_normal, self).__init__()
-        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=2,
-                              padding=1, bias=False),
-                 nn.InstanceNorm2d(out_channel),
+        # model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=2,
+        #                       padding=1, bias=False),
+        #          nn.InstanceNorm2d(out_channel),
+        #          nn.ReLU(True)]
+
+        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
+                 nn.PixelUnshuffle(2),
                  nn.ReLU(True)]
 
         self.model = nn.Sequential(*model)
@@ -263,10 +267,14 @@ class Downsample_block_normal(BaseNetwork):
 class Upsample_block_normal(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512):
         super(Upsample_block_normal, self).__init__()
-        model = [nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-                 nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1,
-                              padding=1, bias=False),
-                 nn.InstanceNorm2d(out_channel),
+        # model = [nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
+        #          nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1,
+        #                       padding=1, bias=False),
+        #          nn.InstanceNorm2d(out_channel),
+        #          nn.ReLU(True)]
+
+        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
+                 nn.PixelShuffle(2),
                  nn.ReLU(True)]
 
         self.model = nn.Sequential(*model)
@@ -305,8 +313,8 @@ class Generator(BaseNetwork):
 
         for i in range(n_downsampling):
             mult = 2 ** i
-            main_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
-            ref_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
+            main_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
+            ref_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
 
         # for i in range(res_block_num//2):
         #     main_branch.append(ResnetBlock(ngf * mult * 2, 'reflect', nn.InstanceNorm2d, groups=1, use_dropout=True))
@@ -315,15 +323,15 @@ class Generator(BaseNetwork):
         restoremers = []
         for i in range(n_downsampling+1):
             mult = 2 ** i
-            restoremers.append(restoremer.TransformerBlock(dim=ngf * mult, num_heads=1, ffn_expansion_factor = 2.66, bias = False, LayerNorm_type = 'WithBias'))
+            restoremers.append(restoremer.TransformerBlock(dim=ngf * mult, num_heads=1, ffn_expansion_factor=2.66, bias=True, LayerNorm_type='WithBias'))
         
         upsample_block = []
         for i in range(n_downsampling):  # add Upsampling layers
             mult = 2 ** (n_downsampling-i)
             if i == 0:
-                upsample_block.append(Upsample_block_normal(ngf * mult, int(ngf * mult / 2)))
+                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult * 2))
             else:
-                upsample_block.append(Upsample_block_normal(ngf * mult * 2, int(ngf * mult / 2)))
+                upsample_block.append(Upsample_block_normal(ngf * mult * 2, ngf * mult * 2))
 
         upsample_block += [Warm_up_block(ngf * mult, out_channel, activation='tanh')]
 

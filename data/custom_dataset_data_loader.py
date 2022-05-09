@@ -16,7 +16,7 @@ def CreateDataLoader(opt):
         
         return img_train_loader, img_test_loader
     else:
-        img_test_dataset = Test_Dataset_Full(opt)
+        img_test_dataset = Test_Dataset(opt)
         img_test_loader = torch.utils.data.DataLoader(img_test_dataset, batch_size=1, shuffle=False,
                                                        num_workers=int(opt.nThreads), drop_last=True)
 
