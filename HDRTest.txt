@@ -1,1176 +1,2050 @@
+iteration: 0iteration: 0
+Image_No: 0, PSNR_L: 9.1313
+
+Image_No: 1, PSNR_L: 11.7065
+
+Image_No: 2, PSNR_L: 9.0444
+
+Image_No: 3, PSNR_L: 8.3972
+
+Image_No: 4, PSNR_L: 9.5459
 iteration: 0
-Image_Num: 15, Average_psnr_u: 7.1811, Average_psnr_L: 6.8346
+Image_No: 0, PSNR_L: 9.1313
 
+Image_No: 1, PSNR_L: 11.7065
+
+Image_No: 2, PSNR_L: 9.0444
+
+Image_No: 3, PSNR_L: 8.3972
+
+Image_No: 4, PSNR_L: 9.5459
 iteration: 1000
-Image_Num: 15, Average_psnr_u: 30.1706, Average_psnr_L: 33.5939
+Image_No: 0, PSNR_L: 14.9989
 
+Image_No: 1, PSNR_L: 6.6350
+
+Image_No: 2, PSNR_L: 28.7340
+
+Image_No: 3, PSNR_L: 15.8505
+
+Image_No: 4, PSNR_L: 18.2878
 iteration: 2000
-Image_Num: 15, Average_psnr_u: 32.0664, Average_psnr_L: 34.7646
+Image_No: 0, PSNR_L: 15.3843
 
+Image_No: 1, PSNR_L: 7.0769
+
+Image_No: 2, PSNR_L: 39.7866
+
+Image_No: 3, PSNR_L: 16.2972
+
+Image_No: 4, PSNR_L: 31.2117
 iteration: 3000
-Image_Num: 15, Average_psnr_u: 35.0442, Average_psnr_L: 35.2537
+Image_No: 0, PSNR_L: 14.9651
 
+Image_No: 1, PSNR_L: 7.0688
+
+Image_No: 2, PSNR_L: 34.6366
+
+Image_No: 3, PSNR_L: 15.9405
+
+Image_No: 4, PSNR_L: 28.3321
 iteration: 4000
-Image_Num: 15, Average_psnr_u: 34.2123, Average_psnr_L: 37.6991
+Image_No: 0, PSNR_L: 15.1506
 
+Image_No: 1, PSNR_L: 7.1918
+
+Image_No: 2, PSNR_L: 35.8932
+
+Image_No: 3, PSNR_L: 16.1585
+
+Image_No: 4, PSNR_L: 26.9179
 iteration: 5000
-Image_Num: 15, Average_psnr_u: 34.9856, Average_psnr_L: 37.6758
+Image_No: 0, PSNR_L: 14.8543
 
+Image_No: 1, PSNR_L: 7.0309
+
+Image_No: 2, PSNR_L: 37.2442
+
+Image_No: 3, PSNR_L: 15.8517
+
+Image_No: 4, PSNR_L: 30.3597
 iteration: 6000
-Image_Num: 15, Average_psnr_u: 34.9034, Average_psnr_L: 38.0605
+Image_No: 0, PSNR_L: 15.0239
 
+Image_No: 1, PSNR_L: 7.2109
+
+Image_No: 2, PSNR_L: 36.1502
+
+Image_No: 3, PSNR_L: 16.1559
+
+Image_No: 4, PSNR_L: 31.4723
 iteration: 7000
-Image_Num: 15, Average_psnr_u: 33.1552, Average_psnr_L: 38.2262
+Image_No: 0, PSNR_L: 14.8317
 
+Image_No: 1, PSNR_L: 7.0968
+
+Image_No: 2, PSNR_L: 38.0449
+
+Image_No: 3, PSNR_L: 15.9417
+
+Image_No: 4, PSNR_L: 23.8992
 iteration: 8000
-Image_Num: 15, Average_psnr_u: 33.3484, Average_psnr_L: 37.7276
+Image_No: 0, PSNR_L: 14.9770
 
+Image_No: 1, PSNR_L: 7.1429
+
+Image_No: 2, PSNR_L: 37.2747
+
+Image_No: 3, PSNR_L: 16.0859
+
+Image_No: 4, PSNR_L: 26.7110
 iteration: 9000
-Image_Num: 15, Average_psnr_u: 36.5734, Average_psnr_L: 38.9413
+Image_No: 0, PSNR_L: 14.9615
 
+Image_No: 1, PSNR_L: 7.3089
+
+Image_No: 2, PSNR_L: 33.2560
+
+Image_No: 3, PSNR_L: 16.1682
+
+Image_No: 4, PSNR_L: 28.5870
 iteration: 10000
-Image_Num: 15, Average_psnr_u: 38.4202, Average_psnr_L: 37.9674
+Image_No: 0, PSNR_L: 15.0944
 
+Image_No: 1, PSNR_L: 7.3266
+
+Image_No: 2, PSNR_L: 33.8722
+
+Image_No: 3, PSNR_L: 16.2979
+
+Image_No: 4, PSNR_L: 29.5598
 iteration: 11000
-Image_Num: 15, Average_psnr_u: 35.6396, Average_psnr_L: 38.7499
+Image_No: 0, PSNR_L: 14.8799
 
+Image_No: 1, PSNR_L: 7.1800
+
+Image_No: 2, PSNR_L: 40.9364
+
+Image_No: 3, PSNR_L: 16.1183
+
+Image_No: 4, PSNR_L: 34.5777
 iteration: 12000
-Image_Num: 15, Average_psnr_u: 35.6026, Average_psnr_L: 38.9909
+Image_No: 0, PSNR_L: 14.9147
 
+Image_No: 1, PSNR_L: 7.2030
+
+Image_No: 2, PSNR_L: 36.4530
+
+Image_No: 3, PSNR_L: 16.0843
+
+Image_No: 4, PSNR_L: 30.3153
 iteration: 13000
-Image_Num: 15, Average_psnr_u: 34.5653, Average_psnr_L: 38.5213
+Image_No: 0, PSNR_L: 14.7089
 
+Image_No: 1, PSNR_L: 7.2333
+
+Image_No: 2, PSNR_L: 34.7787
+
+Image_No: 3, PSNR_L: 15.9953
+
+Image_No: 4, PSNR_L: 28.0649
 iteration: 14000
-Image_Num: 15, Average_psnr_u: 38.2212, Average_psnr_L: 38.7455
+Image_No: 0, PSNR_L: 14.7118
 
+Image_No: 1, PSNR_L: 7.2251
+
+Image_No: 2, PSNR_L: 36.4031
+
+Image_No: 3, PSNR_L: 16.0267
+
+Image_No: 4, PSNR_L: 33.0004
 iteration: 15000
-Image_Num: 15, Average_psnr_u: 38.0441, Average_psnr_L: 39.1660
+Image_No: 0, PSNR_L: 14.7867
 
+Image_No: 1, PSNR_L: 7.2268
+
+Image_No: 2, PSNR_L: 35.8002
+
+Image_No: 3, PSNR_L: 16.0544
+
+Image_No: 4, PSNR_L: 28.8910
 iteration: 16000
-Image_Num: 15, Average_psnr_u: 35.9405, Average_psnr_L: 38.5907
+Image_No: 0, PSNR_L: 14.7951
 
+Image_No: 1, PSNR_L: 7.2421
+
+Image_No: 2, PSNR_L: 36.2066
+
+Image_No: 3, PSNR_L: 16.1081
+
+Image_No: 4, PSNR_L: 32.3285
 iteration: 17000
-Image_Num: 15, Average_psnr_u: 37.9259, Average_psnr_L: 39.3163
+Image_No: 0, PSNR_L: 14.7985
 
+Image_No: 1, PSNR_L: 7.1890
+
+Image_No: 2, PSNR_L: 37.1934
+
+Image_No: 3, PSNR_L: 16.0575
+
+Image_No: 4, PSNR_L: 34.1773
 iteration: 18000
-Image_Num: 15, Average_psnr_u: 35.7130, Average_psnr_L: 36.4779
+Image_No: 0, PSNR_L: 14.7532
 
+Image_No: 1, PSNR_L: 7.1244
+
+Image_No: 2, PSNR_L: 39.9070
+
+Image_No: 3, PSNR_L: 15.9385
+
+Image_No: 4, PSNR_L: 28.0706
 iteration: 19000
-Image_Num: 15, Average_psnr_u: 37.8495, Average_psnr_L: 39.4011
+Image_No: 0, PSNR_L: 14.8360
 
+Image_No: 1, PSNR_L: 7.2237
+
+Image_No: 2, PSNR_L: 36.4067
+
+Image_No: 3, PSNR_L: 16.0558
+
+Image_No: 4, PSNR_L: 31.4861
 iteration: 20000
-Image_Num: 15, Average_psnr_u: 34.4551, Average_psnr_L: 39.4952
+Image_No: 0, PSNR_L: 14.8889
 
+Image_No: 1, PSNR_L: 7.2322
+
+Image_No: 2, PSNR_L: 35.7526
+
+Image_No: 3, PSNR_L: 16.0827
+
+Image_No: 4, PSNR_L: 27.5679
 iteration: 21000
-Image_Num: 15, Average_psnr_u: 38.0420, Average_psnr_L: 39.1144
+Image_No: 0, PSNR_L: 14.7405
 
+Image_No: 1, PSNR_L: 7.0917
+
+Image_No: 2, PSNR_L: 40.8137
+
+Image_No: 3, PSNR_L: 15.9416
+
+Image_No: 4, PSNR_L: 35.8429
 iteration: 22000
-Image_Num: 15, Average_psnr_u: 34.9465, Average_psnr_L: 38.3107
+Image_No: 0, PSNR_L: 14.8160
 
+Image_No: 1, PSNR_L: 7.1417
+
+Image_No: 2, PSNR_L: 41.9414
+
+Image_No: 3, PSNR_L: 16.0620
+
+Image_No: 4, PSNR_L: 36.5069
 iteration: 23000
-Image_Num: 15, Average_psnr_u: 36.1725, Average_psnr_L: 38.4305
+Image_No: 0, PSNR_L: 14.7849
 
+Image_No: 1, PSNR_L: 7.1447
+
+Image_No: 2, PSNR_L: 39.1394
+
+Image_No: 3, PSNR_L: 15.9829
+
+Image_No: 4, PSNR_L: 32.5848
 iteration: 24000
-Image_Num: 15, Average_psnr_u: 39.3217, Average_psnr_L: 38.6868
+Image_No: 0, PSNR_L: 14.7125
 
+Image_No: 1, PSNR_L: 7.2394
+
+Image_No: 2, PSNR_L: 35.4646
+
+Image_No: 3, PSNR_L: 15.9953
+
+Image_No: 4, PSNR_L: 27.3476
 iteration: 25000
-Image_Num: 15, Average_psnr_u: 39.2188, Average_psnr_L: 39.5942
+Image_No: 0, PSNR_L: 14.7676
 
+Image_No: 1, PSNR_L: 7.2904
+
+Image_No: 2, PSNR_L: 37.1450
+
+Image_No: 3, PSNR_L: 16.0047
+
+Image_No: 4, PSNR_L: 32.6671
 iteration: 26000
-Image_Num: 15, Average_psnr_u: 38.5288, Average_psnr_L: 40.2230
+Image_No: 0, PSNR_L: 14.8009
 
+Image_No: 1, PSNR_L: 7.3526
+
+Image_No: 2, PSNR_L: 35.6209
+
+Image_No: 3, PSNR_L: 16.1645
+
+Image_No: 4, PSNR_L: 32.1767
 iteration: 27000
-Image_Num: 15, Average_psnr_u: 38.6185, Average_psnr_L: 39.4772
+Image_No: 0, PSNR_L: 14.8657
 
+Image_No: 1, PSNR_L: 7.2734
+
+Image_No: 2, PSNR_L: 36.2957
+
+Image_No: 3, PSNR_L: 16.1470
+
+Image_No: 4, PSNR_L: 32.2615
 iteration: 28000
-Image_Num: 15, Average_psnr_u: 36.9860, Average_psnr_L: 40.2348
+Image_No: 0, PSNR_L: 14.7842
 
+Image_No: 1, PSNR_L: 7.2059
+
+Image_No: 2, PSNR_L: 36.7348
+
+Image_No: 3, PSNR_L: 16.0204
+
+Image_No: 4, PSNR_L: 31.9289
 iteration: 29000
-Image_Num: 15, Average_psnr_u: 38.5658, Average_psnr_L: 39.3138
+Image_No: 0, PSNR_L: 14.6633
 
+Image_No: 1, PSNR_L: 7.0887
+
+Image_No: 2, PSNR_L: 39.1640
+
+Image_No: 3, PSNR_L: 15.8649
+
+Image_No: 4, PSNR_L: 34.8368
 iteration: 30000
-Image_Num: 15, Average_psnr_u: 38.3803, Average_psnr_L: 39.8901
+Image_No: 0, PSNR_L: 14.8730
 
+Image_No: 1, PSNR_L: 7.2490
+
+Image_No: 2, PSNR_L: 37.3095
+
+Image_No: 3, PSNR_L: 16.1282
+
+Image_No: 4, PSNR_L: 31.9120
 iteration: 31000
-Image_Num: 15, Average_psnr_u: 35.4602, Average_psnr_L: 39.3632
+Image_No: 0, PSNR_L: 14.7440
 
+Image_No: 1, PSNR_L: 7.2302
+
+Image_No: 2, PSNR_L: 38.0521
+
+Image_No: 3, PSNR_L: 16.0505
+
+Image_No: 4, PSNR_L: 35.0293
 iteration: 32000
-Image_Num: 15, Average_psnr_u: 36.3223, Average_psnr_L: 39.6524
+Image_No: 0, PSNR_L: 14.8386
 
+Image_No: 1, PSNR_L: 7.2281
+
+Image_No: 2, PSNR_L: 37.2865
+
+Image_No: 3, PSNR_L: 16.1131
+
+Image_No: 4, PSNR_L: 30.9287
 iteration: 33000
-Image_Num: 15, Average_psnr_u: 38.5454, Average_psnr_L: 39.3862
+Image_No: 0, PSNR_L: 14.9702
 
+Image_No: 1, PSNR_L: 7.3153
+
+Image_No: 2, PSNR_L: 36.7206
+
+Image_No: 3, PSNR_L: 16.3096
+
+Image_No: 4, PSNR_L: 32.4580
 iteration: 34000
-Image_Num: 15, Average_psnr_u: 38.1174, Average_psnr_L: 38.5414
+Image_No: 0, PSNR_L: 14.8130
 
+Image_No: 1, PSNR_L: 7.3186
+
+Image_No: 2, PSNR_L: 34.6453
+
+Image_No: 3, PSNR_L: 16.1547
+
+Image_No: 4, PSNR_L: 29.4845
 iteration: 35000
-Image_Num: 15, Average_psnr_u: 39.7827, Average_psnr_L: 39.7049
+Image_No: 0, PSNR_L: 14.5535
 
+Image_No: 1, PSNR_L: 7.1335
+
+Image_No: 2, PSNR_L: 38.5863
+
+Image_No: 3, PSNR_L: 15.8053
+
+Image_No: 4, PSNR_L: 32.4322
 iteration: 36000
-Image_Num: 15, Average_psnr_u: 40.9763, Average_psnr_L: 40.1997
+Image_No: 0, PSNR_L: 14.8734
 
+Image_No: 1, PSNR_L: 7.2245
+
+Image_No: 2, PSNR_L: 37.8221
+
+Image_No: 3, PSNR_L: 16.1334
+
+Image_No: 4, PSNR_L: 32.7327
 iteration: 37000
-Image_Num: 15, Average_psnr_u: 37.9128, Average_psnr_L: 39.1648
+Image_No: 0, PSNR_L: 14.6885
 
+Image_No: 1, PSNR_L: 7.1562
+
+Image_No: 2, PSNR_L: 37.5923
+
+Image_No: 3, PSNR_L: 15.8989
+
+Image_No: 4, PSNR_L: 28.2004
 iteration: 38000
-Image_Num: 15, Average_psnr_u: 39.7958, Average_psnr_L: 40.3153
+Image_No: 0, PSNR_L: 14.7927
 
+Image_No: 1, PSNR_L: 7.1893
+
+Image_No: 2, PSNR_L: 38.0471
+
+Image_No: 3, PSNR_L: 16.0173
+
+Image_No: 4, PSNR_L: 32.5229
 iteration: 39000
-Image_Num: 15, Average_psnr_u: 40.3513, Average_psnr_L: 40.3310
+Image_No: 0, PSNR_L: 14.6665
 
+Image_No: 1, PSNR_L: 7.1833
+
+Image_No: 2, PSNR_L: 36.9586
+
+Image_No: 3, PSNR_L: 15.9098
+
+Image_No: 4, PSNR_L: 30.9617
 iteration: 40000
-Image_Num: 15, Average_psnr_u: 38.4104, Average_psnr_L: 39.2254
+Image_No: 0, PSNR_L: 14.8092
 
+Image_No: 1, PSNR_L: 7.1741
+
+Image_No: 2, PSNR_L: 37.9479
+
+Image_No: 3, PSNR_L: 16.0098
+
+Image_No: 4, PSNR_L: 29.8726
 iteration: 41000
-Image_Num: 15, Average_psnr_u: 39.6421, Average_psnr_L: 40.1676
+Image_No: 0, PSNR_L: 14.7259
 
+Image_No: 1, PSNR_L: 7.2278
+
+Image_No: 2, PSNR_L: 35.4562
+
+Image_No: 3, PSNR_L: 16.0674
+
+Image_No: 4, PSNR_L: 26.3463
 iteration: 42000
-Image_Num: 15, Average_psnr_u: 39.9046, Average_psnr_L: 39.4920
+Image_No: 0, PSNR_L: 14.6748
 
+Image_No: 1, PSNR_L: 7.2358
+
+Image_No: 2, PSNR_L: 36.8027
+
+Image_No: 3, PSNR_L: 16.0274
+
+Image_No: 4, PSNR_L: 30.9409
 iteration: 43000
-Image_Num: 15, Average_psnr_u: 39.2897, Average_psnr_L: 39.1310
+Image_No: 0, PSNR_L: 14.8110
 
+Image_No: 1, PSNR_L: 7.2242
+
+Image_No: 2, PSNR_L: 35.5296
+
+Image_No: 3, PSNR_L: 16.1022
+
+Image_No: 4, PSNR_L: 33.4383
 iteration: 44000
-Image_Num: 15, Average_psnr_u: 40.5540, Average_psnr_L: 40.3273
+Image_No: 0, PSNR_L: 14.7019
 
+Image_No: 1, PSNR_L: 7.3981
+
+Image_No: 2, PSNR_L: 36.8595
+
+Image_No: 3, PSNR_L: 16.0072
+
+Image_No: 4, PSNR_L: 34.9136
 iteration: 45000
-Image_Num: 15, Average_psnr_u: 39.7737, Average_psnr_L: 39.2505
+Image_No: 0, PSNR_L: 14.7220
 
+Image_No: 1, PSNR_L: 7.2496
+
+Image_No: 2, PSNR_L: 35.8990
+
+Image_No: 3, PSNR_L: 16.1185
+
+Image_No: 4, PSNR_L: 31.1806
 iteration: 46000
-Image_Num: 15, Average_psnr_u: 39.0292, Average_psnr_L: 40.2554
+Image_No: 0, PSNR_L: 14.7879
 
+Image_No: 1, PSNR_L: 7.2075
+
+Image_No: 2, PSNR_L: 37.8357
+
+Image_No: 3, PSNR_L: 16.0867
+
+Image_No: 4, PSNR_L: 32.1581
 iteration: 47000
-Image_Num: 15, Average_psnr_u: 40.0472, Average_psnr_L: 39.2455
+Image_No: 0, PSNR_L: 14.9050
 
+Image_No: 1, PSNR_L: 7.4789
+
+Image_No: 2, PSNR_L: 34.0136
+
+Image_No: 3, PSNR_L: 16.3305
+
+Image_No: 4, PSNR_L: 29.4495
 iteration: 48000
-Image_Num: 15, Average_psnr_u: 39.5213, Average_psnr_L: 39.7543
+Image_No: 0, PSNR_L: 14.8099
 
+Image_No: 1, PSNR_L: 7.2055
+
+Image_No: 2, PSNR_L: 36.2474
+
+Image_No: 3, PSNR_L: 16.0179
+
+Image_No: 4, PSNR_L: 29.1636
 iteration: 49000
-Image_Num: 15, Average_psnr_u: 39.7121, Average_psnr_L: 40.0064
+Image_No: 0, PSNR_L: 14.7236
 
+Image_No: 1, PSNR_L: 7.1473
+
+Image_No: 2, PSNR_L: 39.6767
+
+Image_No: 3, PSNR_L: 15.9387
+
+Image_No: 4, PSNR_L: 32.2532
 iteration: 50000
-Image_Num: 15, Average_psnr_u: 40.8522, Average_psnr_L: 40.0153
+Image_No: 0, PSNR_L: 14.8634
 
+Image_No: 1, PSNR_L: 7.2905
+
+Image_No: 2, PSNR_L: 36.4340
+
+Image_No: 3, PSNR_L: 16.1672
+
+Image_No: 4, PSNR_L: 31.5613
 iteration: 51000
-Image_Num: 15, Average_psnr_u: 40.6924, Average_psnr_L: 40.7174
+Image_No: 0, PSNR_L: 14.7908
 
+Image_No: 1, PSNR_L: 7.2714
+
+Image_No: 2, PSNR_L: 36.8853
+
+Image_No: 3, PSNR_L: 16.0685
+
+Image_No: 4, PSNR_L: 28.3665
 iteration: 52000
-Image_Num: 15, Average_psnr_u: 41.2171, Average_psnr_L: 40.1867
+Image_No: 0, PSNR_L: 14.9262
 
+Image_No: 1, PSNR_L: 7.4706
+
+Image_No: 2, PSNR_L: 34.6841
+
+Image_No: 3, PSNR_L: 16.2904
+
+Image_No: 4, PSNR_L: 34.4351
 iteration: 53000
-Image_Num: 15, Average_psnr_u: 40.7482, Average_psnr_L: 40.4895
+Image_No: 0, PSNR_L: 14.8675
 
+Image_No: 1, PSNR_L: 7.2230
+
+Image_No: 2, PSNR_L: 35.9331
+
+Image_No: 3, PSNR_L: 16.1321
+
+Image_No: 4, PSNR_L: 31.1201
 iteration: 54000
-Image_Num: 15, Average_psnr_u: 40.1408, Average_psnr_L: 40.5780
+Image_No: 0, PSNR_L: 14.8928
 
+Image_No: 1, PSNR_L: 7.2341
+
+Image_No: 2, PSNR_L: 35.9932
+
+Image_No: 3, PSNR_L: 16.1222
+
+Image_No: 4, PSNR_L: 30.3874
 iteration: 55000
-Image_Num: 15, Average_psnr_u: 40.4913, Average_psnr_L: 40.2048
+Image_No: 0, PSNR_L: 14.7594
 
+Image_No: 1, PSNR_L: 7.1898
+
+Image_No: 2, PSNR_L: 38.5868
+
+Image_No: 3, PSNR_L: 16.0068
+
+Image_No: 4, PSNR_L: 30.9625
 iteration: 56000
-Image_Num: 15, Average_psnr_u: 40.9395, Average_psnr_L: 40.1156
+Image_No: 0, PSNR_L: 14.8217
 
+Image_No: 1, PSNR_L: 7.2053
+
+Image_No: 2, PSNR_L: 36.8189
+
+Image_No: 3, PSNR_L: 16.1121
+
+Image_No: 4, PSNR_L: 32.3038
 iteration: 57000
-Image_Num: 15, Average_psnr_u: 39.4260, Average_psnr_L: 40.4503
+Image_No: 0, PSNR_L: 14.8131
 
+Image_No: 1, PSNR_L: 7.1848
+
+Image_No: 2, PSNR_L: 37.4275
+
+Image_No: 3, PSNR_L: 16.0163
+
+Image_No: 4, PSNR_L: 31.8767
 iteration: 58000
-Image_Num: 15, Average_psnr_u: 39.6889, Average_psnr_L: 40.2451
+Image_No: 0, PSNR_L: 14.8873
 
+Image_No: 1, PSNR_L: 7.2450
+
+Image_No: 2, PSNR_L: 36.4618
+
+Image_No: 3, PSNR_L: 16.1552
+
+Image_No: 4, PSNR_L: 32.4494
 iteration: 59000
-Image_Num: 15, Average_psnr_u: 41.4312, Average_psnr_L: 40.7822
+Image_No: 0, PSNR_L: 14.7924
 
+Image_No: 1, PSNR_L: 7.1941
+
+Image_No: 2, PSNR_L: 36.9522
+
+Image_No: 3, PSNR_L: 16.0690
+
+Image_No: 4, PSNR_L: 32.0903
 iteration: 60000
-Image_Num: 15, Average_psnr_u: 40.4930, Average_psnr_L: 40.5437
+Image_No: 0, PSNR_L: 14.7749
 
+Image_No: 1, PSNR_L: 7.1834
+
+Image_No: 2, PSNR_L: 38.8247
+
+Image_No: 3, PSNR_L: 16.0063
+
+Image_No: 4, PSNR_L: 32.1815
 iteration: 61000
-Image_Num: 15, Average_psnr_u: 41.5354, Average_psnr_L: 40.5627
+Image_No: 0, PSNR_L: 14.8209
 
+Image_No: 1, PSNR_L: 7.2569
+
+Image_No: 2, PSNR_L: 40.9566
+
+Image_No: 3, PSNR_L: 16.0727
+
+Image_No: 4, PSNR_L: 31.7515
 iteration: 62000
-Image_Num: 15, Average_psnr_u: 38.9096, Average_psnr_L: 40.2139
+Image_No: 0, PSNR_L: 14.7634
 
+Image_No: 1, PSNR_L: 7.2231
+
+Image_No: 2, PSNR_L: 38.8573
+
+Image_No: 3, PSNR_L: 15.9888
+
+Image_No: 4, PSNR_L: 24.9195
 iteration: 63000
-Image_Num: 15, Average_psnr_u: 40.0253, Average_psnr_L: 39.6501
+Image_No: 0, PSNR_L: 14.8146
 
+Image_No: 1, PSNR_L: 7.1312
+
+Image_No: 2, PSNR_L: 39.0515
+
+Image_No: 3, PSNR_L: 16.0497
+
+Image_No: 4, PSNR_L: 33.6588
 iteration: 64000
-Image_Num: 15, Average_psnr_u: 40.7880, Average_psnr_L: 40.5056
+Image_No: 0, PSNR_L: 14.8178
 
+Image_No: 1, PSNR_L: 7.2231
+
+Image_No: 2, PSNR_L: 36.2349
+
+Image_No: 3, PSNR_L: 16.1277
+
+Image_No: 4, PSNR_L: 32.6563
 iteration: 65000
-Image_Num: 15, Average_psnr_u: 40.4269, Average_psnr_L: 40.8462
+Image_No: 0, PSNR_L: 14.7627
 
+Image_No: 1, PSNR_L: 7.1285
+
+Image_No: 2, PSNR_L: 38.1898
+
+Image_No: 3, PSNR_L: 16.0007
+
+Image_No: 4, PSNR_L: 32.3050
 iteration: 66000
-Image_Num: 15, Average_psnr_u: 39.7715, Average_psnr_L: 40.0362
+Image_No: 0, PSNR_L: 14.9245
 
+Image_No: 1, PSNR_L: 7.2608
+
+Image_No: 2, PSNR_L: 37.5387
+
+Image_No: 3, PSNR_L: 16.2115
+
+Image_No: 4, PSNR_L: 32.0769
 iteration: 67000
-Image_Num: 15, Average_psnr_u: 39.4277, Average_psnr_L: 39.9657
+Image_No: 0, PSNR_L: 14.7850
 
+Image_No: 1, PSNR_L: 7.1145
+
+Image_No: 2, PSNR_L: 40.1350
+
+Image_No: 3, PSNR_L: 16.0004
+
+Image_No: 4, PSNR_L: 33.1548
 iteration: 68000
-Image_Num: 15, Average_psnr_u: 39.5216, Average_psnr_L: 39.9497
+Image_No: 0, PSNR_L: 14.7519
 
+Image_No: 1, PSNR_L: 7.1393
+
+Image_No: 2, PSNR_L: 37.1735
+
+Image_No: 3, PSNR_L: 16.0098
+
+Image_No: 4, PSNR_L: 31.8320
 iteration: 69000
-Image_Num: 15, Average_psnr_u: 41.4095, Average_psnr_L: 40.1369
+Image_No: 0, PSNR_L: 14.8350
 
+Image_No: 1, PSNR_L: 7.1676
+
+Image_No: 2, PSNR_L: 35.9280
+
+Image_No: 3, PSNR_L: 16.0714
+
+Image_No: 4, PSNR_L: 29.9959
 iteration: 70000
-Image_Num: 15, Average_psnr_u: 40.8953, Average_psnr_L: 40.8581
+Image_No: 0, PSNR_L: 14.6779
 
+Image_No: 1, PSNR_L: 7.1800
+
+Image_No: 2, PSNR_L: 41.3247
+
+Image_No: 3, PSNR_L: 15.8595
+
+Image_No: 4, PSNR_L: 35.0383
 iteration: 71000
-Image_Num: 15, Average_psnr_u: 38.6438, Average_psnr_L: 39.8652
+Image_No: 0, PSNR_L: 14.8224
 
+Image_No: 1, PSNR_L: 7.2279
+
+Image_No: 2, PSNR_L: 37.1975
+
+Image_No: 3, PSNR_L: 16.1160
+
+Image_No: 4, PSNR_L: 32.7025
 iteration: 72000
-Image_Num: 15, Average_psnr_u: 39.4366, Average_psnr_L: 40.2049
+Image_No: 0, PSNR_L: 14.7673
 
+Image_No: 1, PSNR_L: 7.2568
+
+Image_No: 2, PSNR_L: 37.8778
+
+Image_No: 3, PSNR_L: 16.0788
+
+Image_No: 4, PSNR_L: 32.3948
 iteration: 73000
-Image_Num: 15, Average_psnr_u: 40.8798, Average_psnr_L: 40.4389
+Image_No: 0, PSNR_L: 14.7659
 
+Image_No: 1, PSNR_L: 7.2341
+
+Image_No: 2, PSNR_L: 37.8271
+
+Image_No: 3, PSNR_L: 16.0892
+
+Image_No: 4, PSNR_L: 35.4911
 iteration: 74000
-Image_Num: 15, Average_psnr_u: 41.4843, Average_psnr_L: 40.2715
+Image_No: 0, PSNR_L: 14.6756
 
+Image_No: 1, PSNR_L: 7.1016
+
+Image_No: 2, PSNR_L: 36.6297
+
+Image_No: 3, PSNR_L: 16.0180
+
+Image_No: 4, PSNR_L: 31.5411
 iteration: 75000
-Image_Num: 15, Average_psnr_u: 38.9956, Average_psnr_L: 40.1024
+Image_No: 0, PSNR_L: 14.8438
 
+Image_No: 1, PSNR_L: 7.2221
+
+Image_No: 2, PSNR_L: 35.4705
+
+Image_No: 3, PSNR_L: 16.2134
+
+Image_No: 4, PSNR_L: 31.8827
 iteration: 76000
-Image_Num: 15, Average_psnr_u: 40.8346, Average_psnr_L: 40.2879
+Image_No: 0, PSNR_L: 14.8399
 
+Image_No: 1, PSNR_L: 7.2301
+
+Image_No: 2, PSNR_L: 36.3384
+
+Image_No: 3, PSNR_L: 16.1582
+
+Image_No: 4, PSNR_L: 31.6796
 iteration: 77000
-Image_Num: 15, Average_psnr_u: 41.2176, Average_psnr_L: 40.8102
+Image_No: 0, PSNR_L: 14.7809
 
+Image_No: 1, PSNR_L: 7.0483
+
+Image_No: 2, PSNR_L: 38.2717
+
+Image_No: 3, PSNR_L: 16.0357
+
+Image_No: 4, PSNR_L: 33.3071
 iteration: 78000
-Image_Num: 15, Average_psnr_u: 41.6379, Average_psnr_L: 40.3945
+Image_No: 0, PSNR_L: 14.8833
 
+Image_No: 1, PSNR_L: 7.5487
+
+Image_No: 2, PSNR_L: 35.0912
+
+Image_No: 3, PSNR_L: 16.2004
+
+Image_No: 4, PSNR_L: 31.5202
 iteration: 79000
-Image_Num: 15, Average_psnr_u: 41.5098, Average_psnr_L: 40.3261
+Image_No: 0, PSNR_L: 14.8040
 
+Image_No: 1, PSNR_L: 7.1172
+
+Image_No: 2, PSNR_L: 39.2138
+
+Image_No: 3, PSNR_L: 16.0822
+
+Image_No: 4, PSNR_L: 32.9061
 iteration: 80000
-Image_Num: 15, Average_psnr_u: 42.3869, Average_psnr_L: 40.9100
+Image_No: 0, PSNR_L: 14.9190
 
+Image_No: 1, PSNR_L: 7.1365
+
+Image_No: 2, PSNR_L: 36.2064
+
+Image_No: 3, PSNR_L: 16.1710
+
+Image_No: 4, PSNR_L: 31.3882
 iteration: 81000
-Image_Num: 15, Average_psnr_u: 41.7006, Average_psnr_L: 40.7261
+Image_No: 0, PSNR_L: 14.9533
 
+Image_No: 1, PSNR_L: 7.2290
+
+Image_No: 2, PSNR_L: 36.4975
+
+Image_No: 3, PSNR_L: 16.2822
+
+Image_No: 4, PSNR_L: 32.2517
 iteration: 82000
-Image_Num: 15, Average_psnr_u: 40.2076, Average_psnr_L: 40.5443
+Image_No: 0, PSNR_L: 14.8452
 
+Image_No: 1, PSNR_L: 7.1657
+
+Image_No: 2, PSNR_L: 38.0466
+
+Image_No: 3, PSNR_L: 16.0141
+
+Image_No: 4, PSNR_L: 32.3918
 iteration: 83000
-Image_Num: 15, Average_psnr_u: 40.9124, Average_psnr_L: 40.3385
+Image_No: 0, PSNR_L: 14.7543
 
+Image_No: 1, PSNR_L: 7.1478
+
+Image_No: 2, PSNR_L: 37.0329
+
+Image_No: 3, PSNR_L: 16.0712
+
+Image_No: 4, PSNR_L: 33.3354
 iteration: 84000
-Image_Num: 15, Average_psnr_u: 41.3546, Average_psnr_L: 40.7208
+Image_No: 0, PSNR_L: 14.9713
 
+Image_No: 1, PSNR_L: 7.2812
+
+Image_No: 2, PSNR_L: 36.1717
+
+Image_No: 3, PSNR_L: 16.3187
+
+Image_No: 4, PSNR_L: 32.1207
 iteration: 85000
-Image_Num: 15, Average_psnr_u: 41.9613, Average_psnr_L: 40.7416
+Image_No: 0, PSNR_L: 14.8129
 
+Image_No: 1, PSNR_L: 7.1661
+
+Image_No: 2, PSNR_L: 37.8364
+
+Image_No: 3, PSNR_L: 16.1119
+
+Image_No: 4, PSNR_L: 31.4303
 iteration: 86000
-Image_Num: 15, Average_psnr_u: 40.6860, Average_psnr_L: 40.8118
+Image_No: 0, PSNR_L: 14.8138
 
+Image_No: 1, PSNR_L: 7.1424
+
+Image_No: 2, PSNR_L: 37.5632
+
+Image_No: 3, PSNR_L: 16.0573
+
+Image_No: 4, PSNR_L: 32.3864
 iteration: 87000
-Image_Num: 15, Average_psnr_u: 41.5184, Average_psnr_L: 40.5400
+Image_No: 0, PSNR_L: 14.7711
 
+Image_No: 1, PSNR_L: 7.1468
+
+Image_No: 2, PSNR_L: 38.8057
+
+Image_No: 3, PSNR_L: 16.0876
+
+Image_No: 4, PSNR_L: 33.4871
 iteration: 88000
-Image_Num: 15, Average_psnr_u: 41.2640, Average_psnr_L: 40.4634
+Image_No: 0, PSNR_L: 14.8158
 
+Image_No: 1, PSNR_L: 7.0896
+
+Image_No: 2, PSNR_L: 39.5444
+
+Image_No: 3, PSNR_L: 16.0312
+
+Image_No: 4, PSNR_L: 32.7083
 iteration: 89000
-Image_Num: 15, Average_psnr_u: 41.1220, Average_psnr_L: 40.8855
+Image_No: 0, PSNR_L: 14.8888
 
+Image_No: 1, PSNR_L: 7.3485
+
+Image_No: 2, PSNR_L: 35.4100
+
+Image_No: 3, PSNR_L: 16.1691
+
+Image_No: 4, PSNR_L: 31.7104
 iteration: 90000
-Image_Num: 15, Average_psnr_u: 41.8499, Average_psnr_L: 40.5864
+Image_No: 0, PSNR_L: 14.7911
 
+Image_No: 1, PSNR_L: 7.2003
+
+Image_No: 2, PSNR_L: 38.3183
+
+Image_No: 3, PSNR_L: 16.1004
+
+Image_No: 4, PSNR_L: 32.8470
 iteration: 91000
-Image_Num: 15, Average_psnr_u: 41.8588, Average_psnr_L: 40.9227
+Image_No: 0, PSNR_L: 14.9622
 
+Image_No: 1, PSNR_L: 7.1911
+
+Image_No: 2, PSNR_L: 35.7712
+
+Image_No: 3, PSNR_L: 16.2843
+
+Image_No: 4, PSNR_L: 31.9076
 iteration: 92000
-Image_Num: 15, Average_psnr_u: 41.5579, Average_psnr_L: 40.9078
+Image_No: 0, PSNR_L: 14.8235
 
+Image_No: 1, PSNR_L: 7.2472
+
+Image_No: 2, PSNR_L: 36.6184
+
+Image_No: 3, PSNR_L: 16.2467
+
+Image_No: 4, PSNR_L: 31.9890
 iteration: 93000
-Image_Num: 15, Average_psnr_u: 42.4865, Average_psnr_L: 40.8500
+Image_No: 0, PSNR_L: 14.8590
 
+Image_No: 1, PSNR_L: 7.2242
+
+Image_No: 2, PSNR_L: 38.2661
+
+Image_No: 3, PSNR_L: 16.1357
+
+Image_No: 4, PSNR_L: 32.1515
 iteration: 94000
-Image_Num: 15, Average_psnr_u: 41.2530, Average_psnr_L: 40.8396
+Image_No: 0, PSNR_L: 14.8700
 
+Image_No: 1, PSNR_L: 7.2082
+
+Image_No: 2, PSNR_L: 37.0220
+
+Image_No: 3, PSNR_L: 16.1534
+
+Image_No: 4, PSNR_L: 31.2928
 iteration: 95000
-Image_Num: 15, Average_psnr_u: 41.9514, Average_psnr_L: 40.5498
+Image_No: 0, PSNR_L: 14.7581
 
+Image_No: 1, PSNR_L: 7.1053
+
+Image_No: 2, PSNR_L: 38.4191
+
+Image_No: 3, PSNR_L: 16.0316
+
+Image_No: 4, PSNR_L: 32.1471
 iteration: 96000
-Image_Num: 15, Average_psnr_u: 41.4998, Average_psnr_L: 40.5000
+Image_No: 0, PSNR_L: 14.8533
 
+Image_No: 1, PSNR_L: 7.2474
+
+Image_No: 2, PSNR_L: 34.7799
+
+Image_No: 3, PSNR_L: 16.1674
+
+Image_No: 4, PSNR_L: 30.7148
 iteration: 97000
-Image_Num: 15, Average_psnr_u: 41.8572, Average_psnr_L: 40.0860
+Image_No: 0, PSNR_L: 14.8996
 
+Image_No: 1, PSNR_L: 7.1010
+
+Image_No: 2, PSNR_L: 37.3393
+
+Image_No: 3, PSNR_L: 16.1728
+
+Image_No: 4, PSNR_L: 31.8797
 iteration: 98000
-Image_Num: 15, Average_psnr_u: 42.2955, Average_psnr_L: 40.8764
+Image_No: 0, PSNR_L: 14.8405
 
+Image_No: 1, PSNR_L: 7.1764
+
+Image_No: 2, PSNR_L: 40.1651
+
+Image_No: 3, PSNR_L: 16.1361
+
+Image_No: 4, PSNR_L: 34.9118
 iteration: 99000
-Image_Num: 15, Average_psnr_u: 42.1548, Average_psnr_L: 40.8203
+Image_No: 0, PSNR_L: 14.8042
 
+Image_No: 1, PSNR_L: 7.1748
+
+Image_No: 2, PSNR_L: 36.9240
+
+Image_No: 3, PSNR_L: 16.1028
+
+Image_No: 4, PSNR_L: 31.9493
 iteration: 100000
-Image_Num: 15, Average_psnr_u: 42.1459, Average_psnr_L: 40.8579
+Image_No: 0, PSNR_L: 14.9242
 
+Image_No: 1, PSNR_L: 7.2490
+
+Image_No: 2, PSNR_L: 38.3917
+
+Image_No: 3, PSNR_L: 16.1247
+
+Image_No: 4, PSNR_L: 33.7755
 iteration: 101000
-Image_Num: 15, Average_psnr_u: 42.1372, Average_psnr_L: 40.9429
+Image_No: 0, PSNR_L: 14.8406
 
+Image_No: 1, PSNR_L: 7.1677
+
+Image_No: 2, PSNR_L: 36.6349
+
+Image_No: 3, PSNR_L: 16.1777
+
+Image_No: 4, PSNR_L: 31.5591
 iteration: 102000
-Image_Num: 15, Average_psnr_u: 42.4163, Average_psnr_L: 40.7814
+Image_No: 0, PSNR_L: 14.8085
 
+Image_No: 1, PSNR_L: 7.1320
+
+Image_No: 2, PSNR_L: 37.6621
+
+Image_No: 3, PSNR_L: 16.1425
+
+Image_No: 4, PSNR_L: 31.7920
 iteration: 103000
-Image_Num: 15, Average_psnr_u: 41.2569, Average_psnr_L: 40.9614
+Image_No: 0, PSNR_L: 14.8296
 
+Image_No: 1, PSNR_L: 7.0740
+
+Image_No: 2, PSNR_L: 37.2838
+
+Image_No: 3, PSNR_L: 16.0973
+
+Image_No: 4, PSNR_L: 31.9728
 iteration: 104000
-Image_Num: 15, Average_psnr_u: 42.3819, Average_psnr_L: 40.8117
+Image_No: 0, PSNR_L: 14.8071
 
+Image_No: 1, PSNR_L: 7.1814
+
+Image_No: 2, PSNR_L: 37.3604
+
+Image_No: 3, PSNR_L: 16.0958
+
+Image_No: 4, PSNR_L: 32.2590
 iteration: 105000
-Image_Num: 15, Average_psnr_u: 42.4053, Average_psnr_L: 40.8651
+Image_No: 0, PSNR_L: 14.8857
 
+Image_No: 1, PSNR_L: 7.1182
+
+Image_No: 2, PSNR_L: 38.2234
+
+Image_No: 3, PSNR_L: 16.1711
+
+Image_No: 4, PSNR_L: 32.4261
 iteration: 106000
-Image_Num: 15, Average_psnr_u: 41.8006, Average_psnr_L: 40.6611
+Image_No: 0, PSNR_L: 14.8295
 
+Image_No: 1, PSNR_L: 7.1640
+
+Image_No: 2, PSNR_L: 38.4709
+
+Image_No: 3, PSNR_L: 16.1734
+
+Image_No: 4, PSNR_L: 32.3532
 iteration: 107000
-Image_Num: 15, Average_psnr_u: 42.5269, Average_psnr_L: 40.9599
+Image_No: 0, PSNR_L: 14.8822
 
+Image_No: 1, PSNR_L: 7.1998
+
+Image_No: 2, PSNR_L: 38.3341
+
+Image_No: 3, PSNR_L: 16.1979
+
+Image_No: 4, PSNR_L: 32.7603
 iteration: 108000
-Image_Num: 15, Average_psnr_u: 40.9017, Average_psnr_L: 40.7642
+Image_No: 0, PSNR_L: 14.8723
 
+Image_No: 1, PSNR_L: 7.1534
+
+Image_No: 2, PSNR_L: 36.4032
+
+Image_No: 3, PSNR_L: 16.1912
+
+Image_No: 4, PSNR_L: 31.7619
 iteration: 109000
-Image_Num: 15, Average_psnr_u: 42.9434, Average_psnr_L: 41.1153
+Image_No: 0, PSNR_L: 14.8324
 
+Image_No: 1, PSNR_L: 7.1914
+
+Image_No: 2, PSNR_L: 37.8760
+
+Image_No: 3, PSNR_L: 16.1846
+
+Image_No: 4, PSNR_L: 33.7169
 iteration: 110000
-Image_Num: 15, Average_psnr_u: 42.7739, Average_psnr_L: 41.0590
+Image_No: 0, PSNR_L: 14.8226
 
+Image_No: 1, PSNR_L: 7.1006
+
+Image_No: 2, PSNR_L: 38.2733
+
+Image_No: 3, PSNR_L: 16.1330
+
+Image_No: 4, PSNR_L: 32.1846
 iteration: 111000
-Image_Num: 15, Average_psnr_u: 42.2927, Average_psnr_L: 41.1355
+Image_No: 0, PSNR_L: 14.8486
 
+Image_No: 1, PSNR_L: 7.1426
+
+Image_No: 2, PSNR_L: 37.4808
+
+Image_No: 3, PSNR_L: 16.2033
+
+Image_No: 4, PSNR_L: 32.0274
 iteration: 112000
-Image_Num: 15, Average_psnr_u: 42.1271, Average_psnr_L: 40.9215
+Image_No: 0, PSNR_L: 14.8583
 
+Image_No: 1, PSNR_L: 7.1134
+
+Image_No: 2, PSNR_L: 36.5405
+
+Image_No: 3, PSNR_L: 16.1776
+
+Image_No: 4, PSNR_L: 32.3693
 iteration: 113000
-Image_Num: 15, Average_psnr_u: 42.1494, Average_psnr_L: 40.9731
+Image_No: 0, PSNR_L: 14.8025
 
+Image_No: 1, PSNR_L: 7.1493
+
+Image_No: 2, PSNR_L: 38.7919
+
+Image_No: 3, PSNR_L: 16.1194
+
+Image_No: 4, PSNR_L: 32.7367
 iteration: 114000
-Image_Num: 15, Average_psnr_u: 42.4669, Average_psnr_L: 40.9804
+Image_No: 0, PSNR_L: 14.8655
 
+Image_No: 1, PSNR_L: 7.1265
+
+Image_No: 2, PSNR_L: 38.4780
+
+Image_No: 3, PSNR_L: 16.1701
+
+Image_No: 4, PSNR_L: 32.5025
 iteration: 115000
-Image_Num: 15, Average_psnr_u: 42.4299, Average_psnr_L: 40.5978
+Image_No: 0, PSNR_L: 14.8497
 
+Image_No: 1, PSNR_L: 7.1367
+
+Image_No: 2, PSNR_L: 38.5580
+
+Image_No: 3, PSNR_L: 16.1232
+
+Image_No: 4, PSNR_L: 33.4815
 iteration: 116000
-Image_Num: 15, Average_psnr_u: 42.7450, Average_psnr_L: 41.0288
+Image_No: 0, PSNR_L: 14.8828
 
+Image_No: 1, PSNR_L: 7.1479
+
+Image_No: 2, PSNR_L: 37.3379
+
+Image_No: 3, PSNR_L: 16.1488
+
+Image_No: 4, PSNR_L: 32.9073
 iteration: 117000
-Image_Num: 15, Average_psnr_u: 42.3256, Average_psnr_L: 41.0565
+Image_No: 0, PSNR_L: 14.7958
 
+Image_No: 1, PSNR_L: 7.1479
+
+Image_No: 2, PSNR_L: 39.7300
+
+Image_No: 3, PSNR_L: 16.1316
+
+Image_No: 4, PSNR_L: 32.5222
 iteration: 118000
-Image_Num: 15, Average_psnr_u: 41.8588, Average_psnr_L: 41.1886
+Image_No: 0, PSNR_L: 14.8318
 
+Image_No: 1, PSNR_L: 7.1420
+
+Image_No: 2, PSNR_L: 37.5074
+
+Image_No: 3, PSNR_L: 16.1198
+
+Image_No: 4, PSNR_L: 32.2250
 iteration: 119000
-Image_Num: 15, Average_psnr_u: 42.2960, Average_psnr_L: 40.7876
+Image_No: 0, PSNR_L: 14.9084
 
+Image_No: 1, PSNR_L: 7.1669
+
+Image_No: 2, PSNR_L: 36.1456
+
+Image_No: 3, PSNR_L: 16.2395
+
+Image_No: 4, PSNR_L: 31.8957
 iteration: 120000
-Image_Num: 15, Average_psnr_u: 41.6153, Average_psnr_L: 41.1163
+Image_No: 0, PSNR_L: 14.9197
 
+Image_No: 1, PSNR_L: 7.1173
+
+Image_No: 2, PSNR_L: 36.1466
+
+Image_No: 3, PSNR_L: 16.2480
+
+Image_No: 4, PSNR_L: 32.5450
 iteration: 121000
-Image_Num: 15, Average_psnr_u: 42.7931, Average_psnr_L: 40.7830
+Image_No: 0, PSNR_L: 14.8419
 
+Image_No: 1, PSNR_L: 7.1859
+
+Image_No: 2, PSNR_L: 37.2351
+
+Image_No: 3, PSNR_L: 16.1565
+
+Image_No: 4, PSNR_L: 33.0900
 iteration: 122000
-Image_Num: 15, Average_psnr_u: 41.8255, Average_psnr_L: 40.4376
+Image_No: 0, PSNR_L: 14.8339
 
+Image_No: 1, PSNR_L: 7.1106
+
+Image_No: 2, PSNR_L: 38.8235
+
+Image_No: 3, PSNR_L: 16.1559
+
+Image_No: 4, PSNR_L: 33.7646
 iteration: 123000
-Image_Num: 15, Average_psnr_u: 42.7161, Average_psnr_L: 41.0019
+Image_No: 0, PSNR_L: 14.8212
 
+Image_No: 1, PSNR_L: 7.1121
+
+Image_No: 2, PSNR_L: 38.8848
+
+Image_No: 3, PSNR_L: 16.1262
+
+Image_No: 4, PSNR_L: 32.9437
 iteration: 124000
-Image_Num: 15, Average_psnr_u: 41.9490, Average_psnr_L: 41.0622
+Image_No: 0, PSNR_L: 14.9005
 
+Image_No: 1, PSNR_L: 7.1182
+
+Image_No: 2, PSNR_L: 37.6466
+
+Image_No: 3, PSNR_L: 16.2149
+
+Image_No: 4, PSNR_L: 31.6254
 iteration: 125000
-Image_Num: 15, Average_psnr_u: 42.7840, Average_psnr_L: 41.0771
+Image_No: 0, PSNR_L: 14.8660
 
+Image_No: 1, PSNR_L: 7.0770
+
+Image_No: 2, PSNR_L: 37.5085
+
+Image_No: 3, PSNR_L: 16.2175
+
+Image_No: 4, PSNR_L: 32.6361
 iteration: 126000
-Image_Num: 15, Average_psnr_u: 42.7896, Average_psnr_L: 41.0272
+Image_No: 0, PSNR_L: 14.8952
 
+Image_No: 1, PSNR_L: 7.1474
+
+Image_No: 2, PSNR_L: 36.4492
+
+Image_No: 3, PSNR_L: 16.1974
+
+Image_No: 4, PSNR_L: 31.1229
 iteration: 127000
-Image_Num: 15, Average_psnr_u: 42.9597, Average_psnr_L: 41.1246
+Image_No: 0, PSNR_L: 14.8652
 
+Image_No: 1, PSNR_L: 7.1193
+
+Image_No: 2, PSNR_L: 39.3954
+
+Image_No: 3, PSNR_L: 16.2302
+
+Image_No: 4, PSNR_L: 33.1495
 iteration: 128000
-Image_Num: 15, Average_psnr_u: 42.6318, Average_psnr_L: 41.1431
+Image_No: 0, PSNR_L: 14.8511
 
+Image_No: 1, PSNR_L: 7.1484
+
+Image_No: 2, PSNR_L: 38.3541
+
+Image_No: 3, PSNR_L: 16.2138
+
+Image_No: 4, PSNR_L: 32.1157
 iteration: 129000
-Image_Num: 15, Average_psnr_u: 42.6872, Average_psnr_L: 40.9797
+Image_No: 0, PSNR_L: 14.8921
 
+Image_No: 1, PSNR_L: 7.2060
+
+Image_No: 2, PSNR_L: 37.2808
+
+Image_No: 3, PSNR_L: 16.2109
+
+Image_No: 4, PSNR_L: 32.2243
 iteration: 130000
-Image_Num: 15, Average_psnr_u: 42.9956, Average_psnr_L: 41.1835
+Image_No: 0, PSNR_L: 14.8699
 
+Image_No: 1, PSNR_L: 7.1467
+
+Image_No: 2, PSNR_L: 38.8349
+
+Image_No: 3, PSNR_L: 16.2261
+
+Image_No: 4, PSNR_L: 32.8992
 iteration: 131000
-Image_Num: 15, Average_psnr_u: 42.7281, Average_psnr_L: 40.9726
+Image_No: 0, PSNR_L: 14.9087
 
+Image_No: 1, PSNR_L: 7.1169
+
+Image_No: 2, PSNR_L: 38.1086
+
+Image_No: 3, PSNR_L: 16.2737
+
+Image_No: 4, PSNR_L: 33.1913
 iteration: 132000
-Image_Num: 15, Average_psnr_u: 42.6637, Average_psnr_L: 41.0001
+Image_No: 0, PSNR_L: 15.0856
 
+Image_No: 1, PSNR_L: 7.2441
+
+Image_No: 2, PSNR_L: 36.6001
+
+Image_No: 3, PSNR_L: 16.3192
+
+Image_No: 4, PSNR_L: 32.2942
 iteration: 133000
-Image_Num: 15, Average_psnr_u: 42.7003, Average_psnr_L: 41.0782
+Image_No: 0, PSNR_L: 14.8984
 
+Image_No: 1, PSNR_L: 7.1570
+
+Image_No: 2, PSNR_L: 38.6130
+
+Image_No: 3, PSNR_L: 16.2267
+
+Image_No: 4, PSNR_L: 32.0842
 iteration: 134000
-Image_Num: 15, Average_psnr_u: 42.7414, Average_psnr_L: 41.0760
+Image_No: 0, PSNR_L: 14.8961
 
+Image_No: 1, PSNR_L: 7.1006
+
+Image_No: 2, PSNR_L: 38.9206
+
+Image_No: 3, PSNR_L: 16.3038
+
+Image_No: 4, PSNR_L: 31.8517
 iteration: 135000
-Image_Num: 15, Average_psnr_u: 42.5627, Average_psnr_L: 40.8217
+Image_No: 0, PSNR_L: 14.8501
 
+Image_No: 1, PSNR_L: 7.0689
+
+Image_No: 2, PSNR_L: 39.4040
+
+Image_No: 3, PSNR_L: 16.2035
+
+Image_No: 4, PSNR_L: 32.9552
 iteration: 136000
-Image_Num: 15, Average_psnr_u: 42.3534, Average_psnr_L: 41.0518
+Image_No: 0, PSNR_L: 14.9165
 
+Image_No: 1, PSNR_L: 7.0705
+
+Image_No: 2, PSNR_L: 38.2403
+
+Image_No: 3, PSNR_L: 16.3545
+
+Image_No: 4, PSNR_L: 32.3084
 iteration: 137000
-Image_Num: 15, Average_psnr_u: 42.0274, Average_psnr_L: 41.0474
+Image_No: 0, PSNR_L: 14.9553
 
+Image_No: 1, PSNR_L: 7.1791
+
+Image_No: 2, PSNR_L: 37.3314
+
+Image_No: 3, PSNR_L: 16.2804
+
+Image_No: 4, PSNR_L: 32.1626
 iteration: 138000
-Image_Num: 15, Average_psnr_u: 42.6824, Average_psnr_L: 40.8714
+Image_No: 0, PSNR_L: 14.8669
 
+Image_No: 1, PSNR_L: 7.0640
+
+Image_No: 2, PSNR_L: 38.9661
+
+Image_No: 3, PSNR_L: 16.1884
+
+Image_No: 4, PSNR_L: 32.1898
 iteration: 139000
-Image_Num: 15, Average_psnr_u: 42.9046, Average_psnr_L: 41.2538
+Image_No: 0, PSNR_L: 14.8710
 
+Image_No: 1, PSNR_L: 7.2000
+
+Image_No: 2, PSNR_L: 37.1666
+
+Image_No: 3, PSNR_L: 16.2855
+
+Image_No: 4, PSNR_L: 32.0515
 iteration: 140000
-Image_Num: 15, Average_psnr_u: 42.7783, Average_psnr_L: 41.1732
+Image_No: 0, PSNR_L: 14.8785
 
+Image_No: 1, PSNR_L: 7.0937
+
+Image_No: 2, PSNR_L: 37.5722
+
+Image_No: 3, PSNR_L: 16.2566
+
+Image_No: 4, PSNR_L: 31.6365
 iteration: 141000
-Image_Num: 15, Average_psnr_u: 42.1330, Average_psnr_L: 41.0664
+Image_No: 0, PSNR_L: 14.8997
 
+Image_No: 1, PSNR_L: 7.0933
+
+Image_No: 2, PSNR_L: 39.5376
+
+Image_No: 3, PSNR_L: 16.2632
+
+Image_No: 4, PSNR_L: 32.6151
 iteration: 142000
-Image_Num: 15, Average_psnr_u: 42.9578, Average_psnr_L: 41.2129
+Image_No: 0, PSNR_L: 14.9138
 
+Image_No: 1, PSNR_L: 7.2070
+
+Image_No: 2, PSNR_L: 37.2928
+
+Image_No: 3, PSNR_L: 16.2591
+
+Image_No: 4, PSNR_L: 32.8957
 iteration: 143000
-Image_Num: 15, Average_psnr_u: 42.8429, Average_psnr_L: 41.1338
+Image_No: 0, PSNR_L: 14.8722
 
+Image_No: 1, PSNR_L: 7.1502
+
+Image_No: 2, PSNR_L: 37.9532
+
+Image_No: 3, PSNR_L: 16.3760
+
+Image_No: 4, PSNR_L: 32.5714
 iteration: 144000
-Image_Num: 15, Average_psnr_u: 42.4739, Average_psnr_L: 41.1093
+Image_No: 0, PSNR_L: 14.8672
 
+Image_No: 1, PSNR_L: 7.1978
+
+Image_No: 2, PSNR_L: 37.6190
+
+Image_No: 3, PSNR_L: 16.3148
+
+Image_No: 4, PSNR_L: 32.2443
 iteration: 145000
-Image_Num: 15, Average_psnr_u: 42.6859, Average_psnr_L: 41.1718
+Image_No: 0, PSNR_L: 14.9162
 
+Image_No: 1, PSNR_L: 7.2504
+
+Image_No: 2, PSNR_L: 36.3272
+
+Image_No: 3, PSNR_L: 16.2735
+
+Image_No: 4, PSNR_L: 31.7466
 iteration: 146000
-Image_Num: 15, Average_psnr_u: 42.0505, Average_psnr_L: 41.3100
+Image_No: 0, PSNR_L: 14.8818
 
+Image_No: 1, PSNR_L: 7.1322
+
+Image_No: 2, PSNR_L: 40.2261
+
+Image_No: 3, PSNR_L: 16.2069
+
+Image_No: 4, PSNR_L: 32.8401
 iteration: 147000
-Image_Num: 15, Average_psnr_u: 42.8068, Average_psnr_L: 41.1012
+Image_No: 0, PSNR_L: 14.8180
 
+Image_No: 1, PSNR_L: 7.1522
+
+Image_No: 2, PSNR_L: 38.5911
+
+Image_No: 3, PSNR_L: 16.3274
+
+Image_No: 4, PSNR_L: 32.3887
 iteration: 148000
-Image_Num: 15, Average_psnr_u: 42.5830, Average_psnr_L: 41.1927
+Image_No: 0, PSNR_L: 14.8148
 
+Image_No: 1, PSNR_L: 7.1707
+
+Image_No: 2, PSNR_L: 38.5090
+
+Image_No: 3, PSNR_L: 16.2211
+
+Image_No: 4, PSNR_L: 31.9672
 iteration: 149000
-Image_Num: 15, Average_psnr_u: 42.7598, Average_psnr_L: 40.8693
+Image_No: 0, PSNR_L: 14.8703
 
+Image_No: 1, PSNR_L: 7.1410
+
+Image_No: 2, PSNR_L: 39.8026
+
+Image_No: 3, PSNR_L: 16.2751
+
+Image_No: 4, PSNR_L: 34.6222
 iteration: 150000
-Image_Num: 15, Average_psnr_u: 42.9091, Average_psnr_L: 41.1203
+Image_No: 0, PSNR_L: 14.8260
 
+Image_No: 1, PSNR_L: 7.1490
+
+Image_No: 2, PSNR_L: 38.2391
+
+Image_No: 3, PSNR_L: 16.3312
+
+Image_No: 4, PSNR_L: 31.9540
 iteration: 151000
-Image_Num: 15, Average_psnr_u: 42.9351, Average_psnr_L: 41.2658
+Image_No: 0, PSNR_L: 14.8309
 
+Image_No: 1, PSNR_L: 7.1766
+
+Image_No: 2, PSNR_L: 38.5766
+
+Image_No: 3, PSNR_L: 16.3324
+
+Image_No: 4, PSNR_L: 31.3996
 iteration: 152000
-Image_Num: 15, Average_psnr_u: 42.8242, Average_psnr_L: 41.1852
+Image_No: 0, PSNR_L: 14.8598
 
+Image_No: 1, PSNR_L: 7.1755
+
+Image_No: 2, PSNR_L: 37.6447
+
+Image_No: 3, PSNR_L: 16.3138
+
+Image_No: 4, PSNR_L: 32.4762
 iteration: 153000
-Image_Num: 15, Average_psnr_u: 42.6458, Average_psnr_L: 40.9292
+Image_No: 0, PSNR_L: 14.9152
 
+Image_No: 1, PSNR_L: 7.1739
+
+Image_No: 2, PSNR_L: 38.6455
+
+Image_No: 3, PSNR_L: 16.2985
+
+Image_No: 4, PSNR_L: 32.2033
 iteration: 154000
-Image_Num: 15, Average_psnr_u: 42.9794, Average_psnr_L: 41.1824
+Image_No: 0, PSNR_L: 14.8318
 
+Image_No: 1, PSNR_L: 7.1337
+
+Image_No: 2, PSNR_L: 38.5728
+
+Image_No: 3, PSNR_L: 16.1816
+
+Image_No: 4, PSNR_L: 32.4832
 iteration: 155000
-Image_Num: 15, Average_psnr_u: 42.7941, Average_psnr_L: 41.2046
+Image_No: 0, PSNR_L: 14.8984
 
+Image_No: 1, PSNR_L: 7.1506
+
+Image_No: 2, PSNR_L: 38.8717
+
+Image_No: 3, PSNR_L: 16.3425
+
+Image_No: 4, PSNR_L: 32.6978
 iteration: 156000
-Image_Num: 15, Average_psnr_u: 42.8851, Average_psnr_L: 41.0559
+Image_No: 0, PSNR_L: 14.8901
 
+Image_No: 1, PSNR_L: 7.1496
+
+Image_No: 2, PSNR_L: 38.6109
+
+Image_No: 3, PSNR_L: 16.3162
+
+Image_No: 4, PSNR_L: 32.8844
 iteration: 157000
-Image_Num: 15, Average_psnr_u: 42.2026, Average_psnr_L: 41.1660
+Image_No: 0, PSNR_L: 14.8557
 
+Image_No: 1, PSNR_L: 7.1363
+
+Image_No: 2, PSNR_L: 38.1559
+
+Image_No: 3, PSNR_L: 16.2416
+
+Image_No: 4, PSNR_L: 33.4610
 iteration: 158000
-Image_Num: 15, Average_psnr_u: 42.8188, Average_psnr_L: 41.0418
+Image_No: 0, PSNR_L: 14.8551
 
+Image_No: 1, PSNR_L: 7.1314
+
+Image_No: 2, PSNR_L: 38.2943
+
+Image_No: 3, PSNR_L: 16.2348
+
+Image_No: 4, PSNR_L: 32.7921
 iteration: 159000
-Image_Num: 15, Average_psnr_u: 42.7891, Average_psnr_L: 41.1379
+Image_No: 0, PSNR_L: 14.8532
 
+Image_No: 1, PSNR_L: 7.0993
+
+Image_No: 2, PSNR_L: 39.9848
+
+Image_No: 3, PSNR_L: 16.2544
+
+Image_No: 4, PSNR_L: 33.6216
 iteration: 160000
-Image_Num: 15, Average_psnr_u: 42.9680, Average_psnr_L: 41.2182
+Image_No: 0, PSNR_L: 14.8532
 
+Image_No: 1, PSNR_L: 7.1171
+
+Image_No: 2, PSNR_L: 39.8847
+
+Image_No: 3, PSNR_L: 16.2638
+
+Image_No: 4, PSNR_L: 32.9464
 iteration: 161000
-Image_Num: 15, Average_psnr_u: 42.7594, Average_psnr_L: 41.1028
+Image_No: 0, PSNR_L: 14.8158
 
+Image_No: 1, PSNR_L: 7.1394
+
+Image_No: 2, PSNR_L: 38.1182
+
+Image_No: 3, PSNR_L: 16.2306
+
+Image_No: 4, PSNR_L: 32.6403
 iteration: 162000
-Image_Num: 15, Average_psnr_u: 42.4064, Average_psnr_L: 41.2268
+Image_No: 0, PSNR_L: 14.8016
 
+Image_No: 1, PSNR_L: 7.0555
+
+Image_No: 2, PSNR_L: 40.7715
+
+Image_No: 3, PSNR_L: 16.1564
+
+Image_No: 4, PSNR_L: 32.5351
 iteration: 163000
-Image_Num: 15, Average_psnr_u: 42.8986, Average_psnr_L: 41.0717
+Image_No: 0, PSNR_L: 14.9051
 
+Image_No: 1, PSNR_L: 7.1695
+
+Image_No: 2, PSNR_L: 38.7925
+
+Image_No: 3, PSNR_L: 16.3095
+
+Image_No: 4, PSNR_L: 32.6175
 iteration: 164000
-Image_Num: 15, Average_psnr_u: 43.1337, Average_psnr_L: 41.1834
+Image_No: 0, PSNR_L: 14.8103
 
+Image_No: 1, PSNR_L: 7.1559
+
+Image_No: 2, PSNR_L: 39.3713
+
+Image_No: 3, PSNR_L: 16.2926
+
+Image_No: 4, PSNR_L: 32.4429
 iteration: 165000
-Image_Num: 15, Average_psnr_u: 42.8423, Average_psnr_L: 41.2273
+Image_No: 0, PSNR_L: 14.8494
 
+Image_No: 1, PSNR_L: 7.1077
+
+Image_No: 2, PSNR_L: 40.1029
+
+Image_No: 3, PSNR_L: 16.3182
+
+Image_No: 4, PSNR_L: 32.4615
 iteration: 166000
-Image_Num: 15, Average_psnr_u: 43.0117, Average_psnr_L: 41.0743
+Image_No: 0, PSNR_L: 14.8536
 
+Image_No: 1, PSNR_L: 7.1395
+
+Image_No: 2, PSNR_L: 39.4929
+
+Image_No: 3, PSNR_L: 16.2420
+
+Image_No: 4, PSNR_L: 31.9348
 iteration: 167000
-Image_Num: 15, Average_psnr_u: 42.9854, Average_psnr_L: 41.1524
+Image_No: 0, PSNR_L: 14.8622
 
+Image_No: 1, PSNR_L: 7.1788
+
+Image_No: 2, PSNR_L: 38.8216
+
+Image_No: 3, PSNR_L: 16.2339
+
+Image_No: 4, PSNR_L: 32.8608
 iteration: 168000
-Image_Num: 15, Average_psnr_u: 43.0193, Average_psnr_L: 41.1314
+Image_No: 0, PSNR_L: 14.8546
 
+Image_No: 1, PSNR_L: 7.1675
+
+Image_No: 2, PSNR_L: 39.6468
+
+Image_No: 3, PSNR_L: 16.3342
+
+Image_No: 4, PSNR_L: 33.0575
 iteration: 169000
-Image_Num: 15, Average_psnr_u: 42.9043, Average_psnr_L: 41.0511
+Image_No: 0, PSNR_L: 14.8786
 
+Image_No: 1, PSNR_L: 7.1223
+
+Image_No: 2, PSNR_L: 39.2446
+
+Image_No: 3, PSNR_L: 16.2719
+
+Image_No: 4, PSNR_L: 32.8629
 iteration: 170000
-Image_Num: 15, Average_psnr_u: 42.9211, Average_psnr_L: 41.2835
+Image_No: 0, PSNR_L: 14.8894
 
+Image_No: 1, PSNR_L: 7.1809
+
+Image_No: 2, PSNR_L: 37.3633
+
+Image_No: 3, PSNR_L: 16.3806
+
+Image_No: 4, PSNR_L: 32.2282
 iteration: 171000
-Image_Num: 15, Average_psnr_u: 42.9483, Average_psnr_L: 41.1999
+Image_No: 0, PSNR_L: 14.8862
 
+Image_No: 1, PSNR_L: 7.1989
+
+Image_No: 2, PSNR_L: 39.0535
+
+Image_No: 3, PSNR_L: 16.3485
+
+Image_No: 4, PSNR_L: 32.6134
 iteration: 172000
-Image_Num: 15, Average_psnr_u: 42.9947, Average_psnr_L: 41.1344
+Image_No: 0, PSNR_L: 14.8858
 
+Image_No: 1, PSNR_L: 7.1604
+
+Image_No: 2, PSNR_L: 38.7742
+
+Image_No: 3, PSNR_L: 16.4528
+
+Image_No: 4, PSNR_L: 33.5091
 iteration: 173000
-Image_Num: 15, Average_psnr_u: 43.1329, Average_psnr_L: 41.2584
+Image_No: 0, PSNR_L: 14.8406
 
+Image_No: 1, PSNR_L: 7.1817
+
+Image_No: 2, PSNR_L: 39.1720
+
+Image_No: 3, PSNR_L: 16.2433
+
+Image_No: 4, PSNR_L: 31.4926
 iteration: 174000
-Image_Num: 15, Average_psnr_u: 42.9060, Average_psnr_L: 41.2797
+Image_No: 0, PSNR_L: 14.8708
 
+Image_No: 1, PSNR_L: 7.1465
+
+Image_No: 2, PSNR_L: 39.5779
+
+Image_No: 3, PSNR_L: 16.3553
+
+Image_No: 4, PSNR_L: 33.7670
 iteration: 175000
-Image_Num: 15, Average_psnr_u: 43.0659, Average_psnr_L: 41.1638
+Image_No: 0, PSNR_L: 14.8918
 
+Image_No: 1, PSNR_L: 7.1396
+
+Image_No: 2, PSNR_L: 39.0717
+
+Image_No: 3, PSNR_L: 16.3676
+
+Image_No: 4, PSNR_L: 32.7546
 iteration: 176000
-Image_Num: 15, Average_psnr_u: 42.6974, Average_psnr_L: 41.2657
+Image_No: 0, PSNR_L: 14.8368
 
+Image_No: 1, PSNR_L: 7.1626
+
+Image_No: 2, PSNR_L: 38.5661
+
+Image_No: 3, PSNR_L: 16.3012
+
+Image_No: 4, PSNR_L: 33.0103
 iteration: 177000
-Image_Num: 15, Average_psnr_u: 42.9906, Average_psnr_L: 41.1795
+Image_No: 0, PSNR_L: 14.8357
 
+Image_No: 1, PSNR_L: 7.1904
+
+Image_No: 2, PSNR_L: 38.7760
+
+Image_No: 3, PSNR_L: 16.2723
+
+Image_No: 4, PSNR_L: 33.0739
 iteration: 178000
-Image_Num: 15, Average_psnr_u: 42.8735, Average_psnr_L: 41.1988
+Image_No: 0, PSNR_L: 14.8424
 
+Image_No: 1, PSNR_L: 7.1643
+
+Image_No: 2, PSNR_L: 39.1064
+
+Image_No: 3, PSNR_L: 16.2732
+
+Image_No: 4, PSNR_L: 32.5650
 iteration: 179000
-Image_Num: 15, Average_psnr_u: 43.0512, Average_psnr_L: 41.2533
+Image_No: 0, PSNR_L: 14.8750
 
+Image_No: 1, PSNR_L: 7.1681
+
+Image_No: 2, PSNR_L: 37.8639
+
+Image_No: 3, PSNR_L: 16.3594
+
+Image_No: 4, PSNR_L: 32.3439
 iteration: 180000
-Image_Num: 15, Average_psnr_u: 43.0401, Average_psnr_L: 41.2336
+Image_No: 0, PSNR_L: 14.8464
 
+Image_No: 1, PSNR_L: 7.1182
+
+Image_No: 2, PSNR_L: 39.2067
+
+Image_No: 3, PSNR_L: 16.3483
+
+Image_No: 4, PSNR_L: 32.2015
 iteration: 181000
-Image_Num: 15, Average_psnr_u: 43.1705, Average_psnr_L: 41.3009
+Image_No: 0, PSNR_L: 14.8462
 
+Image_No: 1, PSNR_L: 7.1466
+
+Image_No: 2, PSNR_L: 38.9594
+
+Image_No: 3, PSNR_L: 16.2554
+
+Image_No: 4, PSNR_L: 32.8763
 iteration: 182000
-Image_Num: 15, Average_psnr_u: 43.1751, Average_psnr_L: 41.2424
+Image_No: 0, PSNR_L: 14.9166
 
+Image_No: 1, PSNR_L: 7.1294
+
+Image_No: 2, PSNR_L: 39.2588
+
+Image_No: 3, PSNR_L: 16.3108
+
+Image_No: 4, PSNR_L: 32.5425
 iteration: 183000
-Image_Num: 15, Average_psnr_u: 43.1346, Average_psnr_L: 41.1517
+Image_No: 0, PSNR_L: 14.8365
 
+Image_No: 1, PSNR_L: 7.1580
+
+Image_No: 2, PSNR_L: 38.6002
+
+Image_No: 3, PSNR_L: 16.2638
+
+Image_No: 4, PSNR_L: 32.5839
 iteration: 184000
-Image_Num: 15, Average_psnr_u: 42.8716, Average_psnr_L: 41.0956
+Image_No: 0, PSNR_L: 14.8371
 
+Image_No: 1, PSNR_L: 7.1306
+
+Image_No: 2, PSNR_L: 38.9232
+
+Image_No: 3, PSNR_L: 16.3452
+
+Image_No: 4, PSNR_L: 32.2619
 iteration: 185000
-Image_Num: 15, Average_psnr_u: 43.0458, Average_psnr_L: 41.1476
+Image_No: 0, PSNR_L: 14.8562
 
+Image_No: 1, PSNR_L: 7.1072
+
+Image_No: 2, PSNR_L: 39.5532
+
+Image_No: 3, PSNR_L: 16.3676
+
+Image_No: 4, PSNR_L: 32.6404
 iteration: 186000
-Image_Num: 15, Average_psnr_u: 43.0609, Average_psnr_L: 41.2004
+Image_No: 0, PSNR_L: 14.8288
 
+Image_No: 1, PSNR_L: 7.1659
+
+Image_No: 2, PSNR_L: 38.2641
+
+Image_No: 3, PSNR_L: 16.3962
+
+Image_No: 4, PSNR_L: 32.5278
 iteration: 187000
-Image_Num: 15, Average_psnr_u: 43.0774, Average_psnr_L: 41.1983
+Image_No: 0, PSNR_L: 14.9028
 
+Image_No: 1, PSNR_L: 7.1438
+
+Image_No: 2, PSNR_L: 39.6702
+
+Image_No: 3, PSNR_L: 16.3493
+
+Image_No: 4, PSNR_L: 32.5838
 iteration: 188000
-Image_Num: 15, Average_psnr_u: 42.7970, Average_psnr_L: 41.2292
+Image_No: 0, PSNR_L: 14.9024
 
+Image_No: 1, PSNR_L: 7.1925
+
+Image_No: 2, PSNR_L: 38.9083
+
+Image_No: 3, PSNR_L: 16.2777
+
+Image_No: 4, PSNR_L: 32.8706
 iteration: 189000
-Image_Num: 15, Average_psnr_u: 42.8504, Average_psnr_L: 41.1733
+Image_No: 0, PSNR_L: 14.8389
 
+Image_No: 1, PSNR_L: 7.1518
+
+Image_No: 2, PSNR_L: 39.3525
+
+Image_No: 3, PSNR_L: 16.3785
+
+Image_No: 4, PSNR_L: 32.8184
 iteration: 190000
-Image_Num: 15, Average_psnr_u: 42.5582, Average_psnr_L: 41.2861
+Image_No: 0, PSNR_L: 14.8252
 
+Image_No: 1, PSNR_L: 7.1464
+
+Image_No: 2, PSNR_L: 39.3572
+
+Image_No: 3, PSNR_L: 16.2711
+
+Image_No: 4, PSNR_L: 32.6547
 iteration: 191000
-Image_Num: 15, Average_psnr_u: 43.0065, Average_psnr_L: 41.2875
+Image_No: 0, PSNR_L: 14.9135
 
+Image_No: 1, PSNR_L: 7.1759
+
+Image_No: 2, PSNR_L: 38.7361
+
+Image_No: 3, PSNR_L: 16.3634
+
+Image_No: 4, PSNR_L: 32.8185
 iteration: 192000
-Image_Num: 15, Average_psnr_u: 43.1011, Average_psnr_L: 41.2642
+Image_No: 0, PSNR_L: 14.8476
 
+Image_No: 1, PSNR_L: 7.1466
+
+Image_No: 2, PSNR_L: 39.9010
+
+Image_No: 3, PSNR_L: 16.3004
+
+Image_No: 4, PSNR_L: 32.7825
 iteration: 193000
-Image_Num: 15, Average_psnr_u: 42.9761, Average_psnr_L: 40.9959
+Image_No: 0, PSNR_L: 14.8864
 
+Image_No: 1, PSNR_L: 7.1726
+
+Image_No: 2, PSNR_L: 39.3726
+
+Image_No: 3, PSNR_L: 16.3737
+
+Image_No: 4, PSNR_L: 32.5074
 iteration: 194000
-Image_Num: 15, Average_psnr_u: 42.9927, Average_psnr_L: 41.2735
+Image_No: 0, PSNR_L: 14.8637
 
+Image_No: 1, PSNR_L: 7.1833
+
+Image_No: 2, PSNR_L: 39.3045
+
+Image_No: 3, PSNR_L: 16.3201
+
+Image_No: 4, PSNR_L: 32.9007
 iteration: 195000
-Image_Num: 15, Average_psnr_u: 42.7653, Average_psnr_L: 41.2411
+Image_No: 0, PSNR_L: 14.8677
 
+Image_No: 1, PSNR_L: 7.1965
+
+Image_No: 2, PSNR_L: 38.6729
+
+Image_No: 3, PSNR_L: 16.3520
+
+Image_No: 4, PSNR_L: 32.5627
 iteration: 196000
-Image_Num: 15, Average_psnr_u: 43.0469, Average_psnr_L: 41.3241
+Image_No: 0, PSNR_L: 14.8415
 
+Image_No: 1, PSNR_L: 7.1604
+
+Image_No: 2, PSNR_L: 38.6664
+
+Image_No: 3, PSNR_L: 16.3159
+
+Image_No: 4, PSNR_L: 32.7570
 iteration: 197000
-Image_Num: 15, Average_psnr_u: 43.1748, Average_psnr_L: 41.2664
+Image_No: 0, PSNR_L: 14.8400
 
+Image_No: 1, PSNR_L: 7.1449
+
+Image_No: 2, PSNR_L: 39.0400
+
+Image_No: 3, PSNR_L: 16.2963
+
+Image_No: 4, PSNR_L: 33.1013
 iteration: 198000
-Image_Num: 15, Average_psnr_u: 42.8039, Average_psnr_L: 41.2266
+Image_No: 0, PSNR_L: 14.8356
 
+Image_No: 1, PSNR_L: 7.1506
+
+Image_No: 2, PSNR_L: 38.9185
+
+Image_No: 3, PSNR_L: 16.2766
+
+Image_No: 4, PSNR_L: 32.9999
 iteration: 199000
-Image_Num: 15, Average_psnr_u: 42.8184, Average_psnr_L: 41.0546
+Image_No: 0, PSNR_L: 14.8389
 
+Image_No: 1, PSNR_L: 7.1651
+
+Image_No: 2, PSNR_L: 38.3701
+
+Image_No: 3, PSNR_L: 16.3032
+
+Image_No: 4, PSNR_L: 32.6474
 iteration: 200000
-Image_Num: 15, Average_psnr_u: 43.0848, Average_psnr_L: 41.1356
+Image_No: 0, PSNR_L: 14.8371
 
+Image_No: 1, PSNR_L: 7.1429
+
+Image_No: 2, PSNR_L: 39.2409
+
+Image_No: 3, PSNR_L: 16.2837
+
+Image_No: 4, PSNR_L: 32.3312
 iteration: 201000
-Image_Num: 15, Average_psnr_u: 43.1065, Average_psnr_L: 41.2778
+Image_No: 0, PSNR_L: 14.8314
 
+Image_No: 1, PSNR_L: 7.1411
+
+Image_No: 2, PSNR_L: 38.7758
+
+Image_No: 3, PSNR_L: 16.3389
+
+Image_No: 4, PSNR_L: 32.3379
 iteration: 202000
-Image_Num: 15, Average_psnr_u: 42.9789, Average_psnr_L: 41.1689
+Image_No: 0, PSNR_L: 14.8566
 
+Image_No: 1, PSNR_L: 7.1512
+
+Image_No: 2, PSNR_L: 38.8686
+
+Image_No: 3, PSNR_L: 16.3428
+
+Image_No: 4, PSNR_L: 32.8347
 iteration: 203000
-Image_Num: 15, Average_psnr_u: 43.0157, Average_psnr_L: 41.2681
+Image_No: 0, PSNR_L: 14.8477
 
-iteration: 204000
-Image_Num: 15, Average_psnr_u: 43.0134, Average_psnr_L: 41.1322
+Image_No: 1, PSNR_L: 7.1212
 
-iteration: 205000
-Image_Num: 15, Average_psnr_u: 43.0217, Average_psnr_L: 41.2363
+Image_No: 2, PSNR_L: 39.4609
 
-iteration: 206000
-Image_Num: 15, Average_psnr_u: 43.0100, Average_psnr_L: 41.2024
+Image_No: 3, PSNR_L: 16.3666
 
-iteration: 207000
-Image_Num: 15, Average_psnr_u: 43.0260, Average_psnr_L: 41.2306
-
-iteration: 208000
-Image_Num: 15, Average_psnr_u: 43.0072, Average_psnr_L: 41.1596
-
-iteration: 209000
-Image_Num: 15, Average_psnr_u: 43.0628, Average_psnr_L: 41.3025
-
-iteration: 210000
-Image_Num: 15, Average_psnr_u: 43.1742, Average_psnr_L: 41.1831
-
-iteration: 211000
-Image_Num: 15, Average_psnr_u: 43.1657, Average_psnr_L: 41.2343
-
-iteration: 212000
-Image_Num: 15, Average_psnr_u: 42.9073, Average_psnr_L: 41.1643
-
-iteration: 213000
-Image_Num: 15, Average_psnr_u: 43.0528, Average_psnr_L: 41.3010
-
-iteration: 214000
-Image_Num: 15, Average_psnr_u: 43.1268, Average_psnr_L: 41.2902
-
-iteration: 215000
-Image_Num: 15, Average_psnr_u: 43.0374, Average_psnr_L: 41.3411
-
-iteration: 216000
-Image_Num: 15, Average_psnr_u: 43.1716, Average_psnr_L: 41.2567
-
-iteration: 217000
-Image_Num: 15, Average_psnr_u: 43.0986, Average_psnr_L: 41.1891
-
-iteration: 218000
-Image_Num: 15, Average_psnr_u: 42.9384, Average_psnr_L: 41.2191
-
-iteration: 219000
-Image_Num: 15, Average_psnr_u: 43.0798, Average_psnr_L: 41.1718
-
-iteration: 220000
-Image_Num: 15, Average_psnr_u: 43.1696, Average_psnr_L: 41.2273
-
-iteration: 221000
-Image_Num: 15, Average_psnr_u: 43.0907, Average_psnr_L: 41.2150
-
-iteration: 222000
-Image_Num: 15, Average_psnr_u: 43.1201, Average_psnr_L: 41.2377
-
-iteration: 223000
-Image_Num: 15, Average_psnr_u: 43.0811, Average_psnr_L: 41.1867
-
-iteration: 224000
-Image_Num: 15, Average_psnr_u: 43.1073, Average_psnr_L: 41.1431
-
-iteration: 225000
-Image_Num: 15, Average_psnr_u: 43.0996, Average_psnr_L: 41.2031
-
-iteration: 226000
-Image_Num: 15, Average_psnr_u: 43.0496, Average_psnr_L: 41.1941
-
-iteration: 227000
-Image_Num: 15, Average_psnr_u: 43.0562, Average_psnr_L: 41.2390
-
-iteration: 228000
-Image_Num: 15, Average_psnr_u: 43.0389, Average_psnr_L: 41.2435
-
-iteration: 229000
-Image_Num: 15, Average_psnr_u: 43.0761, Average_psnr_L: 41.2803
-
-iteration: 230000
-Image_Num: 15, Average_psnr_u: 43.1574, Average_psnr_L: 41.2590
-
-iteration: 231000
-Image_Num: 15, Average_psnr_u: 43.1051, Average_psnr_L: 41.2208
-
-iteration: 232000
-Image_Num: 15, Average_psnr_u: 43.1010, Average_psnr_L: 41.1551
-
-iteration: 233000
-Image_Num: 15, Average_psnr_u: 43.0495, Average_psnr_L: 41.3003
-
-iteration: 234000
-Image_Num: 15, Average_psnr_u: 42.9202, Average_psnr_L: 41.1856
-
-iteration: 235000
-Image_Num: 15, Average_psnr_u: 43.1369, Average_psnr_L: 41.2145
-
-iteration: 236000
-Image_Num: 15, Average_psnr_u: 43.1444, Average_psnr_L: 41.2314
-
-iteration: 237000
-Image_Num: 15, Average_psnr_u: 42.9246, Average_psnr_L: 41.0614
-
-iteration: 238000
-Image_Num: 15, Average_psnr_u: 43.1448, Average_psnr_L: 41.2762
-
-iteration: 239000
-Image_Num: 15, Average_psnr_u: 43.1985, Average_psnr_L: 41.2448
-
-iteration: 240000
-Image_Num: 15, Average_psnr_u: 43.1342, Average_psnr_L: 41.2223
-
-iteration: 241000
-Image_Num: 15, Average_psnr_u: 43.1322, Average_psnr_L: 41.1904
-
-iteration: 242000
-Image_Num: 15, Average_psnr_u: 43.0306, Average_psnr_L: 41.2004
-
-iteration: 243000
-Image_Num: 15, Average_psnr_u: 43.1113, Average_psnr_L: 41.2804
-
-iteration: 244000
-Image_Num: 15, Average_psnr_u: 43.0627, Average_psnr_L: 41.3245
-
-iteration: 245000
-Image_Num: 15, Average_psnr_u: 43.1100, Average_psnr_L: 41.1763
-
-iteration: 246000
-Image_Num: 15, Average_psnr_u: 43.2592, Average_psnr_L: 41.2876
-
-iteration: 247000
-Image_Num: 15, Average_psnr_u: 43.1603, Average_psnr_L: 41.2629
-
-iteration: 248000
-Image_Num: 15, Average_psnr_u: 43.0738, Average_psnr_L: 41.1427
-
-iteration: 249000
-Image_Num: 15, Average_psnr_u: 43.1160, Average_psnr_L: 41.2334
-
-iteration: 250000
-Image_Num: 15, Average_psnr_u: 43.2531, Average_psnr_L: 41.3159
-
-iteration: 251000
-Image_Num: 15, Average_psnr_u: 43.1164, Average_psnr_L: 41.2305
-
-iteration: 252000
-Image_Num: 15, Average_psnr_u: 43.1223, Average_psnr_L: 41.2538
-
-iteration: 253000
-Image_Num: 15, Average_psnr_u: 43.1951, Average_psnr_L: 41.2749
-
-iteration: 254000
-Image_Num: 15, Average_psnr_u: 43.1384, Average_psnr_L: 41.2521
-
-iteration: 255000
-Image_Num: 15, Average_psnr_u: 43.0839, Average_psnr_L: 41.2075
-
-iteration: 256000
-Image_Num: 15, Average_psnr_u: 43.2049, Average_psnr_L: 41.3329
-
-iteration: 257000
-Image_Num: 15, Average_psnr_u: 43.1555, Average_psnr_L: 41.3364
-
-iteration: 258000
-Image_Num: 15, Average_psnr_u: 43.1692, Average_psnr_L: 41.2465
-
-iteration: 259000
-Image_Num: 15, Average_psnr_u: 43.1909, Average_psnr_L: 41.2523
-
-iteration: 260000
-Image_Num: 15, Average_psnr_u: 43.1388, Average_psnr_L: 41.2553
-
-iteration: 261000
-Image_Num: 15, Average_psnr_u: 43.1212, Average_psnr_L: 41.2240
-
-iteration: 262000
-Image_Num: 15, Average_psnr_u: 43.1946, Average_psnr_L: 41.2833
-
-iteration: 263000
-Image_Num: 15, Average_psnr_u: 43.1294, Average_psnr_L: 41.3015
-
-iteration: 264000
-Image_Num: 15, Average_psnr_u: 43.1460, Average_psnr_L: 41.2728
-
-iteration: 265000
-Image_Num: 15, Average_psnr_u: 43.1759, Average_psnr_L: 41.2700
-
-iteration: 266000
-Image_Num: 15, Average_psnr_u: 43.1920, Average_psnr_L: 41.3091
-
-iteration: 267000
-Image_Num: 15, Average_psnr_u: 43.1350, Average_psnr_L: 41.2107
-
-iteration: 268000
-Image_Num: 15, Average_psnr_u: 43.1437, Average_psnr_L: 41.3461
-
-iteration: 269000
-Image_Num: 15, Average_psnr_u: 43.1886, Average_psnr_L: 41.3175
-
-iteration: 270000
-Image_Num: 15, Average_psnr_u: 43.1220, Average_psnr_L: 41.2629
-
-iteration: 271000
-Image_Num: 15, Average_psnr_u: 43.1894, Average_psnr_L: 41.2710
-
-iteration: 272000
-Image_Num: 15, Average_psnr_u: 43.1249, Average_psnr_L: 41.2625
-
-iteration: 273000
-Image_Num: 15, Average_psnr_u: 43.1581, Average_psnr_L: 41.2538
-
-iteration: 274000
-Image_Num: 15, Average_psnr_u: 43.1419, Average_psnr_L: 41.2828
-
-iteration: 275000
-Image_Num: 15, Average_psnr_u: 43.2394, Average_psnr_L: 41.3333
-
-iteration: 276000
-Image_Num: 15, Average_psnr_u: 43.1721, Average_psnr_L: 41.1601
-
-iteration: 277000
-Image_Num: 15, Average_psnr_u: 43.1566, Average_psnr_L: 41.2937
-
-iteration: 278000
-Image_Num: 15, Average_psnr_u: 43.1689, Average_psnr_L: 41.1951
-
-iteration: 279000
-Image_Num: 15, Average_psnr_u: 43.1852, Average_psnr_L: 41.2563
-
-iteration: 280000
-Image_Num: 15, Average_psnr_u: 43.1452, Average_psnr_L: 41.2212
-
-iteration: 281000
-Image_Num: 15, Average_psnr_u: 43.1464, Average_psnr_L: 41.1860
-
-iteration: 282000
-Image_Num: 15, Average_psnr_u: 43.2371, Average_psnr_L: 41.3076
-
-iteration: 283000
-Image_Num: 15, Average_psnr_u: 43.1743, Average_psnr_L: 41.2711
-
-iteration: 284000
-Image_Num: 15, Average_psnr_u: 43.1681, Average_psnr_L: 41.2298
-
-iteration: 285000
-Image_Num: 15, Average_psnr_u: 43.2049, Average_psnr_L: 41.3051
-
-iteration: 286000
-Image_Num: 15, Average_psnr_u: 43.0642, Average_psnr_L: 41.2710
-
-iteration: 287000
-Image_Num: 15, Average_psnr_u: 43.1728, Average_psnr_L: 41.2575
-
-iteration: 288000
-Image_Num: 15, Average_psnr_u: 43.2246, Average_psnr_L: 41.2300
-
-iteration: 289000
-Image_Num: 15, Average_psnr_u: 43.1182, Average_psnr_L: 41.1735
-
-iteration: 290000
-Image_Num: 15, Average_psnr_u: 43.1413, Average_psnr_L: 41.2305
-
-iteration: 291000
-Image_Num: 15, Average_psnr_u: 43.2035, Average_psnr_L: 41.2404
-
-iteration: 292000
-Image_Num: 15, Average_psnr_u: 43.2119, Average_psnr_L: 41.3222
-
-iteration: 293000
-Image_Num: 15, Average_psnr_u: 43.1513, Average_psnr_L: 41.2618
-
-iteration: 294000
-Image_Num: 15, Average_psnr_u: 43.2112, Average_psnr_L: 41.2474
-
-iteration: 295000
-Image_Num: 15, Average_psnr_u: 43.1292, Average_psnr_L: 41.2139
-
-iteration: 296000
-Image_Num: 15, Average_psnr_u: 43.0555, Average_psnr_L: 41.2424
-
-iteration: 297000
-Image_Num: 15, Average_psnr_u: 43.1460, Average_psnr_L: 41.2151
-
-iteration: 298000
-Image_Num: 15, Average_psnr_u: 43.2020, Average_psnr_L: 41.2356
-
-iteration: 299000
-Image_Num: 15, Average_psnr_u: 43.2287, Average_psnr_L: 41.2791
-
-iteration: 300000
-Image_Num: 15, Average_psnr_u: 43.2543, Average_psnr_L: 41.3084
-
-iteration: 301000
-Image_Num: 15, Average_psnr_u: 43.2112, Average_psnr_L: 41.2211
-
-iteration: 302000
-Image_Num: 15, Average_psnr_u: 43.1886, Average_psnr_L: 41.2714
-
-iteration: 303000
-Image_Num: 15, Average_psnr_u: 43.2007, Average_psnr_L: 41.2600
-
-iteration: 304000
-Image_Num: 15, Average_psnr_u: 43.1801, Average_psnr_L: 41.2454
-
-iteration: 305000
-Image_Num: 15, Average_psnr_u: 43.1752, Average_psnr_L: 41.2471
-
-iteration: 306000
-Image_Num: 15, Average_psnr_u: 43.1507, Average_psnr_L: 41.2409
-
-iteration: 307000
-Image_Num: 15, Average_psnr_u: 43.1521, Average_psnr_L: 41.2416
-
-iteration: 308000
-Image_Num: 15, Average_psnr_u: 43.1912, Average_psnr_L: 41.2580
-
-iteration: 309000
-Image_Num: 15, Average_psnr_u: 43.1797, Average_psnr_L: 41.3005
-
-iteration: 310000
-Image_Num: 15, Average_psnr_u: 43.2136, Average_psnr_L: 41.3329
-
-iteration: 311000
-Image_Num: 15, Average_psnr_u: 43.2231, Average_psnr_L: 41.2620
-
-iteration: 312000
-Image_Num: 15, Average_psnr_u: 43.1908, Average_psnr_L: 41.2881
-
-iteration: 313000
-Image_Num: 15, Average_psnr_u: 43.1575, Average_psnr_L: 41.2072
-
-iteration: 314000
-Image_Num: 15, Average_psnr_u: 43.1881, Average_psnr_L: 41.2135
-
-iteration: 315000
-Image_Num: 15, Average_psnr_u: 43.1898, Average_psnr_L: 41.3019
-
-iteration: 316000
-Image_Num: 15, Average_psnr_u: 43.1476, Average_psnr_L: 41.2536
-
-iteration: 317000
-Image_Num: 15, Average_psnr_u: 43.2614, Average_psnr_L: 41.2939
-
-iteration: 318000
-Image_Num: 15, Average_psnr_u: 43.1733, Average_psnr_L: 41.2831
-
-iteration: 319000
-Image_Num: 15, Average_psnr_u: 43.1565, Average_psnr_L: 41.3084
-
-iteration: 320000
-Image_Num: 15, Average_psnr_u: 43.2418, Average_psnr_L: 41.2833
-
-iteration: 321000
-Image_Num: 15, Average_psnr_u: 43.1773, Average_psnr_L: 41.2588
-
-iteration: 322000
-Image_Num: 15, Average_psnr_u: 43.1810, Average_psnr_L: 41.2865
-
-iteration: 323000
-Image_Num: 15, Average_psnr_u: 43.1510, Average_psnr_L: 41.1996
-
-iteration: 324000
-Image_Num: 15, Average_psnr_u: 43.1809, Average_psnr_L: 41.2986
-
-iteration: 325000
-Image_Num: 15, Average_psnr_u: 43.1876, Average_psnr_L: 41.2186
-
-iteration: 326000
-Image_Num: 15, Average_psnr_u: 43.2229, Average_psnr_L: 41.2747
-
-iteration: 327000
-Image_Num: 15, Average_psnr_u: 43.2367, Average_psnr_L: 41.2916
-
-iteration: 328000
-Image_Num: 15, Average_psnr_u: 43.1861, Average_psnr_L: 41.2624
-
-iteration: 329000
-Image_Num: 15, Average_psnr_u: 43.2001, Average_psnr_L: 41.2408
-
-iteration: 330000
-Image_Num: 15, Average_psnr_u: 43.2023, Average_psnr_L: 41.2690
-
-iteration: 331000
-Image_Num: 15, Average_psnr_u: 43.2149, Average_psnr_L: 41.2803
-
-iteration: 332000
-Image_Num: 15, Average_psnr_u: 43.2397, Average_psnr_L: 41.2987
-
-iteration: 333000
-Image_Num: 15, Average_psnr_u: 43.2168, Average_psnr_L: 41.2621
-
-iteration: 334000
-Image_Num: 15, Average_psnr_u: 43.1994, Average_psnr_L: 41.2741
-
-iteration: 335000
-Image_Num: 15, Average_psnr_u: 43.1850, Average_psnr_L: 41.2735
-
-iteration: 336000
-Image_Num: 15, Average_psnr_u: 43.2087, Average_psnr_L: 41.2675
-
-iteration: 337000
-Image_Num: 15, Average_psnr_u: 43.1914, Average_psnr_L: 41.2704
-
-iteration: 338000
-Image_Num: 15, Average_psnr_u: 43.1936, Average_psnr_L: 41.3008
-
-iteration: 339000
-Image_Num: 15, Average_psnr_u: 43.2218, Average_psnr_L: 41.2605
-
-iteration: 340000
-Image_Num: 15, Average_psnr_u: 43.2090, Average_psnr_L: 41.2766
-
-iteration: 341000
-Image_Num: 15, Average_psnr_u: 43.2221, Average_psnr_L: 41.2803
-
-iteration: 342000
-Image_Num: 15, Average_psnr_u: 43.2224, Average_psnr_L: 41.2957
-
-iteration: 343000
-Image_Num: 15, Average_psnr_u: 43.2047, Average_psnr_L: 41.2646
-
-iteration: 344000
-Image_Num: 15, Average_psnr_u: 43.1734, Average_psnr_L: 41.2551
-
-iteration: 345000
-Image_Num: 15, Average_psnr_u: 43.2092, Average_psnr_L: 41.2728
-
-iteration: 346000
-Image_Num: 15, Average_psnr_u: 43.2093, Average_psnr_L: 41.2704
-
-iteration: 347000
-Image_Num: 15, Average_psnr_u: 43.2000, Average_psnr_L: 41.2983
-
-iteration: 348000
-Image_Num: 15, Average_psnr_u: 43.2216, Average_psnr_L: 41.2494
-
-iteration: 349000
-Image_Num: 15, Average_psnr_u: 43.2274, Average_psnr_L: 41.3098
-
-iteration: 350000
-Image_Num: 15, Average_psnr_u: 43.2112, Average_psnr_L: 41.2597
-
-iteration: 351000
-Image_Num: 15, Average_psnr_u: 43.2116, Average_psnr_L: 41.2971
-
-iteration: 352000
-Image_Num: 15, Average_psnr_u: 43.2419, Average_psnr_L: 41.2753
-
-iteration: 353000
-Image_Num: 15, Average_psnr_u: 43.2081, Average_psnr_L: 41.2509
-
-iteration: 354000
-Image_Num: 15, Average_psnr_u: 43.1995, Average_psnr_L: 41.2209
-
-iteration: 355000
-Image_Num: 15, Average_psnr_u: 43.2105, Average_psnr_L: 41.2773
-
-iteration: 356000
-Image_Num: 15, Average_psnr_u: 43.2270, Average_psnr_L: 41.2752
-
-iteration: 357000
-Image_Num: 15, Average_psnr_u: 43.2209, Average_psnr_L: 41.2708
-
-iteration: 358000
-Image_Num: 15, Average_psnr_u: 43.2485, Average_psnr_L: 41.3077
-
-iteration: 359000
-Image_Num: 15, Average_psnr_u: 43.2333, Average_psnr_L: 41.2827
-
-iteration: 360000
-Image_Num: 15, Average_psnr_u: 43.2310, Average_psnr_L: 41.2650
-
-iteration: 361000
-Image_Num: 15, Average_psnr_u: 43.2054, Average_psnr_L: 41.2789
-
-iteration: 362000
-Image_Num: 15, Average_psnr_u: 43.2243, Average_psnr_L: 41.2810
-
-iteration: 363000
-Image_Num: 15, Average_psnr_u: 43.1885, Average_psnr_L: 41.2499
-
-iteration: 364000
-Image_Num: 15, Average_psnr_u: 43.2265, Average_psnr_L: 41.2821
-
-iteration: 365000
-Image_Num: 15, Average_psnr_u: 43.2399, Average_psnr_L: 41.2931
-
-iteration: 366000
-Image_Num: 15, Average_psnr_u: 43.2444, Average_psnr_L: 41.3011
-
-iteration: 367000
-Image_Num: 15, Average_psnr_u: 43.2446, Average_psnr_L: 41.2874
-
-iteration: 368000
-Image_Num: 15, Average_psnr_u: 43.2181, Average_psnr_L: 41.2768
-
-iteration: 369000
-Image_Num: 15, Average_psnr_u: 43.2026, Average_psnr_L: 41.2400
-
-iteration: 370000
-Image_Num: 15, Average_psnr_u: 43.2134, Average_psnr_L: 41.2571
-
-iteration: 371000
-Image_Num: 15, Average_psnr_u: 43.2108, Average_psnr_L: 41.2773
-
-iteration: 372000
-Image_Num: 15, Average_psnr_u: 43.2320, Average_psnr_L: 41.2841
-
-iteration: 373000
-Image_Num: 15, Average_psnr_u: 43.2374, Average_psnr_L: 41.2598
-
-iteration: 374000
-Image_Num: 15, Average_psnr_u: 43.2007, Average_psnr_L: 41.2515
-
-iteration: 375000
-Image_Num: 15, Average_psnr_u: 43.2109, Average_psnr_L: 41.2516
-
-iteration: 376000
-Image_Num: 15, Average_psnr_u: 43.1891, Average_psnr_L: 41.2254
-
-iteration: 377000
-Image_Num: 15, Average_psnr_u: 43.2053, Average_psnr_L: 41.2772
-
-iteration: 378000
-Image_Num: 15, Average_psnr_u: 43.2222, Average_psnr_L: 41.2876
-
-iteration: 379000
-Image_Num: 15, Average_psnr_u: 43.2287, Average_psnr_L: 41.2957
-
-iteration: 380000
-Image_Num: 15, Average_psnr_u: 43.2072, Average_psnr_L: 41.2792
-
-iteration: 381000
-Image_Num: 15, Average_psnr_u: 43.2130, Average_psnr_L: 41.2790
-
-iteration: 382000
-Image_Num: 15, Average_psnr_u: 43.1934, Average_psnr_L: 41.2647
-
-iteration: 383000
-Image_Num: 15, Average_psnr_u: 43.2300, Average_psnr_L: 41.2741
-
-iteration: 384000
-Image_Num: 15, Average_psnr_u: 43.2278, Average_psnr_L: 41.2744
-
-iteration: 385000
-Image_Num: 15, Average_psnr_u: 43.2461, Average_psnr_L: 41.2939
-
-iteration: 386000
-Image_Num: 15, Average_psnr_u: 43.2355, Average_psnr_L: 41.2899
-
-iteration: 387000
-Image_Num: 15, Average_psnr_u: 43.2011, Average_psnr_L: 41.2474
-
-iteration: 388000
-Image_Num: 15, Average_psnr_u: 43.2306, Average_psnr_L: 41.2653
-
-iteration: 389000
-Image_Num: 15, Average_psnr_u: 43.2227, Average_psnr_L: 41.2696
-
-iteration: 390000
-Image_Num: 15, Average_psnr_u: 43.2103, Average_psnr_L: 41.2728
-
-iteration: 391000
-Image_Num: 15, Average_psnr_u: 43.2124, Average_psnr_L: 41.2693
-
+Image_No: 4, PSNR_L: 32.6267

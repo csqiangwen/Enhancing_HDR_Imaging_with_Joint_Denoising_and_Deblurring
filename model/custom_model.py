@@ -17,6 +17,8 @@ import torchvision
 import numpy as np
 import lpips
 import os
+import random
+import time
 
 # loss_fn_alex = lpips.LPIPS(net='alex').cuda()
 
@@ -45,8 +47,7 @@ class HDRNet(BaseModel):
             # For tensorboardX
             self.writer = SummaryWriter()
             # load/define networks
-            self.netG = networks.define_G(in_channel=6).to(self.device)
-            self.netD = networks.define_D(in_channel=3).to(self.device)
+            self.netG = networks.define_G(in_channel=3).to(self.device)
 
             # define loss functions
             self.criterionL1 = torch.nn.L1Loss()
@@ -55,34 +56,31 @@ class HDRNet(BaseModel):
             self.criterionBCE = torch.nn.BCEWithLogitsLoss()
             self.criterionTV = model_util.TVLoss()
             self.criterionVGG = VGGLoss()
+            self.imgGRAD = model_util.ImageGradient().cuda()
+            self.imgSmoothing = model_util.ImageSmoothing().cuda()
             # initialize optimizers
             self.optimizer_G = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
-            self.optimizer_D = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
             self.networks = []
             self.optimizers = []
             self.schedulers = []
             self.networks.append(self.netG)
-            self.networks.append(self.netD)
             self.optimizers.append(self.optimizer_G)
-            self.optimizers.append(self.optimizer_D)
             for optimizer in self.optimizers:
                 self.schedulers.append(networks.get_scheduler(optimizer, opt))
                 
             if opt.continue_train:
                 which_iter = opt.which_iter
                 self.load_states(self.netG, self.optimizer_G, self.schedulers[0], 'G', which_iter)
-                self.load_states(self.netD, self.optimizer_D, self.schedulers[1], 'D', which_iter)
                 
             if len(self.gpu_ids) > 0:
-                self.netG = DataParallel(self.netG)
-                self.netD = DataParallel(self.netD)
+                # self.netG = DataParallel(self.netG)
+                pass
                 
             self.netG.train()
-            self.netD.train()
         
         if not self.isTrain:
             # load/define networks
-            self.netG = networks.define_G(in_channel=6)
+            self.netG = networks.define_G(in_channel=3)
 
             which_iter = opt.which_iter
             self.load_states_simple(self.netG, 'G', which_iter)
@@ -124,54 +122,58 @@ class HDRNet(BaseModel):
         self.DLoss = DLoss.item()
         return
 
+    def random_crop(self, input, size):
+        _, _, h, w = input.shape
+        x, y = random.randint(0, h-size), random.randint(0, w-size)
+        return input[:, :, x:x+size, y:y+size], x, y
 
-    def img_optimize_parameters(self, iteration):
+    def crop(self, input, coords, size):
+        return input[:, :, coords[0]:coords[0]+size, coords[1]:coords[1]+size]
+
+
+    def img_optimize_parameters(self, iteration, data_type):
 
         ### input shape [B, C, H, W]
         B, C, H, W = self.img_sample['s_HDR'].shape
 
         self.optimizer_G.zero_grad()
+
+        fake_HDR = self.netG([self.img_sample['s_LDR'],
+                              self.img_sample['m_LDR'],
+                              self.img_sample['l_LDR']])
         
-        fake_HDR, small_outputs = self.netG([torch.cat([self.img_sample['s_LDR'], self.img_sample['s_HDR']], dim=1),
-                                             torch.cat([self.img_sample['m_LDR'], self.img_sample['m_HDR'],
-                                                        self.img_sample['bright_c'], self.img_sample['dark_c']], dim=1),
-                                             torch.cat([self.img_sample['l_LDR'], self.img_sample['l_HDR']], dim=1)])
 
-        fake_HDR_tm = hdr_util.tonemap(fake_HDR)
-        GT_HDR_tm = hdr_util.tonemap(self.img_sample['GT_HDR'])
+        if data_type == 'static':
+            Loss_VGG = self.criterionVGG(fake_HDR, self.img_sample['GT_HDR'])
+            Loss_L1 = self.criterionL1(fake_HDR, self.img_sample['GT_HDR'])
+            fake_grad = self.imgGRAD(fake_HDR)
+            real_grad = self.imgGRAD(self.img_sample['GT_HDR'])
+            Loss_GRAD = self.criterionL2(fake_grad, real_grad) * 10
+        else:
+            Loss_VGG = self.criterionVGG(self.imgSmoothing(fake_HDR), self.imgSmoothing(self.img_sample['GT_HDR']))
+            Loss_GRAD = Loss_VGG * 0
+            Loss_L1 = Loss_GRAD
         
-        # self.D_optim(fake_HDR_tm, GT_HDR_tm)
-        # self.set_requires_grad([self.netD], False)
-        # Loss_GAN = self.criterionGAN(self.netD(fake_HDR_tm), True)
-
-        Loss_L1 = self.criterionL1(fake_HDR, self.img_sample['GT_HDR']) * 10
-
-        Loss_GAN = Loss_L1 * 0
-        self.DLoss = Loss_L1 * 0
-
-        Loss_VGG_tm = self.criterionVGG(fake_HDR_tm, GT_HDR_tm) * 10
+        # Loss_VGG_tm = self.criterionVGG(fake_HDR_tm, GT_HDR_tm) * 10
         
-        Loss_small = (self.criterionL2(small_outputs[0][:, 0], F.interpolate(self.img_sample['s_HDR'], scale_factor=0.25)) +\
-                      self.criterionL2(small_outputs[1][:, 0], F.interpolate(self.img_sample['GT_HDR'], scale_factor=0.25)) +\
-                      self.criterionL2(small_outputs[2][:, 0], F.interpolate(self.img_sample['l_HDR'], scale_factor=0.25))) * 5
+        # Loss_small = (self.criterionL1(small_outputs[0][:, 0], F.interpolate(self.img_sample['s_HDR'], scale_factor=0.25)) +\
+        #               self.criterionL1(small_outputs[1][:, 0], F.interpolate(self.img_sample['GT_HDR'], scale_factor=0.25)) +\
+        #               self.criterionL1(small_outputs[2][:, 0], F.interpolate(self.img_sample['l_HDR'], scale_factor=0.25))) * 5
         
-        whole_loss = Loss_L1 + Loss_VGG_tm + Loss_small# + Loss_GAN
+        whole_loss = Loss_VGG + Loss_GRAD + Loss_L1
 
-        self.writer.add_scalar("Image/Loss_GAN", Loss_GAN, iteration)
+        self.writer.add_scalar("Image/Loss_VGG", Loss_VGG, iteration)
+        self.writer.add_scalar("Image/Loss_GRAD", Loss_GRAD, iteration)
         self.writer.add_scalar("Image/Loss_L1", Loss_L1, iteration)
-        self.writer.add_scalar("Image/Loss_VGG_tm", Loss_VGG_tm, iteration)
-        self.writer.add_scalar("Image/Loss_small", Loss_small, iteration)
-        self.writer.add_scalar("Image/DLoss", self.DLoss, iteration)
         
         whole_loss.backward()
         torch.nn.utils.clip_grad_norm(self.netG.parameters(), 10)
         self.optimizer_G.step()
 
         self.whole_loss = whole_loss.item()
-        self.Loss_GAN = Loss_GAN.item()
+        self.Loss_VGG = Loss_VGG.item()
+        self.Loss_GRAD = Loss_GRAD.item()
         self.Loss_L1 = Loss_L1.item()
-        self.Loss_VGG_tm = Loss_VGG_tm.item()
-        self.Loss_small = Loss_small.item()
 
         self.m_LDR = self.img_sample['m_LDR']
         self.s_LDR = self.img_sample['s_LDR']
@@ -179,19 +181,17 @@ class HDRNet(BaseModel):
         self.GT_HDR_tm = hdr_util.tonemap(self.img_sample['GT_HDR'])
         self.fake_HDR_tm = hdr_util.tonemap(fake_HDR.detach())
 
-        self.img_psnr_u = compute_psnr(np.asarray(self.fake_HDR_tm[0].cpu()), np.asarray(self.GT_HDR_tm[0].cpu()))
+        self.img_psnr_L = compute_psnr(np.asarray(fake_HDR[0].detach().cpu()), np.asarray(self.img_sample['GT_HDR'].cpu()))
 
-        self.writer.add_scalar("Image/PSNR_u", self.img_psnr_u, iteration)
+        self.writer.add_scalar("Image/PSNR_L", self.img_psnr_L, iteration)
         
 
     def get_current_errors(self, iteration):
         ret_errors = OrderedDict([('whole_loss', self.whole_loss),
-                                  ('Loss_GAN', self.Loss_GAN),
+                                  ('Loss_VGG', self.Loss_VGG),
+                                  ('Loss_GRAD', self.Loss_GRAD),
                                   ('Loss_L1', self.Loss_L1),
-                                  ('Loss_VGG_tm', self.Loss_VGG_tm),
-                                  ('Loss_small', self.Loss_small),
-                                  ('DLoss', self.DLoss),
-                                  ('PSNR_u', self.img_psnr_u)])
+                                  ('PSNR_L', self.img_psnr_L)])
             
         return ret_errors
 
@@ -233,60 +233,80 @@ class HDRNet(BaseModel):
         return ret_visuals
 
 
-    def img_testHDR(self, img_test_loader, iteration):
+    def img_testHDR(self, img_test_loader, iteration, data_type):
 
         ### This part is only for test data or test data score computation and reserve
-        f = open("HDRTest.txt","a+")
-        f.write('iteration: %d'%iteration)
-
-        ave_psnr_u = 0
-        ave_psnr_L = 0
 
         img_num = 0
+        if data_type == 'static':
+            f = open("HDRTest.txt","a+")
+            f.write('iteration: %d'%iteration)
 
         self.netG.eval()
 
         with torch.no_grad():
             for i, data in enumerate(img_test_loader):
-                fake_HDR, _ = self.netG([torch.cat([data['s_LDR'], data['s_HDR']], dim=1).cuda(),
-                                         torch.cat([data['m_LDR'], data['m_HDR'],
-                                                    data['bright_c'], data['dark_c']], dim=1).cuda(),
-                                         torch.cat([data['l_LDR'], data['l_HDR']], dim=1).cuda()])
-                # fake_HDR, _ = self.netG([torch.cat([data['s_LDR'], data['s_HDR']], dim=1),
-                #                          torch.cat([data['m_LDR'], data['m_HDR'],
-                #                                     data['bright_c'], data['dark_c']], dim=1),
-                #                          torch.cat([data['l_LDR'], data['l_HDR']], dim=1)])
-                fake_HDR_tm = hdr_util.tonemap(fake_HDR)
-                GT_HDR_tm = hdr_util.tonemap(data['GT_HDR'])
+                torch.cuda.synchronize()
+                start = time.time()
+                fake_HDR = self.netG([data['s_LDR'].cuda(),
+                                      data['m_LDR'].cuda(),
+                                      data['l_LDR'].cuda()])
+                torch.cuda.synchronize()
+                end = time.time()
+                print(end-start)
+                print(data['s_LDR'].shape)
 
-                img_psnr_u = compute_psnr(np.asarray(fake_HDR_tm[0].cpu()), np.asarray(GT_HDR_tm[0]))
-                img_psnr_L = compute_psnr(np.asarray(fake_HDR.cpu()), np.asarray(data['GT_HDR'][0]))
+                if data_type == 'static':
+                    img_psnr_L = compute_psnr(np.asarray(fake_HDR.cpu()), np.asarray(data['GT_HDR'][0]))
 
+                    f.write('\n')
+                    f.write('Image_No: {:d}, PSNR_L: {:4.4f}'.format(i, img_psnr_L))
+                    f.write('\n')
                 
-                ave_psnr_u += img_psnr_u
-                ave_psnr_L += img_psnr_L
+                fake_HDR = image_util.tensor2im(fake_HDR, 'HDR', np.float32)
+                real_HDR = image_util.tensor2im(data['GT_HDR'], 'HDR', np.float32)
 
-                fake_HDR_tm = image_util.tensor2im(fake_HDR_tm)
-
-                cv2.imwrite('img_test_HDR/%d_fake_HDR_tm.png'%i, fake_HDR_tm)
+                cv2.imwrite('img_test_HDR_%s/%d_fake_HDR.hdr'%(data_type, i), fake_HDR)
+                cv2.imwrite('img_test_HDR_%s/%d_real_HDR.hdr'%(data_type, i), real_HDR)
 
                 print('img_test_HDR/num:%04d image'%i)
                 img_num += 1
 
-        f.write('\n')
-        f.write('Image_Num: {:d}, Average_psnr_u: {:4.4f}, Average_psnr_L: {:4.4f}'.format(
-                img_num,
-                ave_psnr_u/img_num,
-                ave_psnr_L/img_num))  
-        f.write('\n')
-        f.write('\n')
-        f.close()
         self.save_states_simple(self.netG, 'G', 'best', self.gpu_ids, self.device)
         self.netG.train()
+
+        if data_type == 'static':
+            f.close()
+
+        return
+
+    def img_testHDR_sensetime(self, img_test_loader, iteration):
+
+        ### This part is only for test data or test data score computation and reserve
+
+        img_num = 0
+        self.netG.eval()
+
+        with torch.no_grad():
+            for i, data in enumerate(img_test_loader):
+                torch.cuda.synchronize()
+                start = time.time()
+                fake_HDR = self.netG([data['s_LDR'],
+                                      data['m_LDR'],
+                                      data['l_LDR']])
+                torch.cuda.synchronize()
+                end = time.time()
+                print(end-start)
+                
+                fake_HDR = image_util.tensor2im(fake_HDR, 'HDR', np.float32)
+
+                cv2.imwrite('img_test_HDR_%s/%d_fake_HDR.hdr'%('sensetime', i), fake_HDR)
+
+                print('img_test_HDR/num:%04d image'%i)
+                img_num += 1
 
         return
         
 
     def save(self, label):
         self.save_states(self.netG, self.optimizer_G, self.schedulers[0], 'G', label, self.gpu_ids, self.device)
-        self.save_states(self.netD, self.optimizer_D, self.schedulers[1], 'D', label, self.gpu_ids, self.device)

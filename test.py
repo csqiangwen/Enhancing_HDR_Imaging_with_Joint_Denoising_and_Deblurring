@@ -16,9 +16,11 @@ torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic = True
 
 opt = TestOptions().parse()
-img_test_loader= CreateDataLoader(opt)
+img_test_loader_static, img_test_loader_dynamic, img_test_loader_sensetime = CreateDataLoader(opt)
 
 model = HDRNet()
 model.initialize(opt)
 
-model.img_testHDR(img_test_loader, int(opt.which_iter))
+model.img_testHDR(img_test_loader_static, int(opt.which_iter), 'static')
+# model.img_testHDR(img_test_loader_dynamic, int(opt.which_iter), 'dynamic')
+# model.img_testHDR_sensetime(img_test_loader_sensetime, int(opt.which_iter))

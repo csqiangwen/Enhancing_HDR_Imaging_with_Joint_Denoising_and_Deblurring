@@ -8,7 +8,7 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--phase', type=str, default='train', help='train, val, test, etc')
         self.parser.add_argument('--batchSize', type=int, default=8, help='input batch size')
         self.parser.add_argument('--loadsize', type=int, default=256, help='input batch size')
-        self.parser.add_argument('--hdr_dararoot', type=str, default='/disk1/wenqiang/Documents/data/HDR/')
+        self.parser.add_argument('--hdr_dararoot', type=str, default='/disk1/wenqiang/Documents/code/HDR/our_data/synthetic_resize')
         self.parser.add_argument('--shuffle', action='store_true', help='dataloader option')
 
         # model option

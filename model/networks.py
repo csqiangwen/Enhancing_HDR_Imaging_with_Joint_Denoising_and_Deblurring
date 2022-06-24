@@ -248,13 +248,8 @@ class ResnetBlock(BaseNetwork):
 class Downsample_block_normal(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512):
         super(Downsample_block_normal, self).__init__()
-        # model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=2,
-        #                       padding=1, bias=False),
-        #          nn.InstanceNorm2d(out_channel),
-        #          nn.ReLU(True)]
-
-        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
-                 nn.PixelUnshuffle(2),
+        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=2, padding=1, bias=True),
+                #  nn.PixelUnshuffle(2),
                  nn.ReLU(True)]
 
         self.model = nn.Sequential(*model)
@@ -267,14 +262,9 @@ class Downsample_block_normal(BaseNetwork):
 class Upsample_block_normal(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512):
         super(Upsample_block_normal, self).__init__()
-        # model = [nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-        #          nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1,
-        #                       padding=1, bias=False),
-        #          nn.InstanceNorm2d(out_channel),
-        #          nn.ReLU(True)]
-
-        model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
-                 nn.PixelShuffle(2),
+        model = [nn.Upsample(scale_factor=2, mode='nearest', align_corners=None),
+                 nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
+                #  nn.PixelShuffle(2),
                  nn.ReLU(True)]
 
         self.model = nn.Sequential(*model)
@@ -308,70 +298,69 @@ class Generator(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=3, ngf=64, n_downsampling=2, res_block_num=4):
         super(Generator, self).__init__()
                 
-        main_branch = [Warm_up_block(in_channel+2, ngf, activation='relu')]
-        ref_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
+        s_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
+        m_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
+        l_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
 
         for i in range(n_downsampling):
             mult = 2 ** i
-            main_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
-            ref_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
-
-        # for i in range(res_block_num//2):
-        #     main_branch.append(ResnetBlock(ngf * mult * 2, 'reflect', nn.InstanceNorm2d, groups=1, use_dropout=True))
-        #     ref_branch.append(ResnetBlock(ngf * mult * 2, 'reflect', nn.InstanceNorm2d, groups=1, use_dropout=True))
+            ### PixelShuffle
+            # main_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
+            # ref_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
+            ### Conv
+            s_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
+            m_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
+            l_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
 
         restoremers = []
-        for i in range(n_downsampling+1):
-            mult = 2 ** i
-            restoremers.append(restoremer.TransformerBlock(dim=ngf * mult, num_heads=1, ffn_expansion_factor=2.66, bias=True, LayerNorm_type='WithBias'))
+        # for i in range(n_downsampling+1):
+        #     mult = 2 ** i
+        restoremers.append(restoremer.TransformerBlock(dim=ngf * mult * 2, num_heads=1, ffn_expansion_factor=2.66, bias=True, LayerNorm_type='WithBias'))
         
         upsample_block = []
         for i in range(n_downsampling):  # add Upsampling layers
             mult = 2 ** (n_downsampling-i)
             if i == 0:
-                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult * 2))
+                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult // 2))
             else:
-                upsample_block.append(Upsample_block_normal(ngf * mult * 2, ngf * mult * 2))
+                upsample_block.append(Upsample_block_normal(ngf * mult * 2, ngf * mult // 2))
 
         upsample_block += [Warm_up_block(ngf * mult, out_channel, activation='tanh')]
-
-        side_branch = [nn.Conv2d(256, 3, kernel_size=1, padding=0, bias=True),
-                       nn.Tanh()]
             
-        self.main_branch = nn.Sequential(*main_branch)
-        self.ref_branch = nn.Sequential(*ref_branch)
+        self.s_branch = nn.Sequential(*s_branch)
+        self.m_branch = nn.Sequential(*m_branch)
+        self.l_branch = nn.Sequential(*l_branch)
         self.restoremers = nn.Sequential(*restoremers)
         self.upsample_block = nn.Sequential(*upsample_block)
-        self.side_branch = nn.Sequential(*side_branch)
 
         self.init_weights(init_type='xavier')
         
     def forward(self, x):
-        [s_LHDR, m_LHDR, l_LHDR] = x
-        b, c, h, w = s_LHDR.shape
-        m_feats4cat = []
-        s_feat = s_LHDR
-        m_feat = m_LHDR
-        l_feat = l_LHDR
-        for i, (main_layer, ref_layer) in enumerate(zip(self.main_branch, self.ref_branch)):
-            s_feat = ref_layer(s_feat)
-            m_feat = main_layer(m_feat)
-            l_feat = ref_layer(l_feat)
-            m_feats4cat.append(self.restoremers[i]([s_feat, m_feat, l_feat]))
-        _, c, sh, sw = m_feat.shape
-        multi_feats = torch.stack([s_feat, m_feats4cat[-1], l_feat], dim=1)
-        small_output = self.side_branch(multi_feats.view(-1, *multi_feats.shape[2:])).view(b, 3, 3, sh, sw)
-        hdr_feat = m_feat
-        feats4cat_n = len(m_feats4cat)
+        [s_LDR, m_LDR, l_LDR] = x
+        b, c, h, w = s_LDR.shape
+        s_feats4cat = []
+        s_feat = s_LDR
+        m_feat = m_LDR
+        l_feat = l_LDR
+        for i, (s_layer, m_layer, l_layer) in enumerate(zip(self.s_branch, self.m_branch, self.l_branch)):
+            s_feat = s_layer(s_feat)
+            m_feat = m_layer(m_feat)
+            l_feat = l_layer(l_feat)
+            if i == 2:
+                s_feats4cat.append(self.restoremers[0]([m_feat, s_feat, l_feat]))
+            else:
+                s_feats4cat.append(s_feat)
+        _, c, sh, sw = s_feat.shape
+        hdr_feat = s_feat
+        feats4cat_n = len(s_feats4cat)
         for i, img_layer in enumerate(self.upsample_block):
             if i == 0:
-                hdr_feat = img_layer(m_feats4cat[-1])
+                hdr_feat = img_layer(s_feats4cat[-1])
             else:
-                hdr_feat = img_layer(torch.cat([hdr_feat, m_feats4cat[feats4cat_n-i-1]], dim=1))
+                hdr_feat = img_layer(torch.cat([hdr_feat, s_feats4cat[feats4cat_n-i-1]], dim=1))
         output = hdr_feat
-        small_output_list = torch.chunk(small_output, 3, dim=1)
 
-        return output, small_output_list
+        return output
 
 
 class NLayerDiscriminator(BaseNetwork):

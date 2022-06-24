@@ -123,20 +123,24 @@ class Attention(nn.Module):
     def forward(self, x):
         b,c,h,w = x[0].shape
 
-        q_input = x[1] # m_feat, shape is [b, c, h, w]
-        kv_input = torch.stack(x, dim=1) # stack [s_feat, m_feat, l_feat], shape is [b, ref_num, c, h, w]
+        q_input = x[1] # 2_feat, shape is [b, c, h, w]
+        kv_input = torch.stack(x, dim=1) # stack [_1_feat, _2_feat, _3_feat], shape is [b, ref_num, c, h, w]
         q = self.q_conv(q_input).unsqueeze(1) # shape is [b, 1, c, h, w]
-        k = self.k_conv(kv_input.view(-1, *kv_input.shape[2:])).view(kv_input.shape) # shape is [b*ref_num, c, h, w]
-        v = self.v_conv(kv_input.view(-1, *kv_input.shape[2:])).view(kv_input.shape) # shape is [b*ref_num, c, h, w]
-        
-        # q = rearrange(q, 'b (head c) h w -> b head c (h w)', head=self.num_heads)
-        # k = rearrange(k, 'b (head c) h w -> b head c (h w)', head=self.num_heads)
-        # v = rearrange(v, 'b (head c) h w -> b head c (h w)', head=self.num_heads)
+        k = self.k_conv(kv_input.view(-1, *kv_input.shape[2:])).view(kv_input.shape) # shape is [b, ref_num, c, h, w]
+        v = self.v_conv(kv_input.view(-1, *kv_input.shape[2:])).view(kv_input.shape) # shape is [b, ref_num, c, h, w]
 
         # No multi-head
-        q = rearrange(q, 'b num c h w -> b (num c) (h w)', num=self.tgt_num)
-        k = rearrange(k, 'b num c h w -> b (num c) (h w)', num=self.ref_num)
-        v = rearrange(v, 'b num c h w -> b (num c) (h w)', num=self.ref_num)
+        # q = rearrange(q, 'b num c h w -> b (num c) (h w)', num=self.tgt_num)
+        # k = rearrange(k, 'b num c h w -> b (num c) (h w)', num=self.ref_num)
+        # v = rearrange(v, 'b num c h w -> b (num c) (h w)', num=self.ref_num)
+
+        q = q.view(b, self.tgt_num, c, h, w, 1).contiguous()
+        k = k.view(b, self.ref_num, c, h, w, 1).contiguous()
+        v = v.view(b, self.ref_num, c, h, w, 1).contiguous()
+        
+        q = rearrange(q, 'b num c h w p -> b (h w) num (c p)', num=self.tgt_num, h=h, w=w, p=1)
+        k = rearrange(k, 'b num c h w p -> b (h w) num (c p)', num=self.ref_num, h=h, w=w, p=1)
+        v = rearrange(v, 'b num c h w p -> b (h w) num (c p)', num=self.ref_num, h=h, w=w, p=1)
 
         q = torch.nn.functional.normalize(q, dim=-1)
         k = torch.nn.functional.normalize(k, dim=-1)
@@ -147,7 +151,7 @@ class Attention(nn.Module):
         out = (attn @ v)
         
         # out = rearrange(out, 'b head c (h w) -> b (head c) h w', head=self.num_heads, h=h, w=w)
-        out = rearrange(out, 'b c (h w) -> b c h w', h=h, w=w)
+        out = rearrange(out, 'b (h w) num c -> b (num c) h w', h=h, w=w, num=self.tgt_num)
 
         out = self.project_out(out)
         return out
@@ -165,11 +169,11 @@ class TransformerBlock(nn.Module):
         self.ffn = FeedForward(dim, ffn_expansion_factor, bias)
 
     def forward(self, x):
-        [s_feat, m_feat, l_feat] = x
-        m_feat = m_feat + self.attn([self.norm1(s_feat), self.norm1(m_feat), self.norm1(l_feat)])
-        m_feat = m_feat + self.ffn(self.norm2(m_feat))
+        [_1_feat, _2_feat, _3_feat] = x
+        _2_feat = _2_feat + self.attn([self.norm1(_1_feat), self.norm1(_2_feat), self.norm1(_3_feat)])
+        _2_feat = _2_feat + self.ffn(self.norm2(_2_feat))
 
-        return m_feat
+        return _2_feat
 
 
 

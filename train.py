@@ -17,7 +17,8 @@ torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic = True
 
 opt = TrainOptions().parse()
-img_train_loader, img_test_loader = CreateDataLoader(opt)
+(img_train_loader_static, img_train_loader_dynamic,
+ img_test_loader_static, img_test_loader_dynamic) = CreateDataLoader(opt)
 
 model = HDRNet()
 model.initialize(opt)
@@ -34,19 +35,31 @@ def print_current_errors(iter, errors, t, log_name):
 
 start_step = int(opt.which_iter)
 
-img_train_iter = iter(img_train_loader)
+img_train_iter_static = iter(img_train_loader_static)
+img_train_iter_dynamic = iter(img_train_loader_dynamic)
 
 print_time = 0
 for iteration in range(start_step, total_steps):
     iter_start_time = time.time()
-    try:
-        data = img_train_iter.next()
-    except:
-        img_train_iter = iter(img_train_loader)
-        data = img_train_iter.next()
+    if iteration % 2 == 0:
+        try:
+            data = img_train_iter_static.next()
+        except:
+            img_train_iter_static = iter(img_train_loader_static)
+            data = img_train_iter_static.next()
 
-    model.img_train_forward(data)
-    model.img_optimize_parameters(iteration)
+        model.img_train_forward(data)
+        model.img_optimize_parameters(iteration, 'static')
+    else:
+        try:
+            data = img_train_iter_dynamic.next()
+        except:
+            img_train_iter_dynamic = iter(img_train_loader_dynamic)
+            data = img_train_iter_dynamic.next()
+
+        model.img_train_forward(data)
+        model.img_optimize_parameters(iteration, 'dynamic')
+
     
     print_time += time.time() - iter_start_time
 
@@ -69,7 +82,8 @@ for iteration in range(start_step, total_steps):
 
     if iteration % opt.save_freq == 0:
         
-        model.img_testHDR(img_test_loader, iteration)
+        model.img_testHDR(img_test_loader_static, iteration, 'static')
+        model.img_testHDR(img_test_loader_dynamic, iteration, 'dynamic')
         print('saving the model at the end of iters %d' %
             (iteration))
         model.save('latest')

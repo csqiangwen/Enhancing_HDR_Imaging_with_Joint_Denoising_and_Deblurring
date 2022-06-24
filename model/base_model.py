@@ -67,7 +67,7 @@ class BaseModel():
         save_filename = '%s_state_%s.pth' % (iter_label, network_label)
         save_path = os.path.join(self.save_dir, save_filename)
         states = {}
-        states['network'] = network.cpu().module.state_dict()
+        states['network'] = network.cpu().state_dict()
         states['optimizer'] = optimizer.state_dict()
         states['scheduler'] = scheduler.state_dict()
         torch.save(states, save_path)
@@ -79,7 +79,7 @@ class BaseModel():
         save_path = os.path.join('best_ckpt', save_filename)
         states = {}
         try:
-            states['network'] = network.cpu().module.state_dict()
+            states['network'] = network.cpu().state_dict()
         except:
             states['network'] = network.cpu().state_dict()
         torch.save(states, save_path)

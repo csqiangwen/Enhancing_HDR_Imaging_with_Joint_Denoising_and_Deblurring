@@ -13,12 +13,14 @@ inv_normalize = transforms.Normalize(
 
 # Converts a Tensor into a Numpy array
 # |imtype|: the desired type of the converted numpy array
-def tensor2im(image_tensor, type='Image', imtype=np.uint8):
-    image_numpy = image_tensor[0].cpu().float().numpy()
+def tensor2im(image_tensor, type='LDR', imtype=np.uint8):
+    image_numpy = image_tensor[0].cpu().numpy()
     if image_numpy.shape[0] == 1:
         image_numpy = np.tile(image_numpy, (3, 1, 1))
     if type == 'mask':
         image_numpy = np.transpose(image_numpy, (1, 2, 0)) * 255.0
+    if type == 'HDR':
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0
     else:
         image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
     return image_numpy.astype(imtype)[:, :, ::-1]

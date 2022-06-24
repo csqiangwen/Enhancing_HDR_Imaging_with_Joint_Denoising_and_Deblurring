@@ -1,3 +1,12 @@
-/img_test_HDR
 /checkpoints_hdr
+/checkpoints_hdr_new
+/img_test_HDR_dynamic
+/img_test_HDR_dynamic_new
+/img_test_HDR_sensetime
+/img_test_HDR_sensetime_new
+/img_test_HDR_static
+/img_test_HDR_static_new
+/HDRTest_new.txt
+/HDRTest.txt
+/best_ckpt
 /runs
