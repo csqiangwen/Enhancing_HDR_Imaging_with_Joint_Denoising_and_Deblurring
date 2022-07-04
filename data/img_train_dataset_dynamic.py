@@ -17,7 +17,7 @@ class HDRDataset(data.Dataset):
         super(HDRDataset,self).__init__()
         self.opt = opt
         root_path = Path(self.opt.hdr_dararoot)
-        self.folder_path = root_path / 'train' / 'dynamic'
+        self.folder_path = root_path / 'train_ps' / 'dynamic'
         self.folder_list = natsorted(os.listdir(self.folder_path))
 
         self.img_num = len(self.folder_list)
@@ -75,6 +75,7 @@ class HDRDataset(data.Dataset):
                                          cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
                                          cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
                                          cv2.cvtColor(GT_HDR, cv2.COLOR_BGR2RGB) * 2. - 1.]
+
 
         [bright_c, dark_c] = [np.max(s_LDR, axis=-1, keepdims=True), np.min(l_LDR, axis=-1, keepdims=True)]
         # Convert numpy type to torch tensor type

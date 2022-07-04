@@ -20,10 +20,11 @@ def tensor2im(image_tensor, type='LDR', imtype=np.uint8):
     if type == 'mask':
         image_numpy = np.transpose(image_numpy, (1, 2, 0)) * 255.0
     if type == 'HDR':
-        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2
     else:
-        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
-    return image_numpy.astype(imtype)[:, :, ::-1]
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2 * 255.0
+        image_numpy = image_numpy.astype(imtype)
+    return image_numpy[:, :, ::-1]
 
 def diagnose_network(net, name='network'):
     mean = 0.0

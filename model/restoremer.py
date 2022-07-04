@@ -101,7 +101,7 @@ class Attention(nn.Module):
         super(Attention, self).__init__()
         self.num_heads = num_heads
         self.tgt_num = 1
-        self.ref_num = 3
+        self.ref_num = 4
         self.temperature = nn.Parameter(torch.ones(num_heads, 1, 1))
 
         self.q_conv = nn.Sequential(*[nn.Conv2d(dim, dim, kernel_size=1, bias=bias),
@@ -123,7 +123,7 @@ class Attention(nn.Module):
     def forward(self, x):
         b,c,h,w = x[0].shape
 
-        q_input = x[1] # 2_feat, shape is [b, c, h, w]
+        q_input = x[0] # 2_feat, shape is [b, c, h, w]
         kv_input = torch.stack(x, dim=1) # stack [_1_feat, _2_feat, _3_feat], shape is [b, ref_num, c, h, w]
         q = self.q_conv(q_input).unsqueeze(1) # shape is [b, 1, c, h, w]
         k = self.k_conv(kv_input.view(-1, *kv_input.shape[2:])).view(kv_input.shape) # shape is [b, ref_num, c, h, w]
@@ -169,11 +169,11 @@ class TransformerBlock(nn.Module):
         self.ffn = FeedForward(dim, ffn_expansion_factor, bias)
 
     def forward(self, x):
-        [_1_feat, _2_feat, _3_feat] = x
-        _2_feat = _2_feat + self.attn([self.norm1(_1_feat), self.norm1(_2_feat), self.norm1(_3_feat)])
-        _2_feat = _2_feat + self.ffn(self.norm2(_2_feat))
+        [_0_feat, _1_feat, _2_feat, _3_feat] = x
+        _0_feat = _0_feat + self.attn([self.norm1(_0_feat), self.norm1(_1_feat), self.norm1(_2_feat), self.norm1(_3_feat)])
+        _0_feat = _0_feat + self.ffn(self.norm2(_0_feat))
 
-        return _2_feat
+        return _0_feat
 
 
 

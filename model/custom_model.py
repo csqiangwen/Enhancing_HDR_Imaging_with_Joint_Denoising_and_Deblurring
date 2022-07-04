@@ -141,29 +141,23 @@ class HDRNet(BaseModel):
         fake_HDR = self.netG([self.img_sample['s_LDR'],
                               self.img_sample['m_LDR'],
                               self.img_sample['l_LDR']])
+        fake_HDR_tp = hdr_util.tonemap(fake_HDR)
+        real_HDR_tp = hdr_util.tonemap(self.img_sample['GT_HDR'])
         
 
         if data_type == 'static':
-            Loss_VGG = self.criterionVGG(fake_HDR, self.img_sample['GT_HDR'])
-            Loss_L1 = self.criterionL1(fake_HDR, self.img_sample['GT_HDR'])
-            fake_grad = self.imgGRAD(fake_HDR)
-            real_grad = self.imgGRAD(self.img_sample['GT_HDR'])
-            Loss_GRAD = self.criterionL2(fake_grad, real_grad) * 10
+            Loss_VGG = self.criterionVGG(fake_HDR, self.img_sample['GT_HDR']) + \
+                       self.criterionVGG(fake_HDR_tp, real_HDR_tp)
+            Loss_L1 = self.criterionL1(fake_HDR, self.img_sample['GT_HDR']) + \
+                      self.criterionL1(fake_HDR_tp, real_HDR_tp)
         else:
-            Loss_VGG = self.criterionVGG(self.imgSmoothing(fake_HDR), self.imgSmoothing(self.img_sample['GT_HDR']))
-            Loss_GRAD = Loss_VGG * 0
-            Loss_L1 = Loss_GRAD
+            Loss_VGG = self.criterionVGG(self.imgSmoothing(fake_HDR), self.imgSmoothing(self.img_sample['GT_HDR'])) +\
+                       self.criterionVGG(self.imgSmoothing(fake_HDR_tp), self.imgSmoothing(real_HDR_tp))
+            Loss_L1 = Loss_VGG * 0        
         
-        # Loss_VGG_tm = self.criterionVGG(fake_HDR_tm, GT_HDR_tm) * 10
-        
-        # Loss_small = (self.criterionL1(small_outputs[0][:, 0], F.interpolate(self.img_sample['s_HDR'], scale_factor=0.25)) +\
-        #               self.criterionL1(small_outputs[1][:, 0], F.interpolate(self.img_sample['GT_HDR'], scale_factor=0.25)) +\
-        #               self.criterionL1(small_outputs[2][:, 0], F.interpolate(self.img_sample['l_HDR'], scale_factor=0.25))) * 5
-        
-        whole_loss = Loss_VGG + Loss_GRAD + Loss_L1
+        whole_loss = Loss_VGG + Loss_L1
 
         self.writer.add_scalar("Image/Loss_VGG", Loss_VGG, iteration)
-        self.writer.add_scalar("Image/Loss_GRAD", Loss_GRAD, iteration)
         self.writer.add_scalar("Image/Loss_L1", Loss_L1, iteration)
         
         whole_loss.backward()
@@ -172,26 +166,27 @@ class HDRNet(BaseModel):
 
         self.whole_loss = whole_loss.item()
         self.Loss_VGG = Loss_VGG.item()
-        self.Loss_GRAD = Loss_GRAD.item()
         self.Loss_L1 = Loss_L1.item()
 
         self.m_LDR = self.img_sample['m_LDR']
         self.s_LDR = self.img_sample['s_LDR']
         self.l_LDR = self.img_sample['l_LDR']
-        self.GT_HDR_tm = hdr_util.tonemap(self.img_sample['GT_HDR'])
+        self.GT_HDR_tm = real_HDR_tp
         self.fake_HDR_tm = hdr_util.tonemap(fake_HDR.detach())
 
-        self.img_psnr_L = compute_psnr(np.asarray(fake_HDR[0].detach().cpu()), np.asarray(self.img_sample['GT_HDR'].cpu()))
+        self.PSNR_L = compute_psnr(np.asarray(fake_HDR[0].detach().cpu()), np.asarray(self.img_sample['GT_HDR'].cpu()))
+        self.PSNR_u = compute_psnr(np.asarray(fake_HDR_tp.detach().cpu()), np.asarray(real_HDR_tp.cpu()))
 
-        self.writer.add_scalar("Image/PSNR_L", self.img_psnr_L, iteration)
+        self.writer.add_scalar("Image/PSNR_L", self.PSNR_L, iteration)
+        self.writer.add_scalar("Image/PSNR_u", self.PSNR_u, iteration)
         
 
     def get_current_errors(self, iteration):
         ret_errors = OrderedDict([('whole_loss', self.whole_loss),
                                   ('Loss_VGG', self.Loss_VGG),
-                                  ('Loss_GRAD', self.Loss_GRAD),
                                   ('Loss_L1', self.Loss_L1),
-                                  ('PSNR_L', self.img_psnr_L)])
+                                  ('PSNR_L', self.PSNR_L),
+                                  ('PSNR_u', self.PSNR_u)])
             
         return ret_errors
 
@@ -251,6 +246,10 @@ class HDRNet(BaseModel):
                 fake_HDR = self.netG([data['s_LDR'].cuda(),
                                       data['m_LDR'].cuda(),
                                       data['l_LDR'].cuda()])
+
+                fake_HDR_tp = hdr_util.tonemap(fake_HDR)
+                real_HDR_tp = hdr_util.tonemap(data['GT_HDR'][0])
+
                 torch.cuda.synchronize()
                 end = time.time()
                 print(end-start)
@@ -258,9 +257,10 @@ class HDRNet(BaseModel):
 
                 if data_type == 'static':
                     img_psnr_L = compute_psnr(np.asarray(fake_HDR.cpu()), np.asarray(data['GT_HDR'][0]))
+                    img_psnr_u = compute_psnr(np.asarray(fake_HDR_tp.cpu()), np.asarray(real_HDR_tp))
 
                     f.write('\n')
-                    f.write('Image_No: {:d}, PSNR_L: {:4.4f}'.format(i, img_psnr_L))
+                    f.write('Image_No: {:d}, PSNR_L: {:4.4f}, PSNR_u: {:4.4f}'.format(i, img_psnr_L, img_psnr_u))
                     f.write('\n')
                 
                 fake_HDR = image_util.tensor2im(fake_HDR, 'HDR', np.float32)
@@ -291,16 +291,18 @@ class HDRNet(BaseModel):
             for i, data in enumerate(img_test_loader):
                 torch.cuda.synchronize()
                 start = time.time()
-                fake_HDR = self.netG([data['s_LDR'],
-                                      data['m_LDR'],
-                                      data['l_LDR']])
+                coarse_fake_HDR, refine_fake_HDR = self.netG([data['s_LDR'],
+                                                              data['m_LDR'],
+                                                              data['l_LDR']])
                 torch.cuda.synchronize()
                 end = time.time()
                 print(end-start)
                 
-                fake_HDR = image_util.tensor2im(fake_HDR, 'HDR', np.float32)
+                coarse_fake_HDR = image_util.tensor2im(coarse_fake_HDR, 'HDR', np.float32)
+                refine_fake_HDR = image_util.tensor2im(refine_fake_HDR, 'HDR', np.float32)
 
-                cv2.imwrite('img_test_HDR_%s/%d_fake_HDR.hdr'%('sensetime', i), fake_HDR)
+                cv2.imwrite('img_test_HDR_%s/%d_coarse_fake_HDR.hdr'%('sensetime', i), coarse_fake_HDR)
+                cv2.imwrite('img_test_HDR_%s/%d_refine_fake_HDR.hdr'%('sensetime', i), refine_fake_HDR)
 
                 print('img_test_HDR/num:%04d image'%i)
                 img_num += 1

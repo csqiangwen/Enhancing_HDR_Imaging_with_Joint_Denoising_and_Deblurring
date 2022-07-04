@@ -22,5 +22,5 @@ model = HDRNet()
 model.initialize(opt)
 
 model.img_testHDR(img_test_loader_static, int(opt.which_iter), 'static')
-# model.img_testHDR(img_test_loader_dynamic, int(opt.which_iter), 'dynamic')
+model.img_testHDR(img_test_loader_dynamic, int(opt.which_iter), 'dynamic')
 # model.img_testHDR_sensetime(img_test_loader_sensetime, int(opt.which_iter))

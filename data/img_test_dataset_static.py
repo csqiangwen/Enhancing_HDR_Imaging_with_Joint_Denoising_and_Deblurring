@@ -32,12 +32,12 @@ class HDRDataset(data.Dataset):
     def _center_crop(self, x):
         crop_h, crop_w = (912, 1368)
         # crop_h, crop_w = (3648, 5472)
-        h, w = x.shape[:2]
-        j = int(round((h - crop_h) / 2.))
-        i = int(round((w - crop_w) / 2.))
-        x = x[max(0, j):min(h, j + crop_h), max(0, i):min(w, i + crop_w), :]
+        # h, w = x.shape[:2]
+        # j = int(round((h - crop_h) / 2.))
+        # i = int(round((w - crop_w) / 2.))
+        # x = x[max(0, j):min(h, j + crop_h), max(0, i):min(w, i + crop_w), :]
         # if x.shape[:2] != (crop_h, crop_w):
-        #     x = cv2.resize(x, (crop_w, crop_h))
+        # x = cv2.resize(x, (crop_w, crop_h))
         return x
 
 

@@ -32,14 +32,14 @@ class HDRDataset(data.Dataset):
     def _center_crop(self, x):
         # crop_h, crop_w = (912, 1368)
         # crop_h, crop_w = (3648, 5472)
-        # crop_h, crop_w = (2880, 3840)
-        # h, w = x.shape[:2]
-        # j = int(round((h - crop_h) / 2.))
-        # i = int(round((w - crop_w) / 2.))
-        # x = x[max(0, j):min(h, j + crop_h), max(0, i):min(w, i + crop_w), :]
+        crop_h, crop_w = (2880, 3840)
+        h, w = x.shape[:2]
+        j = int(round((h - crop_h) / 2.))
+        i = int(round((w - crop_w) / 2.))
+        x = x[max(0, j):min(h, j + crop_h), max(0, i):min(w, i + crop_w), :]
         # if x.shape[:2] != (crop_h, crop_w):
         #     x = cv2.resize(x, (crop_w, crop_h))
-        x = cv2.resize(x, (0,0), fx=0.5, fy=0.5, interpolation=cv2.INTER_LINEAR)
+        # x = cv2.resize(x, (0,0), fx=0.5, fy=0.5, interpolation=cv2.INTER_LINEAR)
         return x
 
 
@@ -48,14 +48,14 @@ class HDRDataset(data.Dataset):
         img_path = self.folder_path / self.folder_list[index]
         img_list = natsorted(os.listdir(img_path))
         # Read images
-        [s_LDR, m_LDR, l_LDR] = [cv2.imread(str(img_path / 'short.png')),
-                                 cv2.imread(str(img_path / 'medium.png')),
-                                 cv2.imread(str(img_path / 'long.png'))]
+        [s_LDR, m_LDR, l_LDR] = [cv2.imread(str(img_path / 'short.png'), flags=cv2.IMREAD_UNCHANGED),
+                                 cv2.imread(str(img_path / 'medium.png'), flags=cv2.IMREAD_UNCHANGED),
+                                 cv2.imread(str(img_path / 'long.png'), flags=cv2.IMREAD_UNCHANGED)]
         [s_LDR, m_LDR, l_LDR] = self.mod_crop([s_LDR, m_LDR, l_LDR])
         # Convert BGR to BGR color space and normalize values in [-1, 1]
-        [s_LDR, m_LDR, l_LDR] = [cv2.cvtColor(s_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
-                                 cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
-                                 cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.]
+        [s_LDR, m_LDR, l_LDR] = [cv2.cvtColor(s_LDR, cv2.COLOR_BGR2RGB) / 65535. * 2. - 1.,
+                                 cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 65535. * 2. - 1.,
+                                 cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 65535. * 2. - 1.]
         # Convert numpy type to torch tensor type
         [s_LDR, m_LDR, l_LDR] = [torch.from_numpy(s_LDR.transpose(2,0,1).astype(np.float32)),
                                  torch.from_numpy(m_LDR.transpose(2,0,1).astype(np.float32)),

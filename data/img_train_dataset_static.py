@@ -17,7 +17,7 @@ class HDRDataset(data.Dataset):
         super(HDRDataset,self).__init__()
         self.opt = opt
         root_path = Path(self.opt.hdr_dararoot)
-        self.folder_path = root_path / 'train' / 'static'
+        self.folder_path = root_path / 'train_ps' / 'static'
         self.folder_list = natsorted(os.listdir(self.folder_path))
 
         self.img_num = len(self.folder_list)

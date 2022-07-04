@@ -8,6 +8,7 @@ from torch.optim import lr_scheduler
 # from model.util import AttentionBlock
 import model.restoremer as restoremer
 import numpy as np
+from torchvision.ops import DeformConv2d
 ###############################################################################
 # Functions
 ###############################################################################
@@ -204,12 +205,12 @@ def cal_gradient_penalty(netD, real_data, fake_data, device, type='mixed', const
 
 
 class ResnetBlock(BaseNetwork):
-    def __init__(self, dim, padding_type, norm_layer, groups=1, activation=nn.ReLU(True), use_dropout=True):
+    def __init__(self, dim, padding_type, groups=1, activation=nn.ReLU(True), use_dropout=True):
         super(ResnetBlock, self).__init__()
-        self.conv_block = self.build_conv_block(dim, padding_type, norm_layer, groups, activation, use_dropout)
+        self.conv_block = self.build_conv_block(dim, padding_type, groups, activation, use_dropout)
         self.init_weights(init_type='xavier')
 
-    def build_conv_block(self, dim, padding_type, norm_layer, groups, activation, use_dropout):
+    def build_conv_block(self, dim, padding_type, groups, activation, use_dropout):
         conv_block = []
         p = 0
         if padding_type == 'reflect':
@@ -222,7 +223,6 @@ class ResnetBlock(BaseNetwork):
             raise NotImplementedError('padding [%s] is not implemented' % padding_type)
 
         conv_block += [nn.Conv2d(dim, dim, kernel_size=3, padding=p, bias=False, groups=groups),
-                       norm_layer(dim),
                        activation]
         if use_dropout:
             conv_block += [nn.Dropout(0.5)]
@@ -249,8 +249,7 @@ class Downsample_block_normal(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512):
         super(Downsample_block_normal, self).__init__()
         model = [nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=2, padding=1, bias=True),
-                #  nn.PixelUnshuffle(2),
-                 nn.ReLU(True)]
+                 nn.ReLU(inplace=True)]
 
         self.model = nn.Sequential(*model)
         self.init_weights(init_type='xavier')
@@ -260,12 +259,15 @@ class Downsample_block_normal(BaseNetwork):
     
     
 class Upsample_block_normal(BaseNetwork):
-    def __init__(self, in_channel=3, out_channel=512):
+    def __init__(self, in_channel=3, out_channel=512, activation='relu'):
         super(Upsample_block_normal, self).__init__()
-        model = [nn.Upsample(scale_factor=2, mode='nearest', align_corners=None),
-                 nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True),
-                #  nn.PixelShuffle(2),
-                 nn.ReLU(True)]
+        model = [nn.Upsample(scale_factor=2, mode='bilinear'),
+                 nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=1, padding=1, bias=True)]
+
+        if activation == 'relu':
+            model += [nn.ReLU(inplace=True)]
+        elif activation == 'none':
+            pass
 
         self.model = nn.Sequential(*model)
         self.init_weights(init_type='xavier')
@@ -278,7 +280,7 @@ class Warm_up_block(BaseNetwork):
     def __init__(self, in_channel=3, out_channel=512, activation='relu'):
         super(Warm_up_block, self).__init__()
         model = [nn.ReflectionPad2d(1),
-                 nn.Conv2d(in_channel, out_channel, kernel_size=3, padding=0, bias=True)]
+                 nn.Conv2d(in_channel, out_channel, kernel_size=3, padding=0, bias=False)]
 
         if activation == 'relu':
             model += [nn.ReLU(inplace=True)]
@@ -295,50 +297,66 @@ class Warm_up_block(BaseNetwork):
     
 ### Attention-based Generator
 class Generator(BaseNetwork):
-    def __init__(self, in_channel=3, out_channel=3, ngf=64, n_downsampling=2, res_block_num=4):
+    def __init__(self, in_channel=3, out_channel=3, ngf=64, n_downsampling=2, block_num=4):
         super(Generator, self).__init__()
-                
+
+        self.block_num = block_num
+
         s_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
         m_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
         l_branch = [Warm_up_block(in_channel, ngf, activation='relu')]
 
         for i in range(n_downsampling):
             mult = 2 ** i
-            ### PixelShuffle
-            # main_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
-            # ref_branch.append(Downsample_block_normal(ngf * mult, ngf * mult // 2))
             ### Conv
             s_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
             m_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
             l_branch.append(Downsample_block_normal(ngf * mult, ngf * mult * 2))
 
+        merge_convs = [nn.Conv2d(ngf * mult * 2 * 3, ngf * mult * 2, 3, stride=1, padding=1, bias=False),
+                       nn.ReLU(inplace=True),
+                       nn.Conv2d(ngf * mult * 2, ngf * mult * 2, 3, stride=1, padding=1, bias=False),
+                       nn.ReLU(inplace=True)]
+
+        side_convs = [nn.Conv2d(ngf * mult // 2, ngf * mult // 2, 3, stride=1, padding=1, bias=False),
+                      nn.ReLU(inplace=True),
+                      nn.Conv2d(ngf * mult // 2, ngf * mult // 2, 3, stride=1, padding=1, bias=False),
+                      nn.ReLU(inplace=True)]
+
         restoremers = []
-        # for i in range(n_downsampling+1):
-        #     mult = 2 ** i
-        restoremers.append(restoremer.TransformerBlock(dim=ngf * mult * 2, num_heads=1, ffn_expansion_factor=2.66, bias=True, LayerNorm_type='WithBias'))
+        for i in range(block_num):
+            restoremers.append(restoremer.TransformerBlock(dim=ngf * mult * 2, num_heads=1, ffn_expansion_factor=2.66, bias=True, LayerNorm_type='WithBias'))
+        # resnet_block = []
+        # for i in range(block_num):
+        #     resnet_block.append(ResnetBlock(ngf * mult * 2, padding_type='reflect'))
+        
         
         upsample_block = []
         for i in range(n_downsampling):  # add Upsampling layers
             mult = 2 ** (n_downsampling-i)
-            if i == 0:
-                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult // 2))
+            if i == 1:
+                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult // 2, 'none'))
             else:
-                upsample_block.append(Upsample_block_normal(ngf * mult * 2, ngf * mult // 2))
+                upsample_block.append(Upsample_block_normal(ngf * mult, ngf * mult // 2, 'relu'))
+            
 
-        upsample_block += [Warm_up_block(ngf * mult, out_channel, activation='tanh')]
+        upsample_block += [Warm_up_block(ngf * mult // 2, out_channel, activation='tanh')]
             
         self.s_branch = nn.Sequential(*s_branch)
         self.m_branch = nn.Sequential(*m_branch)
         self.l_branch = nn.Sequential(*l_branch)
+        self.merge_convs = nn.Sequential(*merge_convs)
+        # self.resnet_block = nn.Sequential(*resnet_block)
         self.restoremers = nn.Sequential(*restoremers)
         self.upsample_block = nn.Sequential(*upsample_block)
+        self.side_convs = nn.Sequential(*side_convs)
 
         self.init_weights(init_type='xavier')
         
     def forward(self, x):
         [s_LDR, m_LDR, l_LDR] = x
         b, c, h, w = s_LDR.shape
-        s_feats4cat = []
+        s_feats4res = []
         s_feat = s_LDR
         m_feat = m_LDR
         l_feat = l_LDR
@@ -346,20 +364,24 @@ class Generator(BaseNetwork):
             s_feat = s_layer(s_feat)
             m_feat = m_layer(m_feat)
             l_feat = l_layer(l_feat)
-            if i == 2:
-                s_feats4cat.append(self.restoremers[0]([m_feat, s_feat, l_feat]))
-            else:
-                s_feats4cat.append(s_feat)
-        _, c, sh, sw = s_feat.shape
-        hdr_feat = s_feat
-        feats4cat_n = len(s_feats4cat)
-        for i, img_layer in enumerate(self.upsample_block):
-            if i == 0:
-                hdr_feat = img_layer(s_feats4cat[-1])
-            else:
-                hdr_feat = img_layer(torch.cat([hdr_feat, s_feats4cat[feats4cat_n-i-1]], dim=1))
-        output = hdr_feat
+            s_feats4res.append(s_feat)
 
+        hdr_feat = self.merge_convs(torch.cat([s_feat, m_feat, l_feat], dim=1))
+
+        hdr_feat = self.restoremers[0]([hdr_feat, s_feat, m_feat, l_feat])
+        hdr_feat = self.restoremers[1]([hdr_feat, s_feat, m_feat, l_feat])
+        hdr_feat = self.restoremers[2]([hdr_feat, s_feat, m_feat, l_feat])
+        hdr_feat = self.restoremers[3]([hdr_feat, s_feat, m_feat, l_feat])
+
+        
+        # for i in range(self.block_num):
+        #     hdr_feat = self.resnet_block[i](hdr_feat)
+
+        hdr_feat = self.upsample_block[0](hdr_feat)
+        hdr_feat_res = self.upsample_block[1](hdr_feat)
+        hdr_feat = nn.functional.relu(hdr_feat_res+self.side_convs(s_feats4res[0]), inplace=True)
+        output = self.upsample_block[2](hdr_feat)
+        
         return output
 
 
