@@ -6,7 +6,7 @@ class TestOptions(BaseOptions):
         BaseOptions.initialize(self)
         # Data option
         self.parser.add_argument('--phase', type=str, default='test', help='train, val, test, etc')
-        self.parser.add_argument('--hdr_dararoot', type=str, default='/disk1/wenqiang/Documents/code/HDR/our_data/synthetic_resize')
+        self.parser.add_argument('--hdr_dararoot', type=str, default='/disk1/wenqiang/Documents/code/HDR/our_data/synthetic')
 
         # model option
         self.parser.add_argument('--gpu_ids', type=str, default='2', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')

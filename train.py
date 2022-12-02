@@ -7,6 +7,7 @@ import os
 import torch
 import numpy as np
 import cv2
+import copy
 
 ######## for controllable results ########
 SEED = 0
@@ -17,8 +18,7 @@ torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic = True
 
 opt = TrainOptions().parse()
-(img_train_loader_static, img_train_loader_dynamic,
- img_test_loader_static, img_test_loader_dynamic) = CreateDataLoader(opt)
+(img_train_loader_static, img_train_loader_dynamic, img_test_loader_mix) = CreateDataLoader(opt)
 
 model = HDRNet()
 model.initialize(opt)
@@ -41,7 +41,7 @@ img_train_iter_dynamic = iter(img_train_loader_dynamic)
 print_time = 0
 for iteration in range(start_step, total_steps):
     iter_start_time = time.time()
-    if iteration % 2 == 0:
+    if iteration % 4000 >= 0 and iteration % 4000 < 2000:
         try:
             data = img_train_iter_static.next()
         except:
@@ -49,16 +49,23 @@ for iteration in range(start_step, total_steps):
             data = img_train_iter_static.next()
 
         model.img_train_forward(data)
-        model.img_optimize_parameters(iteration, 'static')
+        model.img_optimize_parameters_static(iteration)
+        
     else:
         try:
             data = img_train_iter_dynamic.next()
         except:
             img_train_iter_dynamic = iter(img_train_loader_dynamic)
             data = img_train_iter_dynamic.next()
-
+        if iteration % 4000 == 2000:
+            net_ref = copy.deepcopy(model.netG)
+            for param in net_ref.parameters():
+                param.requires_grad = False
+            net_ref.eval()
+        else:
+            pass
         model.img_train_forward(data)
-        model.img_optimize_parameters(iteration, 'dynamic')
+        model.img_optimize_parameters_dynamic(iteration, net_ref)
 
     
     print_time += time.time() - iter_start_time
@@ -82,11 +89,15 @@ for iteration in range(start_step, total_steps):
 
     if iteration % opt.save_freq == 0:
         
-        model.img_testHDR(img_test_loader_static, iteration, 'static')
-        model.img_testHDR(img_test_loader_dynamic, iteration, 'dynamic')
         print('saving the model at the end of iters %d' %
-            (iteration))
+             (iteration))
         model.save('latest')
         model.save(iteration)
+        
+        if iteration == 0:
+            pass
+        else:
+            model.img_testHDR(img_test_loader_mix, iteration, 'mix')
+        
              
     model.update_learning_rate(iteration)

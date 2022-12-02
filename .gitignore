@@ -1,5 +1,8 @@
+/best_ckpt
 /checkpoints_hdr
+/checkpoints_hdr_v1
 /img_test_HDR_dynamic
+/img_test_HDR_mix
 /img_test_HDR_sensetime
 /img_test_HDR_static
 /HDRTest_new.txt

@@ -11,16 +11,29 @@ import glob
 import numpy as np
 from pathlib import Path
 
+def _get_params(param_file):
+    with open(param_file) as fr:
+        exps = fr.read().split('\n')[:3]
+        iso = fr.read().split('\n')[3]
+    # return [2. ** float(i) for i in exps]
+    return [float(i) for i in exps], iso
+
+def ev_alignment(img, expo, gamma):
+    return ((img ** gamma) * 2.0**(-1*expo))**(1/gamma)
+
 ## Dataloader for RainDrop dataset
 class HDRDataset(data.Dataset):
     def __init__(self, opt):
         super(HDRDataset,self).__init__()
         self.opt = opt
         root_path = Path(self.opt.hdr_dararoot)
-        self.folder_path = root_path / 'train_ps' / 'dynamic'
-        self.folder_list = natsorted(os.listdir(self.folder_path))
+        
+        self.folder_path_3 = root_path / 'train_blurry' / 'dynamic_inter'
+        self.folder_list_3 = natsorted(os.listdir(self.folder_path_3))
 
-        self.img_num = len(self.folder_list)
+        self.param_path = root_path / 'train_blurry' / 'dynamic_info'
+
+        self.img_num = len(self.folder_list_3)
 
     def random_crop_flip(self, img_list, opt):
         if random.random()>0.3:
@@ -60,41 +73,100 @@ class HDRDataset(data.Dataset):
         return img_list
 
 
+    def blur_gen(self, img, motion_type):
+        kernel_size = random.sample([20, 25, 30], 1)[0]
+
+        # Create the vertical kernel.
+        kernel_v = np.zeros((kernel_size, kernel_size))
+
+        # Create a copy of the same for creating the horizontal kernel.
+        kernel_h = np.copy(kernel_v)
+
+        # Fill the middle row with ones.
+        kernel_v[:, int((kernel_size - 1)/2)] = np.ones(kernel_size)
+        kernel_h[int((kernel_size - 1)/2), :] = np.ones(kernel_size)
+        
+        # Normalize.
+        kernel_v /= kernel_size
+        kernel_h /= kernel_size
+
+        if motion_type == 'v':
+            return cv2.filter2D(img, -1, kernel_v)
+        else:
+            return cv2.filter2D(img, -1, kernel_h)
+
+
+    def motion_blur(self, img_list):
+        new_list = []
+        motion_type = None
+        if random.random() > 0.5:
+            motion_type = 'v'
+        else:
+            motion_type = 'h'
+        for i, img in enumerate(img_list):
+            new_list.append(self.blur_gen(img, motion_type))
+        return new_list
+
+
     def __getitem__(self, index):
 
-        img_path = self.folder_path / self.folder_list[index]
-        img_list = natsorted(os.listdir(img_path))
+        img_path = self.folder_path_3 / self.folder_list_3[index]
+        gt_path = self.folder_path_3 / self.folder_list_3[index]
+            
         # Read images
-        [s_LDR, m_LDR, l_LDR, GT_HDR] = [cv2.imread(str(img_path / 'input' / 'short.tif')),
-                                         cv2.imread(str(img_path / 'input' / 'medium.tif')),
-                                         cv2.imread(str(img_path / 'input' / 'long.tif')),
-                                         cv2.imread(str(img_path / 'gt' / 'HDR_norm.hdr'), flags=cv2.IMREAD_ANYDEPTH)]
-        [s_LDR, m_LDR, l_LDR, GT_HDR] = self.random_crop_flip([s_LDR, m_LDR, l_LDR, GT_HDR], self.opt)
-        # Convert BGR to BGR color space and normalize values in [-1, 1]
-        [s_LDR, m_LDR, l_LDR, GT_HDR] = [cv2.cvtColor(s_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
-                                         cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
-                                         cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255. * 2. - 1.,
-                                         cv2.cvtColor(GT_HDR, cv2.COLOR_BGR2RGB) * 2. - 1.]
+        [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = [cv2.imread(str(img_path / 'gt' / 'short.tif')),
+                                                                       cv2.imread(str(img_path / 'input_inter' / 'medium.png')),
+                                                                       cv2.imread(str(img_path / 'input_inter' / 'long.png')),
+                                                                       cv2.imread(str(gt_path / 'gt' / 'short.tif')),
+                                                                       cv2.imread(str(gt_path / 'gt' / 'medium.tif')),
+                                                                       cv2.imread(str(gt_path / 'gt' / 'long.tif')),
+                                                                       cv2.imread(str(gt_path / 'gt' / 'HDR_p_norm.hdr'), flags=cv2.IMREAD_ANYDEPTH)]
+        [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = self.random_crop_flip([s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR], self.opt)
+        [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = [(cv2.cvtColor(s_LDR, cv2.COLOR_BGR2RGB) / 255.),
+                                                                        (cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255.),
+                                                                        (cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255.),
+                                                                        (cv2.cvtColor(s_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                        (cv2.cvtColor(m_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                        (cv2.cvtColor(l_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                         cv2.cvtColor(GT_HDR, cv2.COLOR_BGR2RGB)]
 
+        s_gamma = 2.24
+        if random.random() < 0.3:
+            s_gamma += (random.random() * 0.2 - 0.1)
+        
+        s_HDR = ev_alignment(s_LDR, -2, s_gamma)
+        m_HDR = ev_alignment(m_LDR, 0, s_gamma)
+        l_HDR = ev_alignment(l_LDR, 2, s_gamma)
 
-        [bright_c, dark_c] = [np.max(s_LDR, axis=-1, keepdims=True), np.min(l_LDR, axis=-1, keepdims=True)]
+        s_HDR_gt = ev_alignment(s_LDR_gt, -2, s_gamma)
+        m_HDR_gt = ev_alignment(m_LDR_gt, 0, s_gamma)
+        l_HDR_gt = ev_alignment(l_LDR_gt, 2, s_gamma)
+        
         # Convert numpy type to torch tensor type
-        [s_LDR, m_LDR, l_LDR, GT_HDR] = [torch.from_numpy(s_LDR.transpose(2,0,1).astype(np.float32)),
-                                         torch.from_numpy(m_LDR.transpose(2,0,1).astype(np.float32)),
-                                         torch.from_numpy(l_LDR.transpose(2,0,1).astype(np.float32)),
-                                         torch.from_numpy(GT_HDR.transpose(2,0,1).astype(np.float32))]
+        [s_LDR, m_LDR, l_LDR] = [torch.from_numpy(s_LDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                 torch.from_numpy(m_LDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                 torch.from_numpy(l_LDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
 
-        [bright_c, dark_c] = [torch.from_numpy(bright_c.transpose(2,0,1).astype(np.float32)),
-                              torch.from_numpy(dark_c.transpose(2,0,1).astype(np.float32))]
+        [s_HDR, m_HDR, l_HDR] = [torch.from_numpy(s_HDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                 torch.from_numpy(m_HDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                 torch.from_numpy(l_HDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
 
-        # exps = hdr_util._get_exps(os.path.join(img_path, img_list[4]))
+        [s_LDR_gt, m_LDR_gt, l_LDR_gt] = [torch.from_numpy(s_LDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                          torch.from_numpy(m_LDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                          torch.from_numpy(l_LDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
 
-        [s_HDR, m_HDR, l_HDR] = [hdr_util.ldr2hdr(s_LDR, 2**float(0)),
-                                 hdr_util.ldr2hdr(m_LDR, 2**float(2)),
-                                 hdr_util.ldr2hdr(l_LDR,  2**float(4))]
+        [s_HDR_gt, m_HDR_gt, l_HDR_gt] = [torch.from_numpy(s_HDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                          torch.from_numpy(m_HDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.,
+                                          torch.from_numpy(l_HDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
 
-        return {'s_LDR': s_LDR, 'm_LDR': m_LDR, 'l_LDR': l_LDR, 'GT_HDR': GT_HDR, 'dark_c': dark_c,
-                's_HDR': s_HDR, 'm_HDR': m_HDR, 'l_HDR': l_HDR, 'bright_c': bright_c,}
+        [GT_HDR] = [torch.from_numpy(GT_HDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
+        
+        
+        return {'s_LDR': s_LDR, 'm_LDR': m_LDR, 'l_LDR': l_LDR,
+                's_HDR': s_HDR, 'm_HDR': m_HDR, 'l_HDR': l_HDR,
+                's_LDR_gt': s_LDR_gt, 'm_LDR_gt': m_LDR_gt, 'l_LDR_gt': l_LDR_gt,
+                's_HDR_gt': s_HDR_gt, 'm_HDR_gt': m_HDR_gt, 'l_HDR_gt': l_HDR_gt,
+                'GT_HDR': GT_HDR}
 
     def __len__(self):
         return self.img_num
