@@ -25,7 +25,7 @@ $ bash test.sh
 ```
 - It will save HDR results with their corresponding GTs under "img_test_HDR_GT";
 - During testing, we provide approximate metric scores (PSNR, SSIM) for reference.
-- For quantitative evaluation, we use the PU21 metric to obtain the final scores (the same reported in the paper).
+- For quantitative evaluation, we use the [PU21 metric](https://github.com/gfxdisp/pu21) to obtain the final scores (the same reported in the paper).
 
 ## Testing (your own data)
 - To test:
