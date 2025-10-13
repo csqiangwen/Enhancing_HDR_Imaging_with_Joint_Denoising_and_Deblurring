@@ -15,7 +15,7 @@ We provide two training sets:
 ## Training
 - This is an example of training.
 ```bash
-bash train.sh
+$ bash train.sh
 ```
 
 ## Evaluation
