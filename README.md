@@ -44,7 +44,7 @@ If you find this repository useful for your research, please cite the following 
           pages={1--17},
           year={2025},
           publisher={Springer}
-        }
+}
 
 ```
 <p align='center'>
