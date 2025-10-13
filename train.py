@@ -1,7 +1,7 @@
 import time
 from options.train_options import TrainOptions
 from data.custom_dataset_data_loader import CreateDataLoader
-from model.custom_model import HDRNet
+from model.custom_model import CustomNet
 from util import common_util
 import os
 import torch
@@ -18,9 +18,9 @@ torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic = True
 
 opt = TrainOptions().parse()
-(img_train_loader_static, img_train_loader_dynamic, img_test_loader_mix) = CreateDataLoader(opt)
+img_train_loader_static, img_train_loader_dynamic = CreateDataLoader(opt)
 
-model = HDRNet()
+model = CustomNet()
 model.initialize(opt)
 total_steps = int(1e10)
 
@@ -41,7 +41,7 @@ img_train_iter_dynamic = iter(img_train_loader_dynamic)
 print_time = 0
 for iteration in range(start_step, total_steps):
     iter_start_time = time.time()
-    if iteration % 4000 >= 0 and iteration % 4000 < 2000:
+    if iteration % 3000 >= 0 and iteration % 3000 < 2000:
         try:
             data = img_train_iter_static.next()
         except:
@@ -57,7 +57,7 @@ for iteration in range(start_step, total_steps):
         except:
             img_train_iter_dynamic = iter(img_train_loader_dynamic)
             data = img_train_iter_dynamic.next()
-        if iteration % 4000 == 2000:
+        if iteration % 3000 == 2000:
             net_ref = copy.deepcopy(model.netG)
             for param in net_ref.parameters():
                 param.requires_grad = False
@@ -94,10 +94,4 @@ for iteration in range(start_step, total_steps):
         model.save('latest')
         model.save(iteration)
         
-        if iteration == 0:
-            pass
-        else:
-            model.img_testHDR(img_test_loader_mix, iteration, 'mix')
-        
-             
     model.update_learning_rate(iteration)

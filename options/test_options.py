@@ -13,5 +13,7 @@ class TestOptions(BaseOptions):
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints_hdr', help='models are saved here')
         self.parser.add_argument('--name', type=str, default='HDR', help='name of the experiment. It decides where to store samples and models')
         self.parser.add_argument('--which_iter', type=str, default=0, help='which epoch to load? set to latest to use latest cached model')
+        self.parser.add_argument('--isCustomData', action='store_true', help='whethter to use custom data')
+        self.parser.add_argument('--customName', type=str, default='Custom', help='give a name to the custom dataset')
 
         self.isTrain = False

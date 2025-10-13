@@ -22,7 +22,7 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--niter', type=int, default=100, help='# of iter at starting learning rate')
         self.parser.add_argument('--niter_decay', type=int, default=1e5, help='# of iter to linearly decay learning rate to zero')
         self.parser.add_argument('--beta1', type=float, default=0, help='momentum term of adam')
-        self.parser.add_argument('--lr', type=float, default=0.0001, help='initial learning rate for adam')
+        self.parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
         self.parser.add_argument('--no_lsgan', action='store_true', help='do *not* use least square GAN, if false, use vanilla GAN')
         self.parser.add_argument('--pool_size', type=int, default=50, help='the size of image buffer that stores previously generated images')
         self.parser.add_argument('--lr_policy', type=str, default='step', help='learning rate policy: lambda|step|plateau')

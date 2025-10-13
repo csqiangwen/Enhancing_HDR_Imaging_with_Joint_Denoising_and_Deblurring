@@ -11,13 +11,6 @@ import glob
 import numpy as np
 from pathlib import Path
 
-def _get_params(param_file):
-    with open(param_file) as fr:
-        exps = fr.read().split('\n')[:3]
-        iso = fr.read().split('\n')[3]
-    # return [2. ** float(i) for i in exps]
-    return [float(i) for i in exps], iso
-
 def ev_alignment(img, expo, gamma):
     return ((img ** gamma) * 2.0**(-1*expo))**(1/gamma)
 
@@ -26,51 +19,35 @@ class HDRDataset(data.Dataset):
     def __init__(self, opt):
         super(HDRDataset,self).__init__()
         self.opt = opt
-        root_path = Path(self.opt.hdr_dararoot)
-        
-        self.folder_path_3 = root_path / 'train_blurry' / 'dynamic_inter'
+        self.folder_path_3 = Path(self.opt.hdr_dararoot) / 'train_patch' / 'dynamic_crop512_stride256'
         self.folder_list_3 = natsorted(os.listdir(self.folder_path_3))
-
-        self.param_path = root_path / 'train_blurry' / 'dynamic_info'
 
         self.img_num = len(self.folder_list_3)
 
     def random_crop_flip(self, img_list, opt):
-        if random.random()>0.3:
-            h,w = img_list[0].shape[0], img_list[0].shape[1]
-            h_ind = random.randint(0, h-self.opt.loadsize-1)
-            w_ind = random.randint(0, w-self.opt.loadsize-1)
-            
-            for i, img in enumerate(img_list):
-                img_list[i] = img[h_ind:h_ind+opt.loadsize, w_ind:w_ind+opt.loadsize, :]
-        else:
-            h,w = img_list[0].shape[0], img_list[0].shape[1]
-            if h <= w:
-                crop_size = h
-                h_ind = 0
-                w_ind = random.randint(0, w-crop_size-1)
-                for i, img in enumerate(img_list):
-                    img_list[i] = cv2.resize(img[:, w_ind:w_ind+crop_size, :],
-                                            (opt.loadsize, opt.loadsize), interpolation=cv2.INTER_LINEAR)
-            else:
-                crop_size = w
-                h_ind = random.randint(0, h-crop_size-1)
-                w_ind = 0
-                for i, img in enumerate(img_list):
-                    img_list[i] = cv2.resize(img[h_ind:h_ind+crop_size, :, :],
-                                            (opt.loadsize, opt.loadsize), interpolation=cv2.INTER_LINEAR)
 
+        for i, img in enumerate(img_list):
+                # horizontal
+                img_list[i] = cv2.resize(img,
+                                 (384, 384), interpolation=cv2.INTER_NEAREST)
+
+        img_list_1 = []
+        img_list_2 = []
         if random.random() > 0.5:
             for i, img in enumerate(img_list):
                 # horizontal
-                img_list[i] = cv2.flip(img, 1)
+                img_list_1.append(cv2.flip(img, 1))
+        else:
+            img_list_1 = img_list
             
         if random.random() > 0.5:
-            for i, img in enumerate(img_list):
+            for i, img in enumerate(img_list_1):
                 # vertical
-                img_list[i] = cv2.flip(img, 0)
+                img_list_2.append(cv2.flip(img, 0))
+        else:
+            img_list_2 = img_list_1
         
-        return img_list
+        return img_list_2
 
 
     def blur_gen(self, img, motion_type):
@@ -115,8 +92,8 @@ class HDRDataset(data.Dataset):
             
         # Read images
         [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = [cv2.imread(str(img_path / 'gt' / 'short.tif')),
-                                                                       cv2.imread(str(img_path / 'input_inter' / 'medium.png')),
-                                                                       cv2.imread(str(img_path / 'input_inter' / 'long.png')),
+                                                                       cv2.imread(str(img_path / 'input' / 'medium.png')),
+                                                                       cv2.imread(str(img_path / 'input' / 'long.png')),
                                                                        cv2.imread(str(gt_path / 'gt' / 'short.tif')),
                                                                        cv2.imread(str(gt_path / 'gt' / 'medium.tif')),
                                                                        cv2.imread(str(gt_path / 'gt' / 'long.tif')),

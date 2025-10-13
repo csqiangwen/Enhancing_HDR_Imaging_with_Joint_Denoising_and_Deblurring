@@ -11,65 +11,51 @@ import glob
 import numpy as np
 from pathlib import Path
 
-def _get_params(param_file):
-    with open(param_file) as fr:
-        exps = fr.read().split('\n')[:3]
-        iso = fr.read().split('\n')[3]
-    # return [2. ** float(i) for i in exps]
-    return [float(i) for i in exps], iso
+GAMMA_inv = 1 / 2.24
 
 def ev_alignment(img, expo, gamma):
     return ((img ** gamma) * 2.0**(-1*expo))**(1/gamma)
+
+def reverse_ev_alignment(img, expo, gamma):
+    return ((img ** gamma) * 2.0**(1*expo))**(1/gamma)
+
+def decrease_gamma(img, gamma=2.24):
+    return img ** (1/gamma)
 
 ## Dataloader for RainDrop dataset
 class HDRDataset(data.Dataset):
     def __init__(self, opt):
         super(HDRDataset,self).__init__()
         self.opt = opt
-        root_path = Path(self.opt.hdr_dararoot)
-        self.folder_path_1 = root_path / 'train_sharp' / 'static_new'
+        self.folder_path_1 = Path(self.opt.hdr_dararoot) / 'train_patch' / 'static_crop512_stride256'
         self.folder_list_1 = natsorted(os.listdir(self.folder_path_1))
-
-        self.param_path = root_path / 'train_sharp' / 'static_info'
 
         self.img_num = len(self.folder_list_1)
 
     def random_crop_flip(self, img_list, opt):
-        if random.random()>0.2:
-            h,w = img_list[0].shape[0], img_list[0].shape[1]
-            h_ind = random.randint(0, h-self.opt.loadsize-1)
-            w_ind = random.randint(0, w-self.opt.loadsize-1)
-            
-            for i, img in enumerate(img_list):
-                img_list[i] = img[h_ind:h_ind+opt.loadsize, w_ind:w_ind+opt.loadsize, :]
-        else:
-            h,w = img_list[0].shape[0], img_list[0].shape[1]
-            if h <= w:
-                crop_size = h
-                h_ind = 0
-                w_ind = random.randint(0, w-crop_size-1)
-                for i, img in enumerate(img_list):
-                    img_list[i] = cv2.resize(img[:, w_ind:w_ind+crop_size, :],
-                                            (opt.loadsize, opt.loadsize), interpolation=cv2.INTER_LINEAR)
-            else:
-                crop_size = w
-                h_ind = random.randint(0, h-crop_size-1)
-                w_ind = 0
-                for i, img in enumerate(img_list):
-                    img_list[i] = cv2.resize(img[h_ind:h_ind+crop_size, :, :],
-                                            (opt.loadsize, opt.loadsize), interpolation=cv2.INTER_LINEAR)
 
+        for i, img in enumerate(img_list):
+                # horizontal
+                img_list[i] = cv2.resize(img,
+                                 (384, 384), interpolation=cv2.INTER_NEAREST)
+
+        img_list_1 = []
+        img_list_2 = []
         if random.random() > 0.5:
             for i, img in enumerate(img_list):
                 # horizontal
-                img_list[i] = cv2.flip(img, 1)
+                img_list_1.append(cv2.flip(img, 1))
+        else:
+            img_list_1 = img_list
             
         if random.random() > 0.5:
-            for i, img in enumerate(img_list):
+            for i, img in enumerate(img_list_1):
                 # vertical
-                img_list[i] = cv2.flip(img, 0)
+                img_list_2.append(cv2.flip(img, 0))
+        else:
+            img_list_2 = img_list_1
         
-        return img_list
+        return img_list_2
 
 
     def gaussian_blur(self, img_list):
@@ -118,8 +104,6 @@ class HDRDataset(data.Dataset):
     def __getitem__(self, index):
 
         img_path = self.folder_path_1 / self.folder_list_1[index]
-
-        # expos, iso = _get_params(self.param_path / (self.folder_list_1[index]+'.txt'))
         
         # Read images
         [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = [cv2.imread(str(img_path / 'input' / 'short.tif')),
@@ -130,19 +114,17 @@ class HDRDataset(data.Dataset):
                                                                        cv2.imread(str(img_path / 'gt' / 'long.tif')),
                                                                        cv2.imread(str(img_path / 'gt' / 'HDR_p_norm.hdr'), flags=cv2.IMREAD_ANYDEPTH)]
         [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = self.random_crop_flip([s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR], self.opt)
-        if random.random() > 0.5:
-            [m_noise, l_noise] = [m_LDR-m_LDR_gt, l_LDR-l_LDR_gt]
-            [m_LDR, l_LDR] = self.motion_blur([m_LDR_gt, l_LDR_gt])
-            [m_LDR, l_LDR] = [np.clip(m_LDR+m_noise, 0, 255), np.clip(l_LDR+l_noise, 0, 255)]
-        else:
-            pass
+       
         [s_LDR, m_LDR, l_LDR, s_LDR_gt, m_LDR_gt, l_LDR_gt, GT_HDR] = [(cv2.cvtColor(s_LDR, cv2.COLOR_BGR2RGB) / 255.),
-                                                                       (cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255.),
-                                                                       (cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255.),
-                                                                       (cv2.cvtColor(s_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
-                                                                       (cv2.cvtColor(m_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
-                                                                       (cv2.cvtColor(l_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
-                                                                        cv2.cvtColor(GT_HDR, cv2.COLOR_BGR2RGB)]
+                                                                           (cv2.cvtColor(m_LDR, cv2.COLOR_BGR2RGB) / 255.),
+                                                                           (cv2.cvtColor(l_LDR, cv2.COLOR_BGR2RGB) / 255.),
+                                                                           (cv2.cvtColor(s_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                           (cv2.cvtColor(m_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                           (cv2.cvtColor(l_LDR_gt, cv2.COLOR_BGR2RGB) / 255.),
+                                                                            cv2.cvtColor(GT_HDR, cv2.COLOR_BGR2RGB)]
+            
+
+        
         s_gamma = 2.24
         if random.random() < 0.3:
             s_gamma += (random.random() * 0.2 - 0.1)
@@ -173,7 +155,6 @@ class HDRDataset(data.Dataset):
                                           torch.from_numpy(l_HDR_gt.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
 
         [GT_HDR] = [torch.from_numpy(GT_HDR.transpose(2,0,1).astype(np.float32)) * 2. - 1.]
-        
         
         return {'s_LDR': s_LDR, 'm_LDR': m_LDR, 'l_LDR': l_LDR,
                 's_HDR': s_HDR, 'm_HDR': m_HDR, 'l_HDR': l_HDR,
