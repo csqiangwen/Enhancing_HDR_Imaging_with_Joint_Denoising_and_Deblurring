@@ -7,7 +7,7 @@ This is the official PyTorch implementation of ''Enhancing HDR Imaging with Join
 Python 3.8+  
 Pytorch 1.4.0+
 
-## Dataset ([link](https://hkustconnect-my.sharepoint.com/personal/qwenab_connect_ust_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fqwenab%5Fconnect%5Fust%5Fhk%2FDocuments%2FHDR%5FDenoising%5FDeblurring%2FHIDD%5FDataset&ga=1e))
+## Dataset ([link](https://huggingface.co/datasets/WayneWenOfficial/HIDD/tree/main))
 We provide two training sets:
 - "train": Training data at the original resolution.
 - "train_patch": Training data is divided into patches to speed up the training process (default setting).
